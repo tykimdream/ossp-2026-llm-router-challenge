@@ -76,3 +76,35 @@ v1은 전체 점수는 높았지만 K1의 긴 출력 비용 꼬리와 분포 이
   넘어서 기각했습니다.
 - Extra Trees는 작은 표본에서 과적합해 Dev `0.675710`에 그쳤습니다.
 - 롤백 지점은 v1의 `competition-router.v1.json`입니다.
+
+## v3 — Train OOF 기반 robust router
+
+### 문제
+
+v2의 predictor 조합과 stress 배수에는 Dev 결과가 관여했고, 고정 `1.02/1.05`
+배수는 K1 비용의 긴 꼬리를 설명하기에 약했습니다. 대형 입력도 fallback 여부를
+결정하기 전에 전체를 정렬했으며, 고정 80회 이분 탐색은 필요 이상이었습니다.
+
+### 선택
+
+- Train 템플릿 그룹 5-fold OOF만으로 predictor와 안전계수 선택
+- Ridge와 Uplift 혼합 비교 후 Uplift-only 채택
+- 평균이 아니라 전체 OOF와 최악 fold 비용을 함께 내부 목표에 맞춤
+- 근거가 약한 가상 stress 배수를 제거
+- 대형 workload guard를 정렬 앞으로 이동
+- 공개 2,640문항에서 결과가 같음을 확인하고 이분 탐색을 고정 48회로 축소
+
+### 검증과 판단
+
+- 공정 Train-only → Dev 점수: `0.685966`
+- 비용 비율: Fast `1.127580`, Balanced `1.608746`, Premium `2.694441`
+- Train+Dev refit의 Dev 참고 점수: `0.698693`
+- v2보다 검증 규율과 비용 여유는 좋아졌지만 공정 점수가 v1보다 낮아 활성
+  제출 라우터로 승격하지 않고 robust 실험으로 보존했습니다.
+
+### 기각한 대안과 롤백
+
+- V2 Hybrid Premium은 Train OOF 실제 비용이 전체 `4.013`, 최악 fold
+  `5.010`으로 내부 목표와 공식 한도를 넘어 제외했습니다.
+- 80회 선택기는 48회와 선택 차이가 없어 추가 계산만 발생했습니다.
+- 활성 제출은 v1을 유지하며, v3 롤백 artifact는 `robust-router.v3.json`입니다.

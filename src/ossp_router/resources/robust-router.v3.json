@@ -1,0 +1,41 @@
+{
+  "artifact_type": "ossp-robust-router-policy-v3",
+  "fixed_bisection_steps": 48,
+  "policy_id": "ossp-2026-prompt-router-v1",
+  "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+  "predictor": "quality-uplift-relative-to-light",
+  "premium_fill_safety_ratio": 0.65,
+  "schema_version": 1,
+  "tier_safety_ratios": {
+    "balanced": 0.94,
+    "fast": 1.0,
+    "premium": 0.865
+  },
+  "training_summary": {
+    "blend_candidates": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "budget_calibration": "pooled-and-worst-template-fold",
+    "budget_ratio_targets": {
+      "balanced": 1.85,
+      "fast": 1.18,
+      "premium": 3.5
+    },
+    "determinism": "canonical-content-order-fixed-48-step-bisection-no-clock-no-randomness",
+    "fold_strategy": "normalized-template-fnv1a64",
+    "folds": 5,
+    "selection_data": "public-train-only",
+    "selected_blend_weight_on_uplift": 1.0,
+    "selected_oof_weighted_score": 0.6630539772727273,
+    "selection_status": "train-oof-selected",
+    "worst_fold_budget_ratios": {
+      "balanced": 1.8489985158671907,
+      "fast": 1.1568788581206824,
+      "premium": 3.4760364730786666
+    }
+  }
+}
