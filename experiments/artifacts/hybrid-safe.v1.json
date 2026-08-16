@@ -1,0 +1,34 @@
+{
+  "artifact_type": "ossp-hybrid-policy-v1",
+  "heuristics": {
+    "ax31_min_predicted_uplift": 0.02,
+    "block_ax31_simple_transform": true,
+    "k1_max_characters": 2000,
+    "k1_max_hangul_ratio": 0.1,
+    "k1_min_predicted_uplift": 0.05,
+    "k1_require_task_signal": true,
+    "premium_ax31_fill_safety": 0.65
+  },
+  "policy_id": "ossp-2026-prompt-router-v1",
+  "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+  "schema_version": 1,
+  "tiers": {
+    "balanced": {
+      "allow_k1": true,
+      "safety_ratio": 0.92
+    },
+    "fast": {
+      "allow_k1": false,
+      "safety_ratio": 0.94
+    },
+    "premium": {
+      "allow_k1": true,
+      "safety_ratio": 0.875
+    }
+  },
+  "training_summary": {
+    "base_predictor": "competition-router-v1",
+    "design": "learned-score-cost-plus-deterministic-content-gates",
+    "selection_status": "experimental"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "config": {
+    "max_depth": 7,
+    "max_features": 0.75,
+    "min_samples_leaf": 10,
+    "n_estimators": 64,
+    "random_state": 1729
+  },
+  "oof_tiers": {
+    "balanced": {
+      "actual_budget_ratio": 1.5841554282033516,
+      "fold_budget_ratios": {
+        "0": 1.6897453595919543,
+        "1": 1.4298233678319792,
+        "2": 1.4706207360165777,
+        "3": 1.8370040429319947,
+        "4": 1.437938988762291
+      },
+      "model_counts": {
+        "ax31": 1484,
+        "ax31-light": 266,
+        "axk1-think": 10
+      },
+      "predicted_budget_ratio": 1.6778774344043004,
+      "safety_ratio": 0.8400000000000001,
+      "tier_score": 0.6720170454545454,
+      "worst_fold_budget_ratio": 1.8370040429319947
+    },
+    "fast": {
+      "actual_budget_ratio": 1.1325010612769775,
+      "fold_budget_ratios": {
+        "0": 1.1442430251068227,
+        "1": 1.1608345561811009,
+        "2": 1.1100928948685356,
+        "3": 1.1522823278386423,
+        "4": 1.0974297230603858
+      },
+      "model_counts": {
+        "ax31": 644,
+        "ax31-light": 1116,
+        "axk1-think": 0
+      },
+      "predicted_budget_ratio": 1.1184074695451975,
+      "safety_ratio": 0.895,
+      "tier_score": 0.6345170454545455,
+      "worst_fold_budget_ratio": 1.1608345561811009
+    },
+    "premium": {
+      "actual_budget_ratio": 2.2255917335693844,
+      "fold_budget_ratios": {
+        "0": 2.2929985750627737,
+        "1": 2.087666614974884,
+        "2": 1.9156997455530518,
+        "3": 3.0140769811538073,
+        "4": 1.6738239572391678
+      },
+      "model_counts": {
+        "ax31": 1673,
+        "ax31-light": 71,
+        "axk1-think": 16
+      },
+      "predicted_budget_ratio": 2.2328841505243107,
+      "safety_ratio": 0.43000000000000005,
+      "tier_score": 0.6754261363636364,
+      "worst_fold_budget_ratio": 3.0140769811538073
+    }
+  },
+  "oof_weighted_score": 0.6580397727272728,
+  "report_type": "ossp-extra-trees-uplift-prototype-v1",
+  "sklearn_version": "1.6.1",
+  "tier_safety_ratios": {
+    "balanced": 0.8400000000000001,
+    "fast": 0.895,
+    "premium": 0.43000000000000005
+  }
+}

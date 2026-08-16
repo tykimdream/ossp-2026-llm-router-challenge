@@ -9,6 +9,7 @@ src/ossp_router/**
 !src/ossp_router/__init__.py
 !src/ossp_router/cli.py
 !src/ossp_router/competition.py
+!src/ossp_router/hybrid.py
 !src/ossp_router/heuristic.py
 !src/ossp_router/image_evidence.py
 !src/ossp_router/operator_helper.py
@@ -21,6 +22,7 @@ src/ossp_router/**
 src/ossp_router/resources/**
 !src/ossp_router/resources/__init__.py
 !src/ossp_router/resources/competition-router.v1.json
+!src/ossp_router/resources/hybrid-router.v1.json
 !src/ossp_router/resources/routing-policy.v1.json
 !baselines/
 baselines/**

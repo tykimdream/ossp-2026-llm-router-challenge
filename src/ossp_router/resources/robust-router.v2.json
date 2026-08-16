@@ -1,0 +1,78 @@
+{
+  "artifact_type": "ossp-robust-router-policy-v2",
+  "fixed_bisection_steps": 80,
+  "policy_id": "ossp-2026-prompt-router-v1",
+  "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+  "schema_version": 1,
+  "tiers": {
+    "balanced": {
+      "cost_scenarios": [
+        {
+          "multipliers": {
+            "ax31": 1.0,
+            "ax31-light": 1.0,
+            "axk1-think": 1.0
+          },
+          "name": "base"
+        },
+        {
+          "multipliers": {
+            "ax31": 1.02,
+            "ax31-light": 1.0,
+            "axk1-think": 1.05
+          },
+          "name": "model-cost-stress"
+        }
+      ],
+      "predictor": "uplift"
+    },
+    "fast": {
+      "cost_scenarios": [
+        {
+          "multipliers": {
+            "ax31": 1.0,
+            "ax31-light": 1.0,
+            "axk1-think": 1.0
+          },
+          "name": "base"
+        },
+        {
+          "multipliers": {
+            "ax31": 1.02,
+            "ax31-light": 1.0,
+            "axk1-think": 1.05
+          },
+          "name": "model-cost-stress"
+        }
+      ],
+      "predictor": "uplift"
+    },
+    "premium": {
+      "cost_scenarios": [
+        {
+          "multipliers": {
+            "ax31": 1.0,
+            "ax31-light": 1.0,
+            "axk1-think": 1.0
+          },
+          "name": "base"
+        },
+        {
+          "multipliers": {
+            "ax31": 1.02,
+            "ax31-light": 1.0,
+            "axk1-think": 1.05
+          },
+          "name": "model-cost-stress"
+        }
+      ],
+      "predictor": "hybrid"
+    }
+  },
+  "training_summary": {
+    "calibration": "fixed-scenario-validation-prototype",
+    "determinism": "canonical-content-order-fixed-scenarios-fixed-80-step-bisection",
+    "selection_status": "experimental",
+    "validation_warning": "tier composition and stress multipliers were compared after public Dev inspection"
+  }
+}

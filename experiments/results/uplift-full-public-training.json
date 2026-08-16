@@ -1,0 +1,149 @@
+{
+  "alpha_candidates": {
+    "10000.0": {
+      "tier_safety_ratios": {
+        "balanced": 0.9550000000000001,
+        "fast": 0.9950000000000001,
+        "premium": 0.925
+      },
+      "tiers": {
+        "balanced": {
+          "actual_budget_ratio": 1.6681099056973567,
+          "fold_budget_ratios": {
+            "0": 1.832648962895192,
+            "1": 1.5245497347011745,
+            "2": 1.5953808810772103,
+            "3": 1.8044552599133774,
+            "4": 1.580285298541652
+          },
+          "model_counts": {
+            "ax31": 2367,
+            "ax31-light": 269,
+            "axk1-think": 4
+          },
+          "predicted_budget_ratio": 1.9055987455523085,
+          "safety_ratio": 0.9550000000000001,
+          "tier_score": 0.6797348484848484,
+          "worst_fold_budget_ratio": 1.832648962895192
+        },
+        "fast": {
+          "actual_budget_ratio": 1.1345178359016646,
+          "fold_budget_ratios": {
+            "0": 1.150893086916743,
+            "1": 1.1121015393364733,
+            "2": 1.1103639173646782,
+            "3": 1.1583856793525737,
+            "4": 1.1397864034357037
+          },
+          "model_counts": {
+            "ax31": 980,
+            "ax31-light": 1660,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.2434142303306184,
+          "safety_ratio": 0.9950000000000001,
+          "tier_score": 0.6411931818181819,
+          "worst_fold_budget_ratio": 1.1583856793525737
+        },
+        "premium": {
+          "actual_budget_ratio": 2.8910539314176877,
+          "fold_budget_ratios": {
+            "0": 3.1677194770763446,
+            "1": 2.3449976648406214,
+            "2": 3.4712348838464346,
+            "3": 2.721516485572472,
+            "4": 2.828099458085309
+          },
+          "model_counts": {
+            "ax31": 2109,
+            "ax31-light": 244,
+            "axk1-think": 287
+          },
+          "predicted_budget_ratio": 3.6948243170910366,
+          "safety_ratio": 0.925,
+          "tier_score": 0.7151515151515152,
+          "worst_fold_budget_ratio": 3.4712348838464346
+        }
+      },
+      "uplift_mse": 0.15289456981829144,
+      "weighted_score": 0.6749431818181819
+    }
+  },
+  "oof_tiers": {
+    "balanced": {
+      "actual_budget_ratio": 1.6681099056973567,
+      "fold_budget_ratios": {
+        "0": 1.832648962895192,
+        "1": 1.5245497347011745,
+        "2": 1.5953808810772103,
+        "3": 1.8044552599133774,
+        "4": 1.580285298541652
+      },
+      "model_counts": {
+        "ax31": 2367,
+        "ax31-light": 269,
+        "axk1-think": 4
+      },
+      "predicted_budget_ratio": 1.9055987455523085,
+      "safety_ratio": 0.9550000000000001,
+      "tier_score": 0.6797348484848484,
+      "worst_fold_budget_ratio": 1.832648962895192
+    },
+    "fast": {
+      "actual_budget_ratio": 1.1345178359016646,
+      "fold_budget_ratios": {
+        "0": 1.150893086916743,
+        "1": 1.1121015393364733,
+        "2": 1.1103639173646782,
+        "3": 1.1583856793525737,
+        "4": 1.1397864034357037
+      },
+      "model_counts": {
+        "ax31": 980,
+        "ax31-light": 1660,
+        "axk1-think": 0
+      },
+      "predicted_budget_ratio": 1.2434142303306184,
+      "safety_ratio": 0.9950000000000001,
+      "tier_score": 0.6411931818181819,
+      "worst_fold_budget_ratio": 1.1583856793525737
+    },
+    "premium": {
+      "actual_budget_ratio": 2.8910539314176877,
+      "fold_budget_ratios": {
+        "0": 3.1677194770763446,
+        "1": 2.3449976648406214,
+        "2": 3.4712348838464346,
+        "3": 2.721516485572472,
+        "4": 2.828099458085309
+      },
+      "model_counts": {
+        "ax31": 2109,
+        "ax31-light": 244,
+        "axk1-think": 287
+      },
+      "predicted_budget_ratio": 3.6948243170910366,
+      "safety_ratio": 0.925,
+      "tier_score": 0.7151515151515152,
+      "worst_fold_budget_ratio": 3.4712348838464346
+    }
+  },
+  "oof_weighted_score": 0.6749431818181819,
+  "report_type": "ossp-uplift-training-v1",
+  "selected_alpha": 10000.0,
+  "training_summary": {
+    "budget_calibration": "pooled-and-worst-fold",
+    "budget_ratio_targets": {
+      "balanced": 1.85,
+      "fast": 1.18,
+      "premium": 3.5
+    },
+    "fold_strategy": "normalized-template-fnv1a64",
+    "folds": 5,
+    "input_sha256": "e7e384c59218f8786f430bcba2aa3b7f565fddf678a0cb5e64a2c9beabb85ea3",
+    "num_episodes": 2640,
+    "outcomes_sha256": "b4262e9764c399ba332412553287657474708dd471bbc06e88d50cd55282b3a1",
+    "ridge_alpha": 10000.0,
+    "target": "quality-uplift-relative-to-light-and-log-cost"
+  }
+}
