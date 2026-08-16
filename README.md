@@ -174,6 +174,14 @@ PYTHONPATH=src python3 tools/check_runtime.py \
 사용합니다. 공개 모델별 outcome과 최종 평가 자료는 컨테이너에 전달하지
 않으며, 공식 장비와 다른 환경에서 측정한 시간은 참고값입니다.
 
+## 이 fork의 참가 라우터
+
+이 fork의 `router-run`은 공개 Train+Dev로 학습한 경량 feature-hashing 선형
+라우터를 결정론적 제출 wrapper에서 실행합니다. 활성 제출 경계와 실험용
+라우터는 [제출용 라우터 문서](docs/SUBMISSION_ROUTER.md), 학습 재현과 내용
+기반 특징은 [참가 라우터 구현 문서](docs/ROUTER_IMPLEMENTATION.md), 역대 결과는
+[라우터 벤치마크](docs/ROUTER_BENCHMARKS.md)에 기록했습니다.
+
 ## 문서
 
 이 챌린지를 이해하는 데 가장 중요한 네 문서는 다음과 같습니다.

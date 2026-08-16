@@ -108,3 +108,42 @@ v2의 predictor 조합과 stress 배수에는 Dev 결과가 관여했고, 고정
   `5.010`으로 내부 목표와 공식 한도를 넘어 제외했습니다.
 - 80회 선택기는 48회와 선택 차이가 없어 추가 계산만 발생했습니다.
 - 활성 제출은 v1을 유지하며, v3 롤백 artifact는 `robust-router.v3.json`입니다.
+
+## v4 — 512-bin Ridge와 worst-fold 비용 보정
+
+### 문제
+
+v3는 비용 여유를 늘렸지만 v1보다 공정 Dev 점수가 낮았습니다. 품질을 다시
+올리되 Dev에 맞춘 규칙을 추가하지 않고, Train 안에서만 모델 용량과 비용
+안전계수를 선택해야 했습니다.
+
+### 선택
+
+- 직접 정책 분류와 pairwise uplift 대신 검증된 score·log-cost Ridge 유지
+- Train 템플릿 그룹 5-fold OOF에서 256/512/1024 hash 차원 비교
+- 512-bin을 채택하고 1024-bin은 이득 부재와 런타임 증가로 기각
+- pooled OOF와 최악 template fold를 모두 통과하도록 tier 안전계수 보정
+- 선택 로직은 시계·난수 없이 고정 반복과 canonical content order 유지
+
+### 검증과 판단
+
+- 공정 Train-only → Dev 점수: `0.689318` (v1 `0.687187`)
+- 공정 비용 비율: Fast `1.157468`, Balanced `1.596435`, Premium `2.725700`
+- 전체 공개 OOF 최악 fold: Fast `1.172459`, Balanced `1.815622`,
+  Premium `3.470637`
+- Train+Dev refit artifact의 공개 전체 실제 점수: `0.696667`
+- 공개 전체 실제 비용: Fast `1.155856`, Balanced `1.629934`,
+  Premium `3.020807`
+- 공식 컨테이너 런타임: `16.825 / 17.711 / 18.133초`
+- Dev 역순·ID·split·challenge 교체 감사: 세 등급 모두 불일치 `0/880`
+- 공정 점수와 모든 검증 gate를 통과하여 v4를 활성 제출 artifact로 채택했습니다.
+
+### 안전 한계와 롤백
+
+- 라우팅 시점에는 숨은 평가의 실제 출력 토큰과 전체 비용 분모를 알 수 없어,
+  학습형 라우터는 수학적인 절대 예산 보장을 할 수 없습니다. 절대 보장이
+  필요하면 모든 문항을 Light로 보내는 정책만 가능합니다.
+- v4는 공식 한도보다 낮은 내부 목표와 최악 fold 보정으로 위험을 낮추지만,
+  이 차이를 보장으로 표현하지 않습니다.
+- 롤백 artifact는 `competition-router.v1.json`; v4 재현 artifact는
+  `risk-router.v4.json`입니다.

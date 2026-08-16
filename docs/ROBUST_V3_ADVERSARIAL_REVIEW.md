@@ -7,6 +7,10 @@ SPDX-License-Identifier: Apache-2.0
 
 ## 결론
 
+> 이 문서는 v3 결정 당시의 기록이다. 이후 공정 Train-only → Dev에서 v1을
+> 이긴 Risk Router v4가 활성화되었다. 현재 상태는
+> [`SUBMISSION_ROUTER.md`](SUBMISSION_ROUTER.md)를 기준으로 한다.
+
 V3는 V2의 검증 누수, 근거가 약한 비용 stress, 대형 입력의 사전 정렬을
 고쳤다. 대신 공개 Dev 점수는 더 낮다. 따라서 **V3는 강건성 실험으로 보존하고
 현재 제출 진입점은 V1 그대로 유지**한다. 이 판단은 점수와 안전성 중 하나를
