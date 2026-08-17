@@ -93,8 +93,11 @@ def evaluate(args: argparse.Namespace) -> Mapping[str, Any]:
             for name in ("v5", "v6")
         },
         "v5_v6_decision_mismatches": mismatches,
-        "v6_safety_ratios": dict(aggressive_v6.TIER_SAFETY_RATIOS),
-        "v6_premium_fill_safety_ratio": aggressive_v6.PREMIUM_FILL_SAFETY_RATIO,
+        "v6_router_version": aggressive_v6.ROUTER_VERSION,
+        "v6_safety_ratios": {
+            tier: v5_artifact.tiers[tier].safety_ratio for tier in TIERS
+        },
+        "v6_premium_fill_safety_ratio": v5_artifact.premium_fill_safety_ratio,
     }
     _write(args.report, report)
     return report

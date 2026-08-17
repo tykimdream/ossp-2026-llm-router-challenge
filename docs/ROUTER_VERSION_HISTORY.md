@@ -187,7 +187,7 @@ Premium의 서로 다른 bias-variance 구간을 활용하지 못했습니다. �
 - 즉시 롤백 가능한 이전 champion은 `risk-router.v4.json`; v5 artifact는
   `aggressive-router.v5.json`입니다.
 
-## v6 — V5 operational hardening
+## v6.0 — Conservative operational hardening
 
 ### 문제
 
@@ -215,7 +215,7 @@ tier 전체 0점이 되는 규칙에 비해 위험했습니다.
 - 50만-token RSS `34.0 MiB`, V5 `187.2 MiB`
 - ARM64 컨테이너 공개 2,640문항 `12.762 / 12.746 / 12.727초`, 세 tier 통과
 - 1,024문항 역순·ID 교체 감사: 세 tier 내용별 불일치 0
-- 운영 실패와 예산 위험 최소화를 우선하여 V6를 활성 제출 경로로 채택
+- 운영 실패와 예산 위험 최소화 가능성을 확인한 Safe 실험으로 보존
 
 ### 안전 한계와 롤백
 
@@ -224,3 +224,36 @@ tier 전체 0점이 되는 규칙에 비해 위험했습니다.
 - 의미적 hard-tail 오분류와 hard guard의 배치 전체 정책 절벽은 남아 있습니다.
 - 점수 우선 롤백은 V5 artifact와 `aggressive_v5.py`로 재현할 수 있습니다.
 - 구현·수치·잔여 위험은 [`ROUTER_V6.md`](ROUTER_V6.md)에 기록합니다.
+
+## v6.1 — Competitive operational hardening
+
+### 문제
+
+V6.0은 운영 취약점을 해결했지만 보수적인 비용 목표 때문에 공정 Dev 점수가
+V5 대비 `0.009915` 낮아졌다. compact 출력·streaming hash·cache·compiled head는
+점수 하락 없이 적용할 수 있으므로 운영 변경과 배정 정책을 분리해야 했다.
+
+### 선택
+
+- V6.0의 모든 운영 hardening 유지
+- 고정된 별도 안전계수를 제거하고 사용 중인 V5 artifact의 tier별 safety ratio와
+  Premium AX31 fill ratio를 그대로 상속
+- `6.1-competitive`를 런타임 버전으로 기록
+- V5 대비 prediction 정밀도뿐 아니라 최종 모델 배정 SHA와 case별 불일치를 gate로 추가
+
+### 검증과 판단
+
+- 공정 Train-only → Dev: V5/V6.1 모두 `0.695170`, 세 tier 불일치 `0/880`
+- 공정 비용: 양쪽 모두 `1.143321 / 1.661573 / 3.072558`
+- full-public 2,640문항 replay: 양쪽 모두 `0.703277`, 세 tier 불일치 `0/2,640`
+- 엣지 42개 case-tier: V5 대비 모델 배정 불일치 0, 실행 실패 0
+- 엣지 합계 `131.981 → 99.213초`, 50만-token RSS `187.0 → 32.3 MiB`
+- ARM64 컨테이너 `13.006 / 12.671 / 12.725초`, 세 tier 통과
+- V5의 경쟁 점수와 V6의 운영 개선을 동시에 보존하여 활성 제출 경로로 채택
+
+### 안전 한계
+
+- V5의 공격적 배정과 완전히 같으므로 공개 OOF 통과 근거도 같지만 숨은 실제
+  비용의 절대 보장은 여전히 불가능합니다.
+- 출력은 공식 규모와 합성 21,399문항 경계에서 통과했지만, episode 수 상한이
+  없는 프로토콜의 임의 크기 입력까지 4 MiB를 보장할 수는 없습니다.

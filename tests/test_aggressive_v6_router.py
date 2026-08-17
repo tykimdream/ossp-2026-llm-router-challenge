@@ -47,6 +47,14 @@ class AggressiveV6RouterTest(unittest.TestCase):
                             expected_rows[model_id], actual_rows[model_id], places=12
                         )
 
+    def test_competitive_policy_matches_v5_decisions(self) -> None:
+        for tier in ("fast", "balanced", "premium"):
+            expected = aggressive_v5.make_submission(
+                self.inputs, self.policy, self.v5, tier
+            )
+            actual = self.route(self.inputs, tier)
+            self.assertEqual(expected, actual)
+
     def test_duplicate_content_is_predicted_once(self) -> None:
         episode = self.inputs.episodes[0]
         duplicated = InputBatch(
@@ -131,9 +139,7 @@ class AggressiveV6RouterTest(unittest.TestCase):
         source = inspect.getsource(aggressive_v6)
         self.assertNotIn("import random", source)
         self.assertNotIn("import time", source)
-        self.assertEqual(0.92, aggressive_v6.TIER_SAFETY_RATIOS["fast"])
-        self.assertEqual(0.90, aggressive_v6.TIER_SAFETY_RATIOS["balanced"])
-        self.assertEqual(0.75, aggressive_v6.TIER_SAFETY_RATIOS["premium"])
+        self.assertEqual("6.1-competitive", aggressive_v6.ROUTER_VERSION)
 
 
 if __name__ == "__main__":
