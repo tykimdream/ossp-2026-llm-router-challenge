@@ -1,0 +1,210 @@
+{
+  "alpha_candidates": {
+    "10000.0": {
+      "score_mse": 0.15403426847960208,
+      "tier_safety_ratios": {
+        "balanced": 0.9199999999999999,
+        "fast": 1.0,
+        "premium": 0.8300000000000001
+      },
+      "tiers": {
+        "balanced": {
+          "actual_budget_ratio": 1.6127545114441482,
+          "fold_budget_ratios": {
+            "0": 1.843622937490638,
+            "1": 1.5997396338873342,
+            "2": 1.457662963519873,
+            "3": 1.8474294307294066,
+            "4": 1.299844314018033
+          },
+          "model_counts": {
+            "ax31": 1496,
+            "ax31-light": 264,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.8398564550996848,
+          "safety_ratio": 0.9199999999999999,
+          "tier_score": 0.6696022727272727,
+          "worst_fold_budget_ratio": 1.8474294307294066
+        },
+        "fast": {
+          "actual_budget_ratio": 1.1248409826790207,
+          "fold_budget_ratios": {
+            "0": 1.1542717955097657,
+            "1": 1.1733674402454237,
+            "2": 1.0939834856177562,
+            "3": 1.163606276305412,
+            "4": 1.0438668596858616
+          },
+          "model_counts": {
+            "ax31": 661,
+            "ax31-light": 1099,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.249884143045478,
+          "safety_ratio": 1.0,
+          "tier_score": 0.6265625,
+          "worst_fold_budget_ratio": 1.1733674402454237
+        },
+        "premium": {
+          "actual_budget_ratio": 2.774413382666654,
+          "fold_budget_ratios": {
+            "0": 3.3776691130733703,
+            "1": 2.326891787074807,
+            "2": 3.4983846783231405,
+            "3": 2.722521331785918,
+            "4": 1.9866486019210483
+          },
+          "model_counts": {
+            "ax31": 1446,
+            "ax31-light": 165,
+            "axk1-think": 149
+          },
+          "predicted_budget_ratio": 3.315759368493878,
+          "safety_ratio": 0.8300000000000001,
+          "tier_score": 0.7028409090909091,
+          "worst_fold_budget_ratio": 3.4983846783231405
+        }
+      },
+      "weighted_score": 0.6623579545454545
+    }
+  },
+  "fitted_tiers": {
+    "balanced": {
+      "actual_budget_ratio": 1.6075980707795383,
+      "fold_budget_ratios": {
+        "0": 1.8653311973027114,
+        "1": 1.664207020193507,
+        "2": 1.5099147438261962,
+        "3": 1.7110342853712621,
+        "4": 1.3089511174149926
+      },
+      "model_counts": {
+        "ax31": 1539,
+        "ax31-light": 221,
+        "axk1-think": 0
+      },
+      "predicted_budget_ratio": 1.8392051523249993,
+      "safety_ratio": 0.9199999999999999,
+      "tier_score": 0.6792613636363637,
+      "worst_fold_budget_ratio": 1.8653311973027114
+    },
+    "fast": {
+      "actual_budget_ratio": 1.1281185433947336,
+      "fold_budget_ratios": {
+        "0": 1.1361938124084423,
+        "1": 1.1679270080571758,
+        "2": 1.144535239610083,
+        "3": 1.145518670010073,
+        "4": 1.0526463310741945
+      },
+      "model_counts": {
+        "ax31": 713,
+        "ax31-light": 1047,
+        "axk1-think": 0
+      },
+      "predicted_budget_ratio": 1.2497806714614992,
+      "safety_ratio": 1.0,
+      "tier_score": 0.6603693181818182,
+      "worst_fold_budget_ratio": 1.1679270080571758
+    },
+    "premium": {
+      "actual_budget_ratio": 2.8253704168141796,
+      "fold_budget_ratios": {
+        "0": 3.4929183266603534,
+        "1": 2.854813227927047,
+        "2": 2.32703630274253,
+        "3": 2.830240207456486,
+        "4": 2.6821104692005595
+      },
+      "model_counts": {
+        "ax31": 1429,
+        "ax31-light": 167,
+        "axk1-think": 164
+      },
+      "predicted_budget_ratio": 3.3170015717722494,
+      "safety_ratio": 0.8300000000000001,
+      "tier_score": 0.7258522727272727,
+      "worst_fold_budget_ratio": 3.4929183266603534
+    }
+  },
+  "fitted_weighted_score": 0.6856818181818182,
+  "oof_tiers": {
+    "balanced": {
+      "actual_budget_ratio": 1.6127545114441482,
+      "fold_budget_ratios": {
+        "0": 1.843622937490638,
+        "1": 1.5997396338873342,
+        "2": 1.457662963519873,
+        "3": 1.8474294307294066,
+        "4": 1.299844314018033
+      },
+      "model_counts": {
+        "ax31": 1496,
+        "ax31-light": 264,
+        "axk1-think": 0
+      },
+      "predicted_budget_ratio": 1.8398564550996848,
+      "safety_ratio": 0.9199999999999999,
+      "tier_score": 0.6696022727272727,
+      "worst_fold_budget_ratio": 1.8474294307294066
+    },
+    "fast": {
+      "actual_budget_ratio": 1.1248409826790207,
+      "fold_budget_ratios": {
+        "0": 1.1542717955097657,
+        "1": 1.1733674402454237,
+        "2": 1.0939834856177562,
+        "3": 1.163606276305412,
+        "4": 1.0438668596858616
+      },
+      "model_counts": {
+        "ax31": 661,
+        "ax31-light": 1099,
+        "axk1-think": 0
+      },
+      "predicted_budget_ratio": 1.249884143045478,
+      "safety_ratio": 1.0,
+      "tier_score": 0.6265625,
+      "worst_fold_budget_ratio": 1.1733674402454237
+    },
+    "premium": {
+      "actual_budget_ratio": 2.774413382666654,
+      "fold_budget_ratios": {
+        "0": 3.3776691130733703,
+        "1": 2.326891787074807,
+        "2": 3.4983846783231405,
+        "3": 2.722521331785918,
+        "4": 1.9866486019210483
+      },
+      "model_counts": {
+        "ax31": 1446,
+        "ax31-light": 165,
+        "axk1-think": 149
+      },
+      "predicted_budget_ratio": 3.315759368493878,
+      "safety_ratio": 0.8300000000000001,
+      "tier_score": 0.7028409090909091,
+      "worst_fold_budget_ratio": 3.4983846783231405
+    }
+  },
+  "oof_weighted_score": 0.6623579545454545,
+  "report_type": "ossp-risk-router-v4-training-v1",
+  "selected_alpha": 10000.0,
+  "training_summary": {
+    "budget_calibration": "pooled-and-worst-template-fold",
+    "budget_ratio_targets": {
+      "balanced": 1.85,
+      "fast": 1.18,
+      "premium": 3.5
+    },
+    "fold_strategy": "normalized-template-fnv1a64",
+    "folds": 5,
+    "hash_bins": 512,
+    "input_sha256": "029a0fb1f70432a05b837a1291d86d42278bb202d808a6a12911b0dae8628ac4",
+    "num_episodes": 1760,
+    "outcomes_sha256": "97a5a787086b3e1d9fa9c7945518543540e527ea248df4a4760de581b612a4ba",
+    "ridge_alpha": 10000.0,
+    "selector_bisection_steps": 48
+  }
+}

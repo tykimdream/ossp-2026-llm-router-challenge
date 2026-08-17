@@ -1,0 +1,1620 @@
+{
+  "experiments": [
+    {
+      "artifact": null,
+      "commands": [],
+      "cons": [
+        "강한 모델을 전혀 사용하지 않아 품질 상한이 낮다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "fixed-policy-dev",
+        "trained_on": "none",
+        "validation_tuned": false
+      },
+      "family": "heuristic",
+      "id": "always-light-dev",
+      "metrics": {
+        "final_score": 0.619318181818,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 1.0,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.0,
+            "budget_utilization": 0.5,
+            "model_counts": {
+              "ax31": 0,
+              "ax31-light": 880,
+              "axk1-think": 0
+            },
+            "quality_score": 0.619318181818,
+            "score": 0.619318181818
+          },
+          "fast": {
+            "budget_headroom": 0.25,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.0,
+            "budget_utilization": 0.8,
+            "model_counts": {
+              "ax31": 0,
+              "ax31-light": 880,
+              "axk1-think": 0
+            },
+            "quality_score": 0.619318181818,
+            "score": 0.619318181818
+          },
+          "premium": {
+            "budget_headroom": 3.0,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 1.0,
+            "budget_utilization": 0.25,
+            "model_counts": {
+              "ax31": 0,
+              "ax31-light": 880,
+              "axk1-think": 0
+            },
+            "quality_score": 0.619318181818,
+            "score": 0.619318181818
+          }
+        }
+      },
+      "pros": [
+        "예산 비율 1.0을 결정론적으로 보장한다.",
+        "가장 단순하고 빠른 하한선이다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/always-light-dev.json",
+        "sha256": "4a71697aa64888b168fed520a418796fd0ce6c0fbececa18fcf84bfae6d1517a"
+      },
+      "status": "reference",
+      "title": "Always Light",
+      "warnings": []
+    },
+    {
+      "artifact": null,
+      "commands": [],
+      "cons": [
+        "공정 Dev 0.675710으로 선형 Ridge와 Uplift보다 낮다.",
+        "보수적 비용 보정으로 Premium에서 K1을 3개만 선택했다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "template-group-oof-train-to-dev",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "nonlinear-uplift",
+      "id": "extra-trees-uplift-prototype-v1",
+      "metrics": {
+        "final_score": 0.675710227273,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.3747179992459999,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.625282000754,
+            "budget_utilization": 0.812641000377,
+            "model_counts": {
+              "ax31": 782,
+              "ax31-light": 98,
+              "axk1-think": 0
+            },
+            "quality_score": 0.689772727273,
+            "score": 0.689772727273
+          },
+          "fast": {
+            "budget_headroom": 0.12615047377200006,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.123849526228,
+            "budget_utilization": 0.8990796209823999,
+            "model_counts": {
+              "ax31": 328,
+              "ax31-light": 552,
+              "axk1-think": 0
+            },
+            "quality_score": 0.653977272727,
+            "score": 0.653977272727
+          },
+          "premium": {
+            "budget_headroom": 2.0182802017970003,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 1.981719798203,
+            "budget_utilization": 0.49542994955075,
+            "model_counts": {
+              "ax31": 840,
+              "ax31-light": 37,
+              "axk1-think": 3
+            },
+            "quality_score": 0.690625,
+            "score": 0.690625
+          }
+        }
+      },
+      "pros": [
+        "64개 결정 트리로 비선형 특징 조합을 학습했다.",
+        "템플릿 그룹 OOF와 최악 fold 비용 제한을 적용했다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/extra-trees-uplift-dev.json",
+        "sha256": "6ee23ff7aa0c3979e4f8f68a2d6c39555a628fadf39176e587371525392be6e9"
+      },
+      "status": "rejected",
+      "title": "Extra Trees Uplift Prototype",
+      "warnings": [
+        "성능 게이트에서 탈락해 제출용 순수 Python artifact 내보내기는 수행하지 않았다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "baselines/hash-regex-public.v1.json",
+        "sha256": "c5f0545f20b902143ccb78ad174ccd5408f4c28d0898943e82e7951b6a8b9871"
+      },
+      "commands": [],
+      "cons": [
+        "세 등급 모두 공식 예산 한도에 매우 가깝다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "public-validation-tuned-dev",
+        "trained_on": "train",
+        "validation_tuned": true
+      },
+      "family": "learned-baseline",
+      "id": "hash-regex-public-v1",
+      "metrics": {
+        "final_score": 0.695369318182,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.03849395973199998,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.961506040268,
+            "budget_utilization": 0.980753020134,
+            "model_counts": {
+              "ax31": 446,
+              "ax31-light": 372,
+              "axk1-think": 62
+            },
+            "quality_score": 0.69375,
+            "score": 0.69375
+          },
+          "fast": {
+            "budget_headroom": 0.014010908316000048,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.235989091684,
+            "budget_utilization": 0.9887912733472,
+            "model_counts": {
+              "ax31": 335,
+              "ax31-light": 543,
+              "axk1-think": 2
+            },
+            "quality_score": 0.663068181818,
+            "score": 0.663068181818
+          },
+          "premium": {
+            "budget_headroom": 0.014795266520000183,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.98520473348,
+            "budget_utilization": 0.99630118337,
+            "model_counts": {
+              "ax31": 409,
+              "ax31-light": 279,
+              "axk1-think": 192
+            },
+            "quality_score": 0.740056818182,
+            "score": 0.740056818182
+          }
+        }
+      },
+      "pros": [
+        "현재 공개 Dev 참고 점수가 가장 높은 제공 기준선이다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/hash-regex-public-dev.json",
+        "sha256": "f39e5804cc6f4e90496ef29d244593bc349a7b4328dd072527967e2023fa1aab"
+      },
+      "status": "reference",
+      "title": "Provided Hash Regex",
+      "warnings": [
+        "artifact 메타데이터에 Dev validation hash가 있어 독립 홀드아웃으로 보지 않는다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "experiments/artifacts/hash-regex-train-only.v1.json",
+        "sha256": "c3f9c701b2daacd2e3bc381d560b7fd4f09bfa8244cec10056c300348c19d20e"
+      },
+      "commands": [
+        "PYTHONPATH=src python3 baselines/train_hash_regex.py --input data/materialized/train/inputs.json --outcomes data/train/outcomes.json --artifact experiments/artifacts/hash-regex-train-only.v1.json --report experiments/results/hash-regex-train-only-training.json"
+      ],
+      "cons": [
+        "Fast 비용 비율 1.257062가 한도 1.25를 넘어 Fast 등급 전체가 0점 처리됐다.",
+        "row-index OOF가 유사 템플릿을 서로 다른 fold로 나눠 비용 오차를 과소평가할 수 있다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "row-oof-train-to-dev",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "learned-baseline",
+      "id": "hash-regex-train-only-v1",
+      "metrics": {
+        "final_score": 0.428863636364,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.03849395973199998,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.961506040268,
+            "budget_utilization": 0.980753020134,
+            "model_counts": {
+              "ax31": 446,
+              "ax31-light": 372,
+              "axk1-think": 62
+            },
+            "quality_score": 0.69375,
+            "score": 0.69375
+          },
+          "fast": {
+            "budget_headroom": -0.007062310507000014,
+            "budget_limit": 1.25,
+            "budget_passed": false,
+            "budget_ratio": 1.257062310507,
+            "budget_utilization": 1.0056498484056,
+            "model_counts": {
+              "ax31": 348,
+              "ax31-light": 530,
+              "axk1-think": 2
+            },
+            "quality_score": 0.664772727273,
+            "score": 0.0
+          },
+          "premium": {
+            "budget_headroom": 0.32608963401900004,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.673910365981,
+            "budget_utilization": 0.91847759149525,
+            "model_counts": {
+              "ax31": 417,
+              "ax31-light": 288,
+              "axk1-think": 175
+            },
+            "quality_score": 0.735795454545,
+            "score": 0.735795454545
+          }
+        }
+      },
+      "pros": [
+        "Dev 답을 사용하지 않고 Train만으로 학습해 일반화 성능을 공정하게 측정했다.",
+        "Premium 품질 0.735795를 얻었다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/hash-regex-train-only-dev.json",
+        "sha256": "9d5c98cdf9966dfeaee2c9abfb94043604af353e5e64e1bddf39d813ca599f49"
+      },
+      "status": "rejected",
+      "title": "Hash Regex Train-only",
+      "warnings": [
+        "제공 artifact와 계수는 같을 수 있지만 Dev 안전계수 보정을 제거한 결과다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/hybrid-router.v1.json",
+        "sha256": "15ce00bf5206f5a097a6121f468ceceaba1cbdbeda56ecd18c3beec3b47faa50"
+      },
+      "commands": [],
+      "cons": [
+        "Dev를 base predictor 학습에 포함해 일반화 성능으로 사용할 수 없다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "full-public-refit-check",
+        "trained_on": "train+dev",
+        "validation_tuned": true
+      },
+      "family": "learned-plus-heuristic",
+      "id": "hybrid-full-public-v1",
+      "metrics": {
+        "final_score": 0.714801136364,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.23877578816799994,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.761224211832,
+            "budget_utilization": 0.880612105916,
+            "model_counts": {
+              "ax31": 560,
+              "ax31-light": 295,
+              "axk1-think": 25
+            },
+            "quality_score": 0.7125,
+            "score": 0.7125
+          },
+          "fast": {
+            "budget_headroom": 0.09110649701400009,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.158893502986,
+            "budget_utilization": 0.9271148023888,
+            "model_counts": {
+              "ax31": 336,
+              "ax31-light": 544,
+              "axk1-think": 0
+            },
+            "quality_score": 0.682670454545,
+            "score": 0.682670454545
+          },
+          "premium": {
+            "budget_headroom": 0.712049132612,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.287950867388,
+            "budget_utilization": 0.821987716847,
+            "model_counts": {
+              "ax31": 510,
+              "ax31-light": 252,
+              "axk1-think": 118
+            },
+            "quality_score": 0.759943181818,
+            "score": 0.759943181818
+          }
+        }
+      },
+      "pros": [
+        "Ridge Full Public보다 더 큰 예산 여유와 명시적인 결정론 안전 규칙을 제공한다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/hybrid-full-public-dev.json",
+        "sha256": "062fcc2ab3252539403d34abf0bcbfd222c79a4e3ec00c44bec4ed89384275bb"
+      },
+      "status": "candidate",
+      "title": "Hybrid Full Public v1",
+      "warnings": [
+        "비공정 배포 확인값이며 Hybrid Safe의 공정 홀드아웃 결과와 함께 봐야 한다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "experiments/artifacts/hybrid-safe.v1.json",
+        "sha256": "15ce00bf5206f5a097a6121f468ceceaba1cbdbeda56ecd18c3beec3b47faa50"
+      },
+      "commands": [],
+      "cons": [
+        "공정 Dev 점수 0.686903으로 Ridge Train-only와 제공 기준선보다 낮다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "fixed-guard-train-only-to-dev",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "learned-plus-heuristic",
+      "id": "hybrid-safe-v1",
+      "metrics": {
+        "final_score": 0.686903409091,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.16720462073100006,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.832795379269,
+            "budget_utilization": 0.9163976896345,
+            "model_counts": {
+              "ax31": 578,
+              "ax31-light": 279,
+              "axk1-think": 23
+            },
+            "quality_score": 0.686647727273,
+            "score": 0.686647727273
+          },
+          "fast": {
+            "budget_headroom": 0.09194946807299997,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.158050531927,
+            "budget_utilization": 0.9264404255416,
+            "model_counts": {
+              "ax31": 334,
+              "ax31-light": 546,
+              "axk1-think": 0
+            },
+            "quality_score": 0.654261363636,
+            "score": 0.654261363636
+          },
+          "premium": {
+            "budget_headroom": 0.6348833015170001,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.365116698483,
+            "budget_utilization": 0.84127917462075,
+            "model_counts": {
+              "ax31": 529,
+              "ax31-light": 236,
+              "axk1-think": 115
+            },
+            "quality_score": 0.730681818182,
+            "score": 0.730681818182
+          }
+        }
+      },
+      "pros": [
+        "세 등급이 내부 안전 목표 1.18, 1.85, 3.5 안에 든다.",
+        "Fast에서 K1을 금지하고 내용 기반 K1 안전 규칙을 결정론적으로 적용한다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/hybrid-safe-dev.json",
+        "sha256": "a58d60a203b8d52b44900d8d122d7d1257529ccb5a115cc9971bedfe3fc4fd1f"
+      },
+      "status": "rejected",
+      "title": "Hybrid Safe v1",
+      "warnings": []
+    },
+    {
+      "artifact": {
+        "path": "experiments/artifacts/hybrid-train-calibrated.v1.json",
+        "sha256": "8d91111ae13b78bfe81c844a2ecf9bbcdf59b17dbe44505f2bbd99effe3cbf05"
+      },
+      "commands": [],
+      "cons": [
+        "Train에서 맞춘 비용 보정이 Dev로 일반화되지 않았다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "train-calibrated-to-dev-holdout",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "learned-plus-heuristic",
+      "id": "hybrid-train-calibrated-v1",
+      "metrics": {
+        "final_score": 0.483579545455,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": -0.05621084632700013,
+            "budget_limit": 2.0,
+            "budget_passed": false,
+            "budget_ratio": 2.056210846327,
+            "budget_utilization": 1.0281054231635,
+            "model_counts": {
+              "ax31": 577,
+              "ax31-light": 270,
+              "axk1-think": 33
+            },
+            "quality_score": 0.69375,
+            "score": 0.0
+          },
+          "fast": {
+            "budget_headroom": 0.062210039740000056,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.18778996026,
+            "budget_utilization": 0.9502319682079999,
+            "model_counts": {
+              "ax31": 356,
+              "ax31-light": 524,
+              "axk1-think": 0
+            },
+            "quality_score": 0.657954545455,
+            "score": 0.657954545455
+          },
+          "premium": {
+            "budget_headroom": 0.5058627111980001,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.494137288802,
+            "budget_utilization": 0.8735343222005,
+            "model_counts": {
+              "ax31": 524,
+              "ax31-light": 233,
+              "axk1-think": 123
+            },
+            "quality_score": 0.734659090909,
+            "score": 0.734659090909
+          }
+        }
+      },
+      "pros": [
+        "학습 예측에 결정론적 K1·단순변환 안전 규칙을 결합했다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/hybrid-train-calibrated-dev.json",
+        "sha256": "99340b81373da69bb8851c0a5294be3bd1aa28025b78c0321216a4bed289a45b"
+      },
+      "status": "rejected",
+      "title": "Hybrid Train-calibrated",
+      "warnings": [
+        "Balanced 비용 비율 2.056 초과로 해당 등급 점수가 0이다."
+      ]
+    },
+    {
+      "artifact": null,
+      "commands": [],
+      "cons": [
+        "복합적인 문제 유형과 모델별 실제 uplift를 학습하지 못한다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "fixed-policy-dev",
+        "trained_on": "none",
+        "validation_tuned": false
+      },
+      "family": "heuristic",
+      "id": "prompt-heuristic-dev",
+      "metrics": {
+        "final_score": 0.655340909091,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.6321341831930001,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.367865816807,
+            "budget_utilization": 0.6839329084035,
+            "model_counts": {
+              "ax31": 393,
+              "ax31-light": 487,
+              "axk1-think": 0
+            },
+            "quality_score": 0.658238636364,
+            "score": 0.658238636364
+          },
+          "fast": {
+            "budget_headroom": 0.17766594566899996,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.072334054331,
+            "budget_utilization": 0.8578672434648,
+            "model_counts": {
+              "ax31": 127,
+              "ax31-light": 753,
+              "axk1-think": 0
+            },
+            "quality_score": 0.625852272727,
+            "score": 0.625852272727
+          },
+          "premium": {
+            "budget_headroom": 1.897955851836,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 2.102044148164,
+            "budget_utilization": 0.525511037041,
+            "model_counts": {
+              "ax31": 880,
+              "ax31-light": 0,
+              "axk1-think": 0
+            },
+            "quality_score": 0.691761363636,
+            "score": 0.691761363636
+          }
+        }
+      },
+      "pros": [
+        "길이·언어·코드·수식 규칙만 사용해 설명 가능하고 결정론적이다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/prompt-heuristic-dev.json",
+        "sha256": "c05bd911de049f9bfca987df329c9430d71bdf25446b5cbc8a175fe5b4c657fa"
+      },
+      "status": "reference",
+      "title": "Prompt Heuristic",
+      "warnings": []
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/competition-router.v1.json",
+        "sha256": "78ffc409fecd8ef6febebee6de3841df76af76745caf0b341accb93e0e111732"
+      },
+      "commands": [],
+      "cons": [
+        "Dev를 학습에 포함해 점수를 일반화 성능으로 사용할 수 없다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "full-public-refit-check",
+        "trained_on": "train+dev",
+        "validation_tuned": true
+      },
+      "family": "learned-ridge",
+      "id": "ridge-full-public-v1",
+      "metrics": {
+        "final_score": 0.716477272727,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.1656232819529999,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.834376718047,
+            "budget_utilization": 0.9171883590235,
+            "model_counts": {
+              "ax31": 562,
+              "ax31-light": 272,
+              "axk1-think": 46
+            },
+            "quality_score": 0.716477272727,
+            "score": 0.716477272727
+          },
+          "fast": {
+            "budget_headroom": 0.08173250273699995,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.168267497263,
+            "budget_utilization": 0.9346139978104,
+            "model_counts": {
+              "ax31": 345,
+              "ax31-light": 535,
+              "axk1-think": 0
+            },
+            "quality_score": 0.683238636364,
+            "score": 0.683238636364
+          },
+          "premium": {
+            "budget_headroom": 0.6326114079699998,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.36738859203,
+            "budget_utilization": 0.8418471480075,
+            "model_counts": {
+              "ax31": 494,
+              "ax31-light": 219,
+              "axk1-think": 167
+            },
+            "quality_score": 0.760795454545,
+            "score": 0.760795454545
+          }
+        }
+      },
+      "pros": [
+        "현재 컨테이너 기본 구현이며 세 등급 내부 안전 목표와 런타임 검사를 통과했다."
+      ],
+      "runtime": {
+        "passed": true,
+        "platform": "linux/arm64",
+        "tiers": {
+          "balanced": {
+            "elapsed_seconds_max": 12.03108375,
+            "passed": true
+          },
+          "fast": {
+            "elapsed_seconds_max": 12.46655875,
+            "passed": true
+          },
+          "premium": {
+            "elapsed_seconds_max": 12.027258291,
+            "passed": true
+          }
+        }
+      },
+      "runtime_report": {
+        "path": "experiments/results/ridge-full-public-runtime.json",
+        "sha256": "e1048346a4556b1a9132635d746f4d57a0a85c8b87b38177048dd5f54df418f1"
+      },
+      "score_report": {
+        "path": "experiments/results/ridge-full-public-dev.json",
+        "sha256": "effe0ec648249099fd1a808376518d970c7e409522b4b9a9da243d87cbbbc5b0"
+      },
+      "status": "candidate",
+      "title": "Ridge Full Public",
+      "warnings": [
+        "0.716477은 배포 확인값이지 공정 홀드아웃 점수가 아니다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "experiments/artifacts/ridge-train-only.v1.json",
+        "sha256": "4ba0c64ea78647df8fe166f97b7f21ca056fed27a082b72c1cda4de5cc248fe3"
+      },
+      "commands": [],
+      "cons": [
+        "제공 hash-regex 참고 점수보다 낮다.",
+        "Fast와 Balanced가 내부 안전 목표 1.18, 1.85를 넘는다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "train-only-to-dev-holdout",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "learned-ridge",
+      "id": "ridge-train-only-v1",
+      "metrics": {
+        "final_score": 0.6871875,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.1151105032419999,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.884889496758,
+            "budget_utilization": 0.942444748379,
+            "model_counts": {
+              "ax31": 581,
+              "ax31-light": 255,
+              "axk1-think": 44
+            },
+            "quality_score": 0.689488636364,
+            "score": 0.689488636364
+          },
+          "fast": {
+            "budget_headroom": 0.05916178515299997,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.190838214847,
+            "budget_utilization": 0.9526705718776001,
+            "model_counts": {
+              "ax31": 366,
+              "ax31-light": 514,
+              "axk1-think": 0
+            },
+            "quality_score": 0.657954545455,
+            "score": 0.657954545455
+          },
+          "premium": {
+            "budget_headroom": 1.0769216499729999,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 2.923078350027,
+            "budget_utilization": 0.73076958750675,
+            "model_counts": {
+              "ax31": 531,
+              "ax31-light": 218,
+              "axk1-think": 131
+            },
+            "quality_score": 0.723863636364,
+            "score": 0.723863636364
+          }
+        }
+      },
+      "pros": [
+        "Dev를 학습과 보정에 사용하지 않은 공정한 비교다.",
+        "Premium 예산 여유가 크다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/ridge-train-only-dev.json",
+        "sha256": "dfa18a8c9e0dc73da36304ddfd52c5373835d2471ca1bf56629e7652290762f8"
+      },
+      "status": "rejected",
+      "title": "Ridge Train-only",
+      "warnings": []
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/risk-router.v4.json",
+        "sha256": "b010928f1219f8d1691663d3b5a41ee6e7e313ad8976c230da7989a42529d5b4"
+      },
+      "commands": [
+        "VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=src .venv-data/bin/python tools/train_risk_router_v4.py --input build/training/public-train-dev-inputs.json --outcomes build/training/public-train-dev-outcomes.json --artifact src/ossp_router/resources/risk-router.v4.json --report experiments/results/risk-v4-full-training.json"
+      ],
+      "cons": [
+        "Dev가 학습에 포함되어 0.710341은 일반화 점수가 아니다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "full-public-refit-check",
+        "trained_on": "train+dev",
+        "validation_tuned": true
+      },
+      "family": "risk-calibrated-ridge",
+      "id": "risk-router-v4-active",
+      "metrics": {
+        "final_score": 0.710340909091,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.3611417478500001,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.63885825215,
+            "budget_utilization": 0.819429126075,
+            "model_counts": {
+              "ax31": 736,
+              "ax31-light": 139,
+              "axk1-think": 5
+            },
+            "quality_score": 0.705113636364,
+            "score": 0.705113636364
+          },
+          "fast": {
+            "budget_headroom": 0.08586134725899996,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.164138652741,
+            "budget_utilization": 0.9313109221928,
+            "model_counts": {
+              "ax31": 357,
+              "ax31-light": 523,
+              "axk1-think": 0
+            },
+            "quality_score": 0.683238636364,
+            "score": 0.683238636364
+          },
+          "premium": {
+            "budget_headroom": 0.9787154731290002,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.021284526871,
+            "budget_utilization": 0.75532113171775,
+            "model_counts": {
+              "ax31": 654,
+              "ax31-light": 116,
+              "axk1-think": 110
+            },
+            "quality_score": 0.751704545455,
+            "score": 0.751704545455
+          }
+        }
+      },
+      "pros": [
+        "공정 Train-only 승리 구조를 전체 공개 2,640문항에 refit한 활성 artifact다.",
+        "linux/arm64 공식 제한 검사에서 세 등급 모두 18.2초 이내다."
+      ],
+      "runtime": {
+        "passed": true,
+        "platform": "linux/arm64",
+        "tiers": {
+          "balanced": {
+            "elapsed_seconds_max": 17.711194875,
+            "passed": true
+          },
+          "fast": {
+            "elapsed_seconds_max": 16.824709333,
+            "passed": true
+          },
+          "premium": {
+            "elapsed_seconds_max": 18.13262725,
+            "passed": true
+          }
+        }
+      },
+      "runtime_report": {
+        "path": "experiments/results/risk-v4-runtime.json",
+        "sha256": "3ae3077369b1707d8cd23490c98bfa8545870b18b60dedec673153c33cd7d51d"
+      },
+      "score_report": {
+        "path": "experiments/results/risk-v4-full-dev.json",
+        "sha256": "ac33c297b5de78f602b22b12ebf0446460eac8f48300d5ad54501f4628193851"
+      },
+      "status": "candidate",
+      "title": "Risk Router v4 Active",
+      "warnings": [
+        "활성 선택 근거는 full-public Dev 재측정이 아니라 Train-only 공정 홀드아웃 승리다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "experiments/artifacts/risk-v4-train-only.v1.json",
+        "sha256": "ee2bed9abc7d4b2de9e9c2cb90c545e19d43865c8fe0cea83294e48c11517494"
+      },
+      "commands": [
+        "VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=src .venv-data/bin/python tools/train_risk_router_v4.py --input data/materialized/train/inputs.json --outcomes data/train/outcomes.json --artifact experiments/artifacts/risk-v4-train-only.v1.json --report experiments/results/risk-v4-train-only-training.json"
+      ],
+      "cons": [
+        "실제 출력 토큰이 런타임에 없어 숨은 비용을 수학적으로 절대 보장할 수는 없다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "template-group-worst-fold-train-to-dev",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "risk-calibrated-ridge",
+      "id": "risk-router-v4-train-only",
+      "metrics": {
+        "final_score": 0.689318181818,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.40356549805200004,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.596434501948,
+            "budget_utilization": 0.798217250974,
+            "model_counts": {
+              "ax31": 769,
+              "ax31-light": 111,
+              "axk1-think": 0
+            },
+            "quality_score": 0.686931818182,
+            "score": 0.686931818182
+          },
+          "fast": {
+            "budget_headroom": 0.0925318866360001,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.157468113364,
+            "budget_utilization": 0.9259744906912,
+            "model_counts": {
+              "ax31": 352,
+              "ax31-light": 528,
+              "axk1-think": 0
+            },
+            "quality_score": 0.664772727273,
+            "score": 0.664772727273
+          },
+          "premium": {
+            "budget_headroom": 1.274299530655,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 2.725700469345,
+            "budget_utilization": 0.68142511733625,
+            "model_counts": {
+              "ax31": 714,
+              "ax31-light": 85,
+              "axk1-think": 81
+            },
+            "quality_score": 0.724431818182,
+            "score": 0.724431818182
+          }
+        }
+      },
+      "pros": [
+        "공정 Dev 0.689318로 기존 Ridge Train-only를 0.002131 앞선다.",
+        "512-bin 특징과 pooled+worst-fold 내부 비용 목표를 결합한다."
+      ],
+      "runtime": {
+        "passed": true,
+        "platform": "linux/arm64",
+        "tiers": {
+          "balanced": {
+            "elapsed_seconds_max": 17.711194875,
+            "passed": true
+          },
+          "fast": {
+            "elapsed_seconds_max": 16.824709333,
+            "passed": true
+          },
+          "premium": {
+            "elapsed_seconds_max": 18.13262725,
+            "passed": true
+          }
+        }
+      },
+      "runtime_report": {
+        "path": "experiments/results/risk-v4-runtime.json",
+        "sha256": "3ae3077369b1707d8cd23490c98bfa8545870b18b60dedec673153c33cd7d51d"
+      },
+      "score_report": {
+        "path": "experiments/results/risk-v4-train-only-dev.json",
+        "sha256": "c3f5f0af5de61a2301e08cffd60a86643f5c650709ecbf785bf23f24d0f692f5"
+      },
+      "status": "champion",
+      "title": "Risk Router v4 Train-only",
+      "warnings": [
+        "런타임 보고서는 동일 구조의 Train+Dev refit 활성 artifact를 측정했다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/robust-router.v2.json",
+        "sha256": "fb07a470a6dd04215b713768066c70f6b7f3fb6023e75730748257b998bd7931"
+      },
+      "commands": [],
+      "cons": [
+        "공개 확인 점수 0.705511로 활성 제출 라우터 0.716477보다 낮다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "full-public-refit-check",
+        "trained_on": "train+dev",
+        "validation_tuned": true
+      },
+      "family": "robust-tier-ensemble",
+      "id": "robust-v2-full-public",
+      "metrics": {
+        "final_score": 0.705511363636,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.352996721617,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.647003278383,
+            "budget_utilization": 0.8235016391915,
+            "model_counts": {
+              "ax31": 784,
+              "ax31-light": 93,
+              "axk1-think": 3
+            },
+            "quality_score": 0.694602272727,
+            "score": 0.694602272727
+          },
+          "fast": {
+            "budget_headroom": 0.10387474996700008,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.146125250033,
+            "budget_utilization": 0.9169002000263999,
+            "model_counts": {
+              "ax31": 337,
+              "ax31-light": 543,
+              "axk1-think": 0
+            },
+            "quality_score": 0.675,
+            "score": 0.675
+          },
+          "premium": {
+            "budget_headroom": 0.7855453044080001,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.214454695592,
+            "budget_utilization": 0.803613673898,
+            "model_counts": {
+              "ax31": 514,
+              "ax31-light": 253,
+              "axk1-think": 113
+            },
+            "quality_score": 0.757102272727,
+            "score": 0.757102272727
+          }
+        }
+      },
+      "pros": [
+        "Fast/Balanced는 Uplift, Premium은 Hybrid를 사용하는 하나의 통합 라우터다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/robust-v2-full-dev.json",
+        "sha256": "39e4230f5663a5d232460334f59e8675745401bf14f85f7a640640bb7bd5eb30"
+      },
+      "status": "rejected",
+      "title": "Robust Fixed-Scenario v2 Full Public",
+      "warnings": [
+        "배포 확인값이며 일반화 성능이 아니다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/robust-router.v2.json",
+        "sha256": "fb07a470a6dd04215b713768066c70f6b7f3fb6023e75730748257b998bd7931"
+      },
+      "commands": [
+        "PYTHONPATH=src python3 -m ossp_router.robust --input INPUT --tier TIER --output OUTPUT"
+      ],
+      "cons": [
+        "등급별 predictor와 1.02/1.05 stress 배수 선택에 Dev 비교 결과가 관여했다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "train-only-components-dev-inspected-policy",
+        "trained_on": "train",
+        "validation_tuned": true
+      },
+      "family": "robust-tier-ensemble",
+      "id": "robust-v2-train-only",
+      "metrics": {
+        "final_score": 0.687982954545,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.41129333153500003,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.588706668465,
+            "budget_utilization": 0.7943533342325,
+            "model_counts": {
+              "ax31": 769,
+              "ax31-light": 111,
+              "axk1-think": 0
+            },
+            "quality_score": 0.686079545455,
+            "score": 0.686079545455
+          },
+          "fast": {
+            "budget_headroom": 0.12766497406800004,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.122335025932,
+            "budget_utilization": 0.8978680207456,
+            "model_counts": {
+              "ax31": 326,
+              "ax31-light": 554,
+              "axk1-think": 0
+            },
+            "quality_score": 0.659090909091,
+            "score": 0.659090909091
+          },
+          "premium": {
+            "budget_headroom": 0.7003065005289999,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.299693499471,
+            "budget_utilization": 0.82492337486775,
+            "model_counts": {
+              "ax31": 534,
+              "ax31-light": 236,
+              "axk1-think": 110
+            },
+            "quality_score": 0.728409090909,
+            "score": 0.728409090909
+          }
+        }
+      },
+      "pros": [
+        "고정 비용 시나리오, canonical content order, 고정 80회 선택으로 결정론적이다.",
+        "Ridge Train-only보다 0.000796 높고 세 등급 비용 여유가 더 크다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/robust-v2-train-only-dev.json",
+        "sha256": "200944d3af75ebd901bbfd06ec573f4e543c5743c39bf86b155c3da7dc19fb82"
+      },
+      "status": "rejected",
+      "title": "Robust Fixed-Scenario v2",
+      "warnings": [
+        "공정 홀드아웃 승리로 주장하지 않고 안전 후보로만 보존한다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/robust-router.v3.json",
+        "sha256": "9b0aa3b34f428537f568fa7b85d1180754998cc995cafd6452140c8d2f920862"
+      },
+      "commands": [
+        "PYTHONPATH=src python3 -m ossp_router.robust_v3 --input INPUT --tier TIER --output OUTPUT"
+      ],
+      "cons": [
+        "공개 확인 점수 0.698693으로 V1 0.716477과 V2 0.705511보다 낮다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "full-public-refit-check",
+        "trained_on": "train+dev",
+        "validation_tuned": true
+      },
+      "family": "robust-train-oof-uplift",
+      "id": "robust-v3-full-public",
+      "metrics": {
+        "final_score": 0.698693181818,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.352996721617,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.647003278383,
+            "budget_utilization": 0.8235016391915,
+            "model_counts": {
+              "ax31": 784,
+              "ax31-light": 93,
+              "axk1-think": 3
+            },
+            "quality_score": 0.694602272727,
+            "score": 0.694602272727
+          },
+          "fast": {
+            "budget_headroom": 0.09703727802900008,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.152962721971,
+            "budget_utilization": 0.9223701775768,
+            "model_counts": {
+              "ax31": 355,
+              "ax31-light": 525,
+              "axk1-think": 0
+            },
+            "quality_score": 0.675,
+            "score": 0.675
+          },
+          "premium": {
+            "budget_headroom": 1.1924870147359998,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 2.807512985264,
+            "budget_utilization": 0.701878246316,
+            "model_counts": {
+              "ax31": 705,
+              "ax31-light": 83,
+              "axk1-think": 92
+            },
+            "quality_score": 0.734375,
+            "score": 0.734375
+          }
+        }
+      },
+      "pros": [
+        "V2보다 Premium 비용 비율을 3.214455에서 2.807513으로 낮췄다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/robust-v3-full-dev.json",
+        "sha256": "4989f6b959ccae26a13b1dc3af12b120e63676f4af9ab7d8fa0944309a4d81ee"
+      },
+      "status": "rejected",
+      "title": "Robust Train-OOF v3 Full Public",
+      "warnings": [
+        "학습에 Dev가 포함된 배포 확인값이며 일반화 성능이 아니다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/robust-router.v3.json",
+        "sha256": "9b0aa3b34f428537f568fa7b85d1180754998cc995cafd6452140c8d2f920862"
+      },
+      "commands": [
+        "PYTHONPATH=src python3 -m ossp_router.robust_v3 --input INPUT --tier TIER --output OUTPUT --uplift-artifact experiments/artifacts/uplift-train-only.v1.json"
+      ],
+      "cons": [
+        "공정 Dev 점수 0.685966으로 Ridge Train-only보다 0.001222 낮다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "template-group-oof-train-to-dev",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "robust-train-oof-uplift",
+      "id": "robust-v3-train-oof",
+      "metrics": {
+        "final_score": 0.685965909091,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.39125430613,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.60874569387,
+            "budget_utilization": 0.804372846935,
+            "model_counts": {
+              "ax31": 783,
+              "ax31-light": 97,
+              "axk1-think": 0
+            },
+            "quality_score": 0.687215909091,
+            "score": 0.687215909091
+          },
+          "fast": {
+            "budget_headroom": 0.1224195536249999,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.127580446375,
+            "budget_utilization": 0.9020643571000001,
+            "model_counts": {
+              "ax31": 335,
+              "ax31-light": 545,
+              "axk1-think": 0
+            },
+            "quality_score": 0.658522727273,
+            "score": 0.658522727273
+          },
+          "premium": {
+            "budget_headroom": 1.30555867037,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 2.69444132963,
+            "budget_utilization": 0.6736103324075,
+            "model_counts": {
+              "ax31": 726,
+              "ax31-light": 78,
+              "axk1-think": 76
+            },
+            "quality_score": 0.721306818182,
+            "score": 0.721306818182
+          }
+        }
+      },
+      "pros": [
+        "predictor와 안전계수를 Dev가 아닌 Train 템플릿 그룹 OOF로 선택했다.",
+        "최악 OOF fold 비용이 내부 목표 1.18/1.85/3.5를 모두 통과한다.",
+        "대형 입력 guard를 canonical 정렬보다 먼저 적용하고 48회 고정 선택을 사용한다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/robust-v3-train-only-dev.json",
+        "sha256": "781bdaf879d02f145e32b6c45d5c698e48ab7eccad8905565870dd5b116f1a99"
+      },
+      "status": "rejected",
+      "title": "Robust Train-OOF v3",
+      "warnings": [
+        "숨은 평가의 실제 출력 토큰을 라우팅 시점에 모르므로 예산 절대 보장은 아니다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/competition-router.v1.json",
+        "sha256": "78ffc409fecd8ef6febebee6de3841df76af76745caf0b341accb93e0e111732"
+      },
+      "commands": [
+        "PYTHONPATH=src python3 -m ossp_router.submission --input INPUT --tier TIER --output OUTPUT"
+      ],
+      "cons": [
+        "Train+Dev 전체 학습 후 Dev에서 재측정한 값이라 독립 홀드아웃 점수가 아니다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "full-public-refit-active-wrapper",
+        "trained_on": "train+dev",
+        "validation_tuned": true
+      },
+      "family": "submission-wrapper",
+      "id": "submission-router-v1",
+      "metrics": {
+        "final_score": 0.716477272727,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.1656232819529999,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.834376718047,
+            "budget_utilization": 0.9171883590235,
+            "model_counts": {
+              "ax31": 562,
+              "ax31-light": 272,
+              "axk1-think": 46
+            },
+            "quality_score": 0.716477272727,
+            "score": 0.716477272727
+          },
+          "fast": {
+            "budget_headroom": 0.08173250273699995,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.168267497263,
+            "budget_utilization": 0.9346139978104,
+            "model_counts": {
+              "ax31": 345,
+              "ax31-light": 535,
+              "axk1-think": 0
+            },
+            "quality_score": 0.683238636364,
+            "score": 0.683238636364
+          },
+          "premium": {
+            "budget_headroom": 0.6326114079699998,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.36738859203,
+            "budget_utilization": 0.8418471480075,
+            "model_counts": {
+              "ax31": 494,
+              "ax31-light": 219,
+              "axk1-think": 167
+            },
+            "quality_score": 0.760795454545,
+            "score": 0.760795454545
+          }
+        }
+      },
+      "pros": [
+        "공개 Dev 참고 점수 0.716477로 v4의 비교 기준을 제공한다.",
+        "canonical content order와 대형 입력의 결정론적 경량 fallback을 확립했다."
+      ],
+      "runtime": {
+        "passed": true,
+        "platform": "linux/arm64",
+        "tiers": {
+          "balanced": {
+            "elapsed_seconds_max": 12.111581042,
+            "passed": true
+          },
+          "fast": {
+            "elapsed_seconds_max": 11.914564958,
+            "passed": true
+          },
+          "premium": {
+            "elapsed_seconds_max": 11.920709958,
+            "passed": true
+          }
+        }
+      },
+      "runtime_report": {
+        "path": "experiments/results/submission-router-runtime.json",
+        "sha256": "5aa4804000680adabfede564519e8de4df3784bc40d9a4029c2e3746ff7fadc4"
+      },
+      "score_report": {
+        "path": "experiments/results/submission-router-dev.json",
+        "sha256": "effe0ec648249099fd1a808376518d970c7e409522b4b9a9da243d87cbbbc5b0"
+      },
+      "status": "reference",
+      "title": "Submission Router v1 (Previous Active)",
+      "warnings": [
+        "v4 활성화 전의 제출 경로이며 현재 기본 artifact는 risk-router.v4.json이다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "src/ossp_router/resources/submission-uplift.v1.json",
+        "sha256": "90bc0e6294e46956c31d0bbd233fea1a11a890a9a2343d5d2ad5ab43d0a76271"
+      },
+      "commands": [],
+      "cons": [
+        "공개 확인 점수 0.701023으로 활성 제출 라우터보다 낮다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "full-public-refit-check",
+        "trained_on": "train+dev",
+        "validation_tuned": true
+      },
+      "family": "learned-uplift",
+      "id": "uplift-ridge-full-public-v1",
+      "metrics": {
+        "final_score": 0.701022727273,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.32933204425599993,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.670667955744,
+            "budget_utilization": 0.835333977872,
+            "model_counts": {
+              "ax31": 785,
+              "ax31-light": 90,
+              "axk1-think": 5
+            },
+            "quality_score": 0.695170454545,
+            "score": 0.695170454545
+          },
+          "fast": {
+            "budget_headroom": 0.09993775317099995,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.150062246829,
+            "budget_utilization": 0.9200497974632,
+            "model_counts": {
+              "ax31": 347,
+              "ax31-light": 533,
+              "axk1-think": 0
+            },
+            "quality_score": 0.676136363636,
+            "score": 0.676136363636
+          },
+          "premium": {
+            "budget_headroom": 1.040491720736,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 2.959508279264,
+            "budget_utilization": 0.739877069816,
+            "model_counts": {
+              "ax31": 693,
+              "ax31-light": 83,
+              "axk1-think": 104
+            },
+            "quality_score": 0.740056818182,
+            "score": 0.740056818182
+          }
+        }
+      },
+      "pros": [
+        "Train+Dev 전체로 Direct Uplift 계수를 다시 적합한 제출 가능 artifact다.",
+        "세 등급 비용 비율이 1.150/1.671/2.960으로 여유가 크다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/uplift-full-public-dev.json",
+        "sha256": "1c91ccca7845115c06891525306285def66840c817b2adc202d20e62c0c82564"
+      },
+      "status": "rejected",
+      "title": "Direct Uplift Ridge Full Public",
+      "warnings": [
+        "Dev가 학습에 포함된 배포 확인값이다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "experiments/artifacts/uplift-train-only.v1.json",
+        "sha256": "fd565e72999a50e42e0afcd3735e3e534e91a89dd79d0155e94ad05d2ad95b79"
+      },
+      "commands": [
+        "VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=src .venv-data/bin/python tools/train_uplift_router.py --input data/materialized/train/inputs.json --outcomes data/train/outcomes.json --artifact experiments/artifacts/uplift-train-only.v1.json --report build/experiments/uplift-v1/training-report.json"
+      ],
+      "cons": [
+        "공정 Dev 0.685966으로 Ridge Train-only보다 낮다.",
+        "Balanced에서 K1을 전혀 선택하지 않아 품질 상한이 낮아졌다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "template-group-oof-train-to-dev",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "learned-uplift",
+      "id": "uplift-ridge-train-only-v1",
+      "metrics": {
+        "final_score": 0.685965909091,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.39125430613,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.60874569387,
+            "budget_utilization": 0.804372846935,
+            "model_counts": {
+              "ax31": 783,
+              "ax31-light": 97,
+              "axk1-think": 0
+            },
+            "quality_score": 0.687215909091,
+            "score": 0.687215909091
+          },
+          "fast": {
+            "budget_headroom": 0.1224195536249999,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.127580446375,
+            "budget_utilization": 0.9020643571000001,
+            "model_counts": {
+              "ax31": 335,
+              "ax31-light": 545,
+              "axk1-think": 0
+            },
+            "quality_score": 0.658522727273,
+            "score": 0.658522727273
+          },
+          "premium": {
+            "budget_headroom": 1.30555867037,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 2.69444132963,
+            "budget_utilization": 0.6736103324075,
+            "model_counts": {
+              "ax31": 726,
+              "ax31-light": 78,
+              "axk1-think": 76
+            },
+            "quality_score": 0.721306818182,
+            "score": 0.721306818182
+          }
+        }
+      },
+      "pros": [
+        "Light 대비 AX31·K1 점수 상승량을 직접 학습한다.",
+        "최악 OOF fold까지 비용 목표를 통과하도록 안전계수를 선택한다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/uplift-train-only-dev.json",
+        "sha256": "781bdaf879d02f145e32b6c45d5c698e48ab7eccad8905565870dd5b116f1a99"
+      },
+      "status": "rejected",
+      "title": "Direct Uplift Ridge v1",
+      "warnings": []
+    }
+  ],
+  "report_title": "OSSP Router Experiment Comparison",
+  "schema_version": 1
+}

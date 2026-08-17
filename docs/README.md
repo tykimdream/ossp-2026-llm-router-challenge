@@ -14,6 +14,14 @@ SPDX-License-Identifier: Apache-2.0
 
 ## 필요할 때 참고
 
+- [ROUTER_IMPLEMENTATION.md](ROUTER_IMPLEMENTATION.md): 이 fork의 참가 라우터,
+  학습 재현과 공개 검증 결과
+- [SUBMISSION_ROUTER.md](SUBMISSION_ROUTER.md): 활성 제출 진입점과 결정론 경계
+- [ROUTER_BENCHMARKS.md](ROUTER_BENCHMARKS.md): 역대 라우터 성능·비용·장단점 표
+- [ROBUST_V3_ADVERSARIAL_REVIEW.md](ROBUST_V3_ADVERSARIAL_REVIEW.md): V2 공격
+  리뷰, V3 보완점과 V1·V2·V3 비교
+- [EXPERIMENT_COMPARISON.md](EXPERIMENT_COMPARISON.md): Ridge·휴리스틱·하이브리드
+  실험의 공정성, 점수와 예산 사용률 비교
 - [SCORING.md](SCORING.md): 비용, 예산 한도, 등급별 점수 계산
 - [ENFORCEMENT.md](ENFORCEMENT.md): 재실행, 실행 실패와 전체 실격의 구분
 - [DATA_LICENSES.md](../DATA_LICENSES.md): 자료별 라이선스와 귀속

@@ -24,6 +24,13 @@ class SubmissionRouterTest(unittest.TestCase):
         cls.policy = load_bundled_policy()
         cls.artifact = competition.load_artifact()
 
+    def test_default_artifact_is_risk_v4(self) -> None:
+        self.assertEqual(512, self.artifact.hash_bins)
+        self.assertEqual(
+            "pooled-and-worst-template-fold",
+            self.artifact.training_summary["budget_calibration"],
+        )
+
     def test_public_path_matches_learned_router(self) -> None:
         for tier in ("fast", "balanced", "premium"):
             expected = competition.make_submission(

@@ -36,7 +36,8 @@ from .protocol import (
 
 
 ARTIFACT_TYPE = "ossp-competition-linear-v1"
-DEFAULT_ARTIFACT = "competition-router.v1.json"
+# v4 won the fair Train-only -> Dev gate and is the immutable submission default.
+DEFAULT_ARTIFACT = "risk-router.v4.json"
 FEATURE_VERSION = 1
 HASH_BINS = 256
 PREMIUM_AX31_FILL_SAFETY = 0.65
