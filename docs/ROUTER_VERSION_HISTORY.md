@@ -45,3 +45,34 @@ hash-regex 정책은 예산 한도에 지나치게 가까웠습니다. 학습형
 - 선형 score 회귀는 희소한 모델 상승 사건을 충분히 분리하지 못합니다.
 - log-cost 오차가 분포 이동 시 예산 위험으로 이어질 수 있습니다.
 - 롤백 artifact: `competition-router.v1.json`
+
+## v2 — Hybrid gate와 고정 비용 stress
+
+### 문제
+
+v1은 전체 점수는 높았지만 K1의 긴 출력 비용 꼬리와 분포 이동을 직접 방어하지
+못했습니다. 특히 강한 모델의 예측 비용이 작게 추정되면 한 tier 전체가 0점이
+될 수 있었습니다.
+
+### 선택
+
+- Light 대비 직접 uplift 예측을 Fast와 Balanced 후보로 분리
+- K1을 코드·수학·숫자 등 근거가 있는 prompt로 제한하는 Hybrid gate
+- AX31 `1.02배`, K1 `1.05배`의 고정 비용 stress 시나리오
+- 기본·stress 시나리오의 최대 예측 비용으로 batch 선택
+- Fast에서 K1을 금지하고 Premium 잔여 예산을 AX31로 채움
+
+### 검증과 판단
+
+- Train-only component의 Dev 참고 점수: `0.687983`
+- 비용 비율: Fast `1.122335`, Balanced `1.588707`, Premium `3.299693`
+- 전체 공개 refit의 Dev 참고 점수: `0.705511`
+- v1보다 비용 여유는 커졌지만 predictor 조합과 stress 배수 선택에 Dev가
+  관여했으므로 공정 champion으로 승격하지 않고 실험 후보로 보존했습니다.
+
+### 기각한 대안과 롤백
+
+- Train 비용만으로 보정한 Hybrid는 Dev Balanced `2.056211`로 공식 한도를
+  넘어서 기각했습니다.
+- Extra Trees는 작은 표본에서 과적합해 Dev `0.675710`에 그쳤습니다.
+- 롤백 지점은 v1의 `competition-router.v1.json`입니다.

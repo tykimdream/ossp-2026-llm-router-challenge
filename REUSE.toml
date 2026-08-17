@@ -23,6 +23,7 @@ path = [
   "data/train/outcomes.json",
   "schemas/*.json",
   "src/ossp_router/resources/*.json",
+  "experiments/**/*.json",
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright 2026 SK TELECOM CO., LTD."
