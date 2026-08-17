@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 from typing import Optional, Sequence, Tuple, Union
 
-from . import aggressive_v5, competition
+from . import aggressive_v5, aggressive_v6, competition
 from .heuristic import episode_text, make_submission as make_heuristic_submission
 from .heuristic import write_submission_atomic
 from .protocol import (
@@ -38,6 +38,7 @@ MAX_LEARNED_CHARACTERS = 30_000_000
 SubmissionArtifact = Union[
     competition.CompetitionArtifact,
     aggressive_v5.AggressiveArtifact,
+    aggressive_v6.V6Artifact,
 ]
 
 
@@ -62,7 +63,11 @@ def _canonical_batch(inputs: InputBatch) -> InputBatch:
     )
 
 
-def _learned_path_allowed(inputs: InputBatch) -> bool:
+def _learned_path_allowed(
+    inputs: InputBatch, artifact: Optional[SubmissionArtifact] = None
+) -> bool:
+    if isinstance(artifact, aggressive_v6.V6Artifact):
+        return aggressive_v6.learned_path_allowed(inputs)
     return (
         len(inputs.episodes) <= MAX_LEARNED_EPISODES
         and sum(len(episode_text(episode)) for episode in inputs.episodes)
@@ -98,7 +103,7 @@ def make_submission(
         raise ProtocolError(f"알 수 없는 tier: {tier}")
     # Check the symmetric workload limits before the O(n log n) canonical sort.
     # The fallback is pointwise, so it is already independent of input order.
-    if not _learned_path_allowed(inputs):
+    if not _learned_path_allowed(inputs, artifact):
         return make_heuristic_submission(
             inputs,
             policy,
@@ -106,7 +111,9 @@ def make_submission(
             strategy="prompt-heuristic",
         )
     canonical = _canonical_batch(inputs)
-    if isinstance(artifact, aggressive_v5.AggressiveArtifact):
+    if isinstance(artifact, aggressive_v6.V6Artifact):
+        routed = aggressive_v6.make_submission(canonical, policy, artifact, tier)
+    elif isinstance(artifact, aggressive_v5.AggressiveArtifact):
         routed = aggressive_v5.make_submission(canonical, policy, artifact, tier)
     else:
         routed = competition.make_submission(canonical, policy, artifact, tier)
@@ -115,7 +122,7 @@ def make_submission(
 
 def load_submission_artifact(path: Optional[Path] = None) -> SubmissionArtifact:
     if path is None:
-        return aggressive_v5.load_artifact()
+        return aggressive_v6.load_artifact()
     value = load_json(path)
     if isinstance(value, dict) and value.get("artifact_type") == aggressive_v5.ARTIFACT_TYPE:
         return aggressive_v5.parse_artifact(value)

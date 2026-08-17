@@ -190,9 +190,9 @@ def _hashed_features(text: str, hash_bins: int) -> Tuple[float, ...]:
     return tuple(bins)
 
 
-def raw_feature_vector(episode: Episode, hash_bins: int = HASH_BINS) -> Tuple[float, ...]:
-    if hash_bins < 16 or hash_bins & (hash_bins - 1):
-        raise ValueError("hash_bins는 16 이상의 2의 거듭제곱이어야 합니다.")
+def dense_feature_vector(episode: Episode) -> Tuple[float, ...]:
+    """Return the non-hashed features shared by router generations."""
+
     base = extract_features(episode)
     text = episode_text(episode)
     characters = len(text)
@@ -246,7 +246,15 @@ def raw_feature_vector(episode: Episode, hash_bins: int = HASH_BINS) -> Tuple[fl
         float("$" in text or "%" in text),
     )
     assert len(dense) == len(DENSE_FEATURE_NAMES)
-    return dense + _hashed_features(text, hash_bins)
+    return dense
+
+
+def raw_feature_vector(episode: Episode, hash_bins: int = HASH_BINS) -> Tuple[float, ...]:
+    if hash_bins < 16 or hash_bins & (hash_bins - 1):
+        raise ValueError("hash_bins는 16 이상의 2의 거듭제곱이어야 합니다.")
+    return dense_feature_vector(episode) + _hashed_features(
+        episode_text(episode), hash_bins
+    )
 
 
 def _object(value: Any, label: str) -> Mapping[str, Any]:

@@ -186,3 +186,41 @@ Premium의 서로 다른 bias-variance 구간을 활용하지 못했습니다. �
   아니며, 한도 초과 시 tier 전체가 0점이 되는 위험은 남습니다.
 - 즉시 롤백 가능한 이전 champion은 `risk-router.v4.json`; v5 artifact는
   `aggressive-router.v5.json`입니다.
+
+## v6 — V5 operational hardening
+
+### 문제
+
+V4/V5 합성 엣지 평가에서 pretty submission JSON의 4 MiB 초과, token-density
+입력의 약 189 MiB RSS, 반복 prompt 재계산, ensemble dot product 중복과 문자
+수만 보는 workload guard가 발견됐습니다. V5의 공격적 비용 목표도 한도 초과가
+tier 전체 0점이 되는 규칙에 비해 위험했습니다.
+
+### 선택
+
+- V5 학습 계수는 동결하고 원시 특징 공간의 단일 선형 head로 컴파일
+- word 1·2·3-gram을 중간 리스트 없이 streaming hash
+- 같은 prompt/messages의 prediction을 내용 기반으로 cache
+- 문항·문자뿐 아니라 message와 `문자 + 3×token` work unit guard 추가
+- 제출 JSON만 compact 직렬화
+- 예측 비용 목표를 Fast/Balanced/Premium `1.15/1.80/3.00`으로 하향
+- 순차 greedy 없이 고정 48회 공통 벌점으로 모든 문항을 전역 동시 배정
+
+### 검증과 판단
+
+- 공정 Train-only → Dev: `0.685256`, 비용 `1.142155 / 1.569580 / 2.523548`
+- V5 공정 Dev 대비 점수 `-0.009915`, 세 tier 예산 초과 0
+- V5/V6 엣지 84회 모두 성공, timeout·형식·4 MiB 실패 0
+- V6 42회 합계 `100.288초`, V5 `132.779초`
+- 50만-token RSS `34.0 MiB`, V5 `187.2 MiB`
+- ARM64 컨테이너 공개 2,640문항 `12.762 / 12.746 / 12.727초`, 세 tier 통과
+- 1,024문항 역순·ID 교체 감사: 세 tier 내용별 불일치 0
+- 운영 실패와 예산 위험 최소화를 우선하여 V6를 활성 제출 경로로 채택
+
+### 안전 한계와 롤백
+
+- 숨은 실제 출력 token을 모르므로 Light 외 모델을 쓰는 한 절대 비용 보장은
+  불가능합니다. 공개 통과와 안전 여유를 보장으로 표현하지 않습니다.
+- 의미적 hard-tail 오분류와 hard guard의 배치 전체 정책 절벽은 남아 있습니다.
+- 점수 우선 롤백은 V5 artifact와 `aggressive_v5.py`로 재현할 수 있습니다.
+- 구현·수치·잔여 위험은 [`ROUTER_V6.md`](ROUTER_V6.md)에 기록합니다.
