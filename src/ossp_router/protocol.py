@@ -645,6 +645,17 @@ def dumps_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
 
 
+def dumps_submission_json(value: Any) -> str:
+    """Serialize the size-bounded runtime submission without display whitespace."""
+
+    return json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ) + "\n"
+
+
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(dumps_json(value), encoding="utf-8")

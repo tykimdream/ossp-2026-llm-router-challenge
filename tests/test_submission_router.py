@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest import mock
 
-from ossp_router import aggressive_v5, heuristic, submission
+from ossp_router import aggressive_v6, heuristic, submission
 from ossp_router.protocol import Episode, InputBatch, load_bundled_policy, load_input
 
 
@@ -24,17 +24,17 @@ class SubmissionRouterTest(unittest.TestCase):
         cls.policy = load_bundled_policy()
         cls.artifact = submission.load_submission_artifact()
 
-    def test_default_artifact_is_aggressive_v5(self) -> None:
+    def test_default_artifact_is_aggressive_v6(self) -> None:
         self.assertEqual(512, self.artifact.hash_bins)
         self.assertEqual(
             "aggressive-pooled-and-worst-template-fold",
-            self.artifact.training_summary["budget_calibration"],
+            self.artifact.base.training_summary["budget_calibration"],
         )
-        self.assertEqual(6, len(self.artifact.models))
+        self.assertEqual(6, len(self.artifact.base.models))
 
     def test_public_path_matches_learned_router(self) -> None:
         for tier in ("fast", "balanced", "premium"):
-            expected = aggressive_v5.make_submission(
+            expected = aggressive_v6.make_submission(
                 self.inputs, self.policy, self.artifact, tier
             )
             actual = submission.make_submission(
@@ -82,7 +82,7 @@ class SubmissionRouterTest(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_large_workload_guard_is_deterministic_heuristic(self) -> None:
-        with mock.patch.object(submission, "MAX_LEARNED_EPISODES", 1), mock.patch.object(
+        with mock.patch.object(aggressive_v6, "MAX_LEARNED_EPISODES", 1), mock.patch.object(
             submission, "_canonical_batch", side_effect=AssertionError("sorted too early")
         ):
             actual = submission.make_submission(

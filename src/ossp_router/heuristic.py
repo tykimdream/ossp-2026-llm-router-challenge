@@ -21,7 +21,7 @@ from .protocol import (
     ProtocolError,
     RoutingPolicy,
     Submission,
-    dumps_json,
+    dumps_submission_json,
     load_bundled_policy,
     load_input,
     load_policy,
@@ -180,7 +180,7 @@ def write_submission_atomic(path: Path, submission: Submission) -> None:
     temporary = path.with_name(f".{path.name}.tmp-{os.getpid()}")
     try:
         temporary.write_text(
-            dumps_json(submission_to_dict(submission)),
+            dumps_submission_json(submission_to_dict(submission)),
             encoding="utf-8",
         )
         temporary.chmod(0o644)

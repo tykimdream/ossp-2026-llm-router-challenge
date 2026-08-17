@@ -20,6 +20,12 @@ SPDX-License-Identifier: Apache-2.0
 - [ROUTER_BENCHMARKS.md](ROUTER_BENCHMARKS.md): 역대 라우터 성능·비용·장단점 표
 - [ROBUST_V3_ADVERSARIAL_REVIEW.md](ROBUST_V3_ADVERSARIAL_REVIEW.md): V2 공격
   리뷰, V3 보완점과 V1·V2·V3 비교
+- [EDGE_CASES.md](EDGE_CASES.md): 시간·메모리·출력 크기·결정론 합성 엣지케이스
+- [EDGE_CASE_RESULTS.md](EDGE_CASE_RESULTS.md): V4/V5 엣지케이스 전체 측정표
+- [EDGE_CASE_ADVERSARIAL_REVIEW.md](EDGE_CASE_ADVERSARIAL_REVIEW.md): 취약점,
+  근거와 다음 버전 개선 우선순위
+- [ROUTER_V6.md](ROUTER_V6.md): V6 구현, 공개 outcome 비교와 잔여 위험
+- [EDGE_CASE_RESULTS_V6.md](EDGE_CASE_RESULTS_V6.md): V5/V6 엣지케이스 전체 측정표
 - [EXPERIMENT_COMPARISON.md](EXPERIMENT_COMPARISON.md): Ridge·휴리스틱·하이브리드
   실험의 공정성, 점수와 예산 사용률 비교
 - [SCORING.md](SCORING.md): 비용, 예산 한도, 등급별 점수 계산

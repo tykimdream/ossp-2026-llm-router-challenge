@@ -8,6 +8,7 @@ src/**
 src/ossp_router/**
 !src/ossp_router/__init__.py
 !src/ossp_router/aggressive_v5.py
+!src/ossp_router/aggressive_v6.py
 !src/ossp_router/cli.py
 !src/ossp_router/competition.py
 !src/ossp_router/hybrid.py

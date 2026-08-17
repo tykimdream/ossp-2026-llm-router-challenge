@@ -13,7 +13,8 @@ SPDX-License-Identifier: Apache-2.0
 
 | 라우터 | 평가 | 점수 | Fast | Balanced | Premium | 결정론 | 현재 판단 |
 | --- | --- | ---: | ---: | ---: | ---: | --- | --- |
-| Aggressive v5 Full Public | 참고 | 0.714915 | 1.178468 | 1.753652 | 2.893612 | 강화됨 | **활성 제출 경로** |
+| Aggressive v6 Full Public | 참고 | 0.708722 | 1.138882 | 1.601014 | 2.605352 | 강화됨 | **활성 제출 경로** |
+| Aggressive v5 Full Public | 참고 | 0.714915 | 1.178468 | 1.753652 | 2.893612 | 강화됨 | 이전 활성 경로 |
 | Risk Router v4 Full Public | 참고 | 0.710341 | 1.164139 | 1.638858 | 3.021285 | 강화됨 | 이전 활성 경로 |
 | Submission Router v1 | 참고 | **0.716477** | 1.168267 | 1.834377 | 3.367389 | 강화됨 | 이전 활성 경로 |
 | Ridge Full Public | 참고 | **0.716477** | 1.168267 | 1.834377 | 3.367389 | 예 | 이전 predictor |
@@ -23,7 +24,8 @@ SPDX-License-Identifier: Apache-2.0
 | Uplift Full Public | 참고 | 0.701023 | 1.150062 | 1.670668 | 2.959508 | 예 | 기각·보존 |
 | Provided Hash Regex | 참고 | 0.695369 | 1.235989 | 1.961506 | 3.985205 | 예 | 한도에 너무 근접 |
 | Robust v2 Train-only 구성 | Dev 조정 | 0.687983 | 1.122335 | 1.588707 | 3.299693 | 강화됨 | 안전 후보, 공정 주장 안 함 |
-| Aggressive v5 Train-only | 공정 | **0.695170** | 1.143321 | 1.661573 | 3.072558 | 강화됨 | **현재 champion** |
+| Aggressive v5 Train-only | 공정 | **0.695170** | 1.143321 | 1.661573 | 3.072558 | 강화됨 | 점수 champion |
+| Aggressive v6 Train-only | 공정 | 0.685256 | 1.142155 | 1.569580 | 2.523548 | 강화됨 | 운영 안전 우선 |
 | Risk Router v4 Train-only | 공정 | 0.689318 | 1.157468 | 1.596435 | 2.725700 | 강화됨 | 이전 champion |
 | Ridge Train-only | 공정 | **0.687187** | 1.190838 | 1.884889 | 2.923078 | 예 | 공정 비교 기준 |
 | Hybrid Safe | 공정 | 0.686903 | 1.158051 | 1.832795 | 3.365117 | 예 | Ridge보다 0.000284 낮음 |
@@ -42,7 +44,8 @@ SPDX-License-Identifier: Apache-2.0
 
 | 계열 | 가장 잘하는 것 | 주요 장점 | 주요 약점·예외 |
 | --- | --- | --- | --- |
-| Submission wrapper | 제출 안정성 | canonical 정렬, 대형 입력 fallback, 활성 경로 분리 | 기반 Ridge의 비용 예측 오차는 그대로 존재 |
+| Aggressive v6 | 운영 안전성 | compact 출력, streaming hash, 중복 cache, 보수적 비용 목표 | 공정 Dev 점수 약 0.0099 하락, 절대 비용 보장은 아님 |
+| Submission wrapper | 제출 안정성 | canonical 정렬, multi-signal workload fallback, 활성 경로 분리 | guard 경계에서 배치 전체 정책 절벽 |
 | Aggressive v5 | 점수 상방 | tier별 alpha ensemble, 공격적 OOF 예산 목표, 공유 특징 추출 | v4보다 Premium 비용과 ensemble 복잡도 증가 |
 | Ridge | 전체 점수 | 단순·빠름, 공개 확인 점수 최고 | 선형 관계, 분포 이동 시 비용 오차 |
 | Hybrid | 위험한 선택 차단 | Fast K1 금지, 규칙 설명 가능 | 규칙 밖의 좋은 문제도 차단 가능 |
@@ -57,6 +60,11 @@ SPDX-License-Identifier: Apache-2.0
 
 | 검사 | 결과 |
 | --- | --- |
+| 활성 v6 이미지 공개 2,640문항 | Fast/Balanced/Premium `12.762 / 12.746 / 12.727초` |
+| 활성 v6 엣지케이스 | `42/42` 성공, timeout·형식·4 MiB 실패 `0` |
+| v6 50만-token 입력 | 최대 RSS `34.0 MiB` (v5 `187.2 MiB`) |
+| v6 동일 prompt 5,000개 | `0.412~0.419초` (v5 `4.033~6.242초`) |
+| v6 엣지케이스 42회 합계 | `100.288초` (v5 `132.779초`) |
 | 활성 v5 이미지 공개 2,640문항 Fast | `13.592초 / 90초` |
 | 활성 v5 이미지 공개 2,640문항 Balanced | `12.434초 / 90초` |
 | 활성 v5 이미지 공개 2,640문항 Premium | `14.170초 / 90초` |
@@ -71,10 +79,12 @@ SPDX-License-Identifier: Apache-2.0
 | V3 Dev 역순·ID 전면 교체 감사 | Premium 내용별 선택 불일치 `0/880` |
 | 활성 v4 Dev 역순·ID·split·challenge 변경 감사 | 세 등급 내용별 선택 불일치 `0/880` |
 | 활성 v5 Dev 역순·ID·split·challenge 변경 감사 | 세 등급 내용별 선택 불일치 `0/880` |
+| 활성 v6 1,024문항 역순·ID 변경 감사 | 세 등급 내용별 선택 불일치 `0/1,024` |
 
 점수·비용의 원본과 자동 생성 그래프는
 [`EXPERIMENT_COMPARISON.md`](EXPERIMENT_COMPARISON.md), 제출 경계와 결정론은
 [`SUBMISSION_ROUTER.md`](SUBMISSION_ROUTER.md), V2 공격 리뷰와 V3의 정확한
 트레이드오프는
 [`ROBUST_V3_ADVERSARIAL_REVIEW.md`](ROBUST_V3_ADVERSARIAL_REVIEW.md)를
-참고하십시오.
+참고하십시오. V6의 운영 변경과 적대적 평가는
+[`ROUTER_V6.md`](ROUTER_V6.md)에 있습니다.
