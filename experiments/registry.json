@@ -1,6 +1,195 @@
 {
   "experiments": [
     {
+      "artifact": {
+        "path": "src/ossp_router/resources/aggressive-router.v5.json",
+        "sha256": "ae76686bc84dcc42c5cccaafe26107d281608e1f683ac2f5c4f2751069c16f7d"
+      },
+      "commands": [
+        "VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=src:tools .venv-data/bin/python tools/train_aggressive_router_v5.py --input build/training/public-train-dev-inputs.json --outcomes build/training/public-train-dev-outcomes.json --artifact src/ossp_router/resources/aggressive-router.v5.json --report experiments/results/aggressive-v5-full-training.json"
+      ],
+      "cons": [
+        "학습에 포함된 Dev 평가이므로 일반화 점수가 아니다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": false,
+        "protocol": "full-public-refit-check",
+        "trained_on": "train+dev",
+        "validation_tuned": true
+      },
+      "family": "tier-specific-ridge-ensemble",
+      "id": "aggressive-v5-active",
+      "metrics": {
+        "final_score": 0.714914772727,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.24634784275799992,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.753652157242,
+            "budget_utilization": 0.876826078621,
+            "model_counts": {
+              "ax31": 741,
+              "ax31-light": 125,
+              "axk1-think": 14
+            },
+            "quality_score": 0.708806818182,
+            "score": 0.708806818182
+          },
+          "fast": {
+            "budget_headroom": 0.07153189667800008,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.178468103322,
+            "budget_utilization": 0.9427744826575999,
+            "model_counts": {
+              "ax31": 335,
+              "ax31-light": 545,
+              "axk1-think": 0
+            },
+            "quality_score": 0.690625,
+            "score": 0.690625
+          },
+          "premium": {
+            "budget_headroom": 1.1063883425680001,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 2.893611657432,
+            "budget_utilization": 0.723402914358,
+            "model_counts": {
+              "ax31": 637,
+              "ax31-light": 135,
+              "axk1-think": 108
+            },
+            "quality_score": 0.753409090909,
+            "score": 0.753409090909
+          }
+        }
+      },
+      "pros": [
+        "Train+Dev refit의 Dev 참고 점수 0.714915로 v4의 0.710341을 개선했다.",
+        "전체 공개 실제 점수도 0.703277로 v4의 0.696667을 개선했다.",
+        "공식 컨테이너 런타임이 세 등급 모두 14.2초 이하다."
+      ],
+      "runtime": {
+        "passed": true,
+        "platform": "linux/arm64",
+        "tiers": {
+          "balanced": {
+            "elapsed_seconds_max": 12.434137958,
+            "passed": true
+          },
+          "fast": {
+            "elapsed_seconds_max": 13.591917791,
+            "passed": true
+          },
+          "premium": {
+            "elapsed_seconds_max": 14.170177042,
+            "passed": true
+          }
+        }
+      },
+      "runtime_report": {
+        "path": "experiments/results/aggressive-v5-runtime.json",
+        "sha256": "d67e9354dd40d87ec668fb06fa6ad3aedf5e5121db95c8f467d87d1476516e9c"
+      },
+      "score_report": {
+        "path": "experiments/results/aggressive-v5-full-dev.json",
+        "sha256": "b3676efecc62ac7c99f5f5728b32ad975e8361a29cd3cb7c1b4638565068c945"
+      },
+      "status": "candidate",
+      "title": "Aggressive Router v5 Full Public",
+      "warnings": [
+        "공정 승격 근거는 aggressive-v5-train-only 항목을 사용한다."
+      ]
+    },
+    {
+      "artifact": {
+        "path": "experiments/artifacts/aggressive-v5-train-only.v1.json",
+        "sha256": "ffb44d3430ec6e2f6c655775c9f3b1164f5df5557098f2d113b848c9e1a4e0f9"
+      },
+      "commands": [
+        "VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=src:tools .venv-data/bin/python tools/train_aggressive_router_v5.py --input data/materialized/train/inputs.json --outcomes data/train/outcomes.json --artifact experiments/artifacts/aggressive-v5-train-only.v1.json --report experiments/results/aggressive-v5-train-only-training.json"
+      ],
+      "cons": [
+        "공개 Dev는 이전 버전 검증에서 반복 관측된 public validation이다.",
+        "숨은 출력 토큰에 대한 수학적 절대 예산 보장은 아니다."
+      ],
+      "evaluation": {
+        "evaluated_on": "dev",
+        "fair_holdout": true,
+        "protocol": "template-group-aggressive-worst-fold-train-to-dev",
+        "trained_on": "train",
+        "validation_tuned": false
+      },
+      "family": "tier-specific-ridge-ensemble",
+      "id": "aggressive-v5-train-only",
+      "metrics": {
+        "final_score": 0.695170454545,
+        "tiers": {
+          "balanced": {
+            "budget_headroom": 0.33842718081900003,
+            "budget_limit": 2.0,
+            "budget_passed": true,
+            "budget_ratio": 1.661572819181,
+            "budget_utilization": 0.8307864095905,
+            "model_counts": {
+              "ax31": 786,
+              "ax31-light": 90,
+              "axk1-think": 4
+            },
+            "quality_score": 0.689772727273,
+            "score": 0.689772727273
+          },
+          "fast": {
+            "budget_headroom": 0.10667918222100004,
+            "budget_limit": 1.25,
+            "budget_passed": true,
+            "budget_ratio": 1.143320817779,
+            "budget_utilization": 0.9146566542232,
+            "model_counts": {
+              "ax31": 318,
+              "ax31-light": 562,
+              "axk1-think": 0
+            },
+            "quality_score": 0.667045454545,
+            "score": 0.667045454545
+          },
+          "premium": {
+            "budget_headroom": 0.9274421515090001,
+            "budget_limit": 4.0,
+            "budget_passed": true,
+            "budget_ratio": 3.072557848491,
+            "budget_utilization": 0.76813946212275,
+            "model_counts": {
+              "ax31": 662,
+              "ax31-light": 99,
+              "axk1-think": 119
+            },
+            "quality_score": 0.738068181818,
+            "score": 0.738068181818
+          }
+        }
+      },
+      "pros": [
+        "v4 대비 공정 Dev 점수 +0.005852를 확보했다.",
+        "tier별 alpha 앙상블로 Fast와 Premium의 서로 다른 일반화 구간을 사용한다.",
+        "모든 관측 비용과 Train OOF 최악 fold가 공식 한도 아래다."
+      ],
+      "runtime": null,
+      "runtime_report": null,
+      "score_report": {
+        "path": "experiments/results/aggressive-v5-train-only-dev.json",
+        "sha256": "ec91397b5c0df052584673c0dc3265b46b51cf424ff9dd136aec77fe9333bd58"
+      },
+      "status": "champion",
+      "title": "Aggressive Router v5 Train-only",
+      "warnings": [
+        "최종 ensemble은 Train OOF로 고정했지만 public Dev 자체는 완전한 미관측 holdout이 아니다."
+      ]
+    },
+    {
       "artifact": null,
       "commands": [],
       "cons": [
@@ -1013,7 +1202,7 @@
         "path": "experiments/results/risk-v4-train-only-dev.json",
         "sha256": "c3f5f0af5de61a2301e08cffd60a86643f5c650709ecbf785bf23f24d0f692f5"
       },
-      "status": "champion",
+      "status": "reference",
       "title": "Risk Router v4 Train-only",
       "warnings": [
         "런타임 보고서는 동일 구조의 Train+Dev refit 활성 artifact를 측정했다."

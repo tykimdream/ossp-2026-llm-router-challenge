@@ -147,3 +147,42 @@ v3는 비용 여유를 늘렸지만 v1보다 공정 Dev 점수가 낮았습니�
   이 차이를 보장으로 표현하지 않습니다.
 - 롤백 artifact는 `competition-router.v1.json`; v4 재현 artifact는
   `risk-router.v4.json`입니다.
+
+## v5 — Tier-specific aggressive Ridge ensemble
+
+### 문제
+
+v4는 하나의 `alpha=10000` Ridge를 모든 tier에 사용해 안정적이었지만, Fast와
+Premium의 서로 다른 bias-variance 구간을 활용하지 못했습니다. 또한 내부 목표
+`1.18/1.85/3.5`가 공식 한도보다 크게 낮아 대회 점수의 상방을 충분히 쓰지
+못했습니다.
+
+### 선택
+
+- 512-bin 특징은 유지하고 tier마다 Train OOF 상위 Ridge alpha를 고정 ensemble
+- Fast `300/500/5000`, Balanced `10000`, Premium `3000/10000/15000`
+- 공격적 내부 목표를 Fast `1.23`, Balanced `1.95`, Premium `3.85`로 상향
+- pooled 비용과 최악 template fold가 모두 내부 목표 아래인 안전계수만 허용
+- Fast K1 금지, Premium AX31 fill, 고정 48회 선택 유지
+- 문항 특징은 한 번만 추출한 뒤 여러 head에 공유해 ensemble 런타임을 억제
+
+### 검증과 판단
+
+- Train OOF 점수: `0.670568`
+- 공정 Train-only → Dev 점수: `0.695170` (v4 `0.689318`, `+0.005852`)
+- 공정 비용: Fast `1.143321`, Balanced `1.661573`, Premium `3.072558`
+- Train OOF 최악 fold: Fast `1.200492`, Balanced `1.913526`,
+  Premium `3.771347`
+- 전체 공개 refit 실제 점수: `0.703277` (v4 `0.696667`)
+- 전체 공개 실제 비용: `1.152316 / 1.744540 / 2.931772`
+- ARM64 컨테이너 런타임: `13.592 / 12.434 / 14.170초`
+- Dev 역순·ID·split·challenge 교체 감사: 세 등급 불일치 `0/880`
+- 점수, 비용, 결정론, 런타임 gate를 모두 통과하여 v5를 활성화했습니다.
+
+### 안전 한계와 롤백
+
+- v5는 하방 최소화보다 공식 한도에 가까운 공격적 목표로 상방을 우선합니다.
+- 공개 최악 fold는 모두 공식 한도 아래지만 숨은 출력 토큰의 절대 보장은
+  아니며, 한도 초과 시 tier 전체가 0점이 되는 위험은 남습니다.
+- 즉시 롤백 가능한 이전 champion은 `risk-router.v4.json`; v5 artifact는
+  `aggressive-router.v5.json`입니다.

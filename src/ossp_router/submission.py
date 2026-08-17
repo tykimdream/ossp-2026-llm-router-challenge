@@ -9,9 +9,9 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Optional, Sequence, Tuple
+from typing import Optional, Sequence, Tuple, Union
 
-from . import competition
+from . import aggressive_v5, competition
 from .heuristic import episode_text, make_submission as make_heuristic_submission
 from .heuristic import write_submission_atomic
 from .protocol import (
@@ -24,6 +24,7 @@ from .protocol import (
     Submission,
     load_bundled_policy,
     load_input,
+    load_json,
     load_policy,
     parse_submission,
     submission_to_dict,
@@ -34,6 +35,10 @@ from .protocol import (
 # 2,640-episode workload is about 11.8 MiB and remains on the learned path.
 MAX_LEARNED_EPISODES = 6_000
 MAX_LEARNED_CHARACTERS = 30_000_000
+SubmissionArtifact = Union[
+    competition.CompetitionArtifact,
+    aggressive_v5.AggressiveArtifact,
+]
 
 
 def _content_key(episode: Episode) -> Tuple[int, str]:
@@ -84,7 +89,7 @@ def _restore_input_order(inputs: InputBatch, routed: Submission) -> Submission:
 def make_submission(
     inputs: InputBatch,
     policy: RoutingPolicy,
-    artifact: competition.CompetitionArtifact,
+    artifact: SubmissionArtifact,
     tier: str,
 ) -> Submission:
     """Route once with no randomness, clock checks, or input-order features."""
@@ -101,8 +106,20 @@ def make_submission(
             strategy="prompt-heuristic",
         )
     canonical = _canonical_batch(inputs)
-    routed = competition.make_submission(canonical, policy, artifact, tier)
+    if isinstance(artifact, aggressive_v5.AggressiveArtifact):
+        routed = aggressive_v5.make_submission(canonical, policy, artifact, tier)
+    else:
+        routed = competition.make_submission(canonical, policy, artifact, tier)
     return _restore_input_order(inputs, routed)
+
+
+def load_submission_artifact(path: Optional[Path] = None) -> SubmissionArtifact:
+    if path is None:
+        return aggressive_v5.load_artifact()
+    value = load_json(path)
+    if isinstance(value, dict) and value.get("artifact_type") == aggressive_v5.ARTIFACT_TYPE:
+        return aggressive_v5.parse_artifact(value)
+    return competition.parse_artifact(value)
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -120,7 +137,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     try:
         inputs = load_input(args.input)
         policy = load_policy(args.policy) if args.policy else load_bundled_policy()
-        artifact = competition.load_artifact(args.artifact)
+        artifact = load_submission_artifact(args.artifact)
         submission = make_submission(inputs, policy, artifact, args.tier)
         write_submission_atomic(args.output, submission)
     except (OSError, ProtocolError, ValueError, KeyError, json.JSONDecodeError) as exc:

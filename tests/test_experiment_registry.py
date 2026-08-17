@@ -28,6 +28,12 @@ class ExperimentRegistryTest(unittest.TestCase):
             experiments["hybrid-train-calibrated-v1"]["metrics"]["tiers"]
             ["balanced"]["budget_passed"]
         )
+        self.assertEqual("champion", experiments["aggressive-v5-train-only"]["status"])
+        self.assertEqual("reference", experiments["risk-router-v4-train-only"]["status"])
+        self.assertGreater(
+            experiments["aggressive-v5-train-only"]["metrics"]["final_score"],
+            experiments["risk-router-v4-train-only"]["metrics"]["final_score"],
+        )
 
     def test_generated_report_links_both_svg_charts(self) -> None:
         markdown = (ROOT / "docs/EXPERIMENT_COMPARISON.md").read_text(
