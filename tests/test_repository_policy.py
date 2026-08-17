@@ -70,6 +70,7 @@ REQUIRED_FILES = {
     "src/ossp_router/orchestrator.py",
     "src/ossp_router/protocol.py",
     "src/ossp_router/robust.py",
+    "src/ossp_router/robust_v3.py",
     "src/ossp_router/public_runtime.py",
     "src/ossp_router/resources/routing-policy.v1.json",
     "src/ossp_router/runtime.py",

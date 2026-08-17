@@ -1,0 +1,122 @@
+{
+  "input": "build/training/public-train-dev-inputs.json",
+  "num_characters": 11169251,
+  "num_episodes": 2640,
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.9.6",
+  "repetitions": 2,
+  "report_type": "ossp-router-version-runtime-v1",
+  "routers": {
+    "v1-submission-ridge": {
+      "balanced": {
+        "decision_sha256": "880efa021897bf4609f1ee6b68d30610d4a2036c7ae85ff454f1d893932aa228",
+        "elapsed_seconds": [
+          14.330574292000001,
+          14.361663333000003
+        ],
+        "elapsed_seconds_max": 14.361663333000003,
+        "elapsed_seconds_median": 14.346118812500002,
+        "repeated_output_identical": true
+      },
+      "fast": {
+        "decision_sha256": "15d0d3f4911f92a5ffec6495fee3c96c9a6002f061ce6b8188c8167439c472cd",
+        "elapsed_seconds": [
+          14.376896,
+          14.351687833999998
+        ],
+        "elapsed_seconds_max": 14.376896,
+        "elapsed_seconds_median": 14.364291917,
+        "repeated_output_identical": true
+      },
+      "premium": {
+        "decision_sha256": "193fe26e640bd69a549373887d59c899c7869295ac2221343b1d39726f5c62a6",
+        "elapsed_seconds": [
+          14.42250729100001,
+          14.363449207999992
+        ],
+        "elapsed_seconds_max": 14.42250729100001,
+        "elapsed_seconds_median": 14.3929782495,
+        "repeated_output_identical": true
+      }
+    },
+    "v2-fixed-scenario": {
+      "balanced": {
+        "decision_sha256": "f3b0f7ef34cd13e581f366a129b145872f2f6529d543ac7f0c59b616a60808c7",
+        "elapsed_seconds": [
+          14.264273708999994,
+          14.264734750000002
+        ],
+        "elapsed_seconds_max": 14.264734750000002,
+        "elapsed_seconds_median": 14.264504229499998,
+        "repeated_output_identical": true
+      },
+      "fast": {
+        "decision_sha256": "c56ebd2fb12701e671753f410e52b06cc979f0a027573cc7e8f26a9f96d46375",
+        "elapsed_seconds": [
+          14.29566908400001,
+          14.257162667000003
+        ],
+        "elapsed_seconds_max": 14.29566908400001,
+        "elapsed_seconds_median": 14.276415875500007,
+        "repeated_output_identical": true
+      },
+      "premium": {
+        "decision_sha256": "8a58d021075cb4719b3e59021a56d80b8a30797365dfd946893a1972f38d147a",
+        "elapsed_seconds": [
+          16.022173750000007,
+          16.15632737499999
+        ],
+        "elapsed_seconds_max": 16.15632737499999,
+        "elapsed_seconds_median": 16.0892505625,
+        "repeated_output_identical": true
+      }
+    },
+    "v3-train-oof-uplift": {
+      "balanced": {
+        "decision_sha256": "06bfc09e6271ffa2fddc2cd7eecceb278f7a80647a19a28d1844aec4d92f3695",
+        "elapsed_seconds": [
+          14.209169374999988,
+          14.226221416000016
+        ],
+        "elapsed_seconds_max": 14.226221416000016,
+        "elapsed_seconds_median": 14.217695395500002,
+        "repeated_output_identical": true
+      },
+      "fast": {
+        "decision_sha256": "c505b73462f3fbb15b79fceb6372626dd6809ed249dd15a2b797020c96329ea8",
+        "elapsed_seconds": [
+          14.259125124999997,
+          14.233763917000005
+        ],
+        "elapsed_seconds_max": 14.259125124999997,
+        "elapsed_seconds_median": 14.246444521,
+        "repeated_output_identical": true
+      },
+      "premium": {
+        "decision_sha256": "654215ce14920483d4eaddceeaf8fd1bf1341315671611b87d9144dfd81575d2",
+        "elapsed_seconds": [
+          14.268117499999988,
+          14.240084749999994
+        ],
+        "elapsed_seconds_max": 14.268117499999988,
+        "elapsed_seconds_median": 14.254101124999991,
+        "repeated_output_identical": true
+      }
+    }
+  },
+  "scope": "in-process routing only; excludes process/container startup",
+  "v3_48_vs_v1_80_step_equivalence": {
+    "balanced": {
+      "identical": true,
+      "mismatches": 0
+    },
+    "fast": {
+      "identical": true,
+      "mismatches": 0
+    },
+    "premium": {
+      "identical": true,
+      "mismatches": 0
+    }
+  }
+}
