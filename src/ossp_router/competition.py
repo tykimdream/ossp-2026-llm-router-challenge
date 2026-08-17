@@ -335,25 +335,43 @@ def _linear(head: LinearHead, values: Sequence[float]) -> float:
     )
 
 
-def predict_episode(
-    episode: Episode, artifact: CompetitionArtifact
-) -> Tuple[Mapping[str, float], Mapping[str, float]]:
-    raw = raw_feature_vector(episode, artifact.hash_bins)
+def predict_linear_features(
+    raw: Sequence[float], artifact: CompetitionArtifact
+) -> Tuple[Tuple[float, ...], Tuple[float, ...]]:
+    """Return unbounded score and log-cost heads for a precomputed feature row."""
+
+    expected = len(artifact.feature_mean)
+    if len(raw) != expected:
+        raise ValueError("artifact와 입력 특징 길이가 다릅니다.")
     values = tuple(
         (value - mean) / scale
         for value, mean, scale in zip(
             raw, artifact.feature_mean, artifact.feature_scale
         )
     )
+    return (
+        tuple(_linear(artifact.score_heads[model_id], values) for model_id in MODEL_IDS),
+        tuple(
+            _linear(artifact.log_cost_heads[model_id], values)
+            for model_id in MODEL_IDS
+        ),
+    )
+
+
+def predict_episode(
+    episode: Episode, artifact: CompetitionArtifact
+) -> Tuple[Mapping[str, float], Mapping[str, float]]:
+    raw = raw_feature_vector(episode, artifact.hash_bins)
+    score_values, log_cost_values = predict_linear_features(raw, artifact)
     scores = {
-        model_id: min(1.0, max(0.0, _linear(artifact.score_heads[model_id], values)))
-        for model_id in MODEL_IDS
+        model_id: min(1.0, max(0.0, score_values[index]))
+        for index, model_id in enumerate(MODEL_IDS)
     }
     costs = {
         model_id: math.exp(
-            min(50.0, max(-50.0, _linear(artifact.log_cost_heads[model_id], values)))
+            min(50.0, max(-50.0, log_cost_values[index]))
         )
-        for model_id in MODEL_IDS
+        for index, model_id in enumerate(MODEL_IDS)
     }
     light = costs[MODEL_IDS[0]]
     costs[MODEL_IDS[1]] = max(costs[MODEL_IDS[1]], light * (1.0 + 1e-12))

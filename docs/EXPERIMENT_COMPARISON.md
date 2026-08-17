@@ -16,6 +16,8 @@ SPDX-License-Identifier: Apache-2.0
 
 | 실험 | 상태 | 공정 홀드아웃 | 최종 점수 | Fast 비용 | Balanced 비용 | Premium 비용 |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
+| Aggressive Router v5 Full Public | candidate | 아니오 | 0.714915 | 1.178468 | 1.753652 | 2.893612 |
+| Aggressive Router v5 Train-only | champion | 예 | 0.695170 | 1.143321 | 1.661573 | 3.072558 |
 | Always Light | reference | 예 | 0.619318 | 1.000000 | 1.000000 | 1.000000 |
 | Extra Trees Uplift Prototype | rejected | 예 | 0.675710 | 1.123850 | 1.625282 | 1.981720 |
 | Provided Hash Regex | reference | 아니오 | 0.695369 | 1.235989 | 1.961506 | 3.985205 |
@@ -27,7 +29,7 @@ SPDX-License-Identifier: Apache-2.0
 | Ridge Full Public | candidate | 아니오 | 0.716477 | 1.168267 | 1.834377 | 3.367389 |
 | Ridge Train-only | rejected | 예 | 0.687187 | 1.190838 | 1.884889 | 2.923078 |
 | Risk Router v4 Active | candidate | 아니오 | 0.710341 | 1.164139 | 1.638858 | 3.021285 |
-| Risk Router v4 Train-only | champion | 예 | 0.689318 | 1.157468 | 1.596435 | 2.725700 |
+| Risk Router v4 Train-only | reference | 예 | 0.689318 | 1.157468 | 1.596435 | 2.725700 |
 | Robust Fixed-Scenario v2 Full Public | rejected | 아니오 | 0.705511 | 1.146125 | 1.647003 | 3.214455 |
 | Robust Fixed-Scenario v2 | rejected | 아니오 | 0.687983 | 1.122335 | 1.588707 | 3.299693 |
 | Robust Train-OOF v3 Full Public | rejected | 아니오 | 0.698693 | 1.152963 | 1.647003 | 2.807513 |
@@ -37,6 +39,51 @@ SPDX-License-Identifier: Apache-2.0
 | Direct Uplift Ridge v1 | rejected | 예 | 0.685966 | 1.127580 | 1.608746 | 2.694441 |
 
 ## 실험별 판단
+
+### Aggressive Router v5 Full Public
+
+- ID: `aggressive-v5-active`
+- 상태: `candidate`
+- 평가: `full-public-refit-check` (`train+dev` → `dev`)
+- 공정 홀드아웃: `no`
+- 최종 점수: `0.714915`
+
+장점:
+
+- Train+Dev refit의 Dev 참고 점수 0.714915로 v4의 0.710341을 개선했다.
+- 전체 공개 실제 점수도 0.703277로 v4의 0.696667을 개선했다.
+- 공식 컨테이너 런타임이 세 등급 모두 14.2초 이하다.
+
+단점:
+
+- 학습에 포함된 Dev 평가이므로 일반화 점수가 아니다.
+
+주의:
+
+- 공정 승격 근거는 aggressive-v5-train-only 항목을 사용한다.
+
+### Aggressive Router v5 Train-only
+
+- ID: `aggressive-v5-train-only`
+- 상태: `champion`
+- 평가: `template-group-aggressive-worst-fold-train-to-dev` (`train` → `dev`)
+- 공정 홀드아웃: `yes`
+- 최종 점수: `0.695170`
+
+장점:
+
+- v4 대비 공정 Dev 점수 +0.005852를 확보했다.
+- tier별 alpha 앙상블로 Fast와 Premium의 서로 다른 일반화 구간을 사용한다.
+- 모든 관측 비용과 Train OOF 최악 fold가 공식 한도 아래다.
+
+단점:
+
+- 공개 Dev는 이전 버전 검증에서 반복 관측된 public validation이다.
+- 숨은 출력 토큰에 대한 수학적 절대 예산 보장은 아니다.
+
+주의:
+
+- 최종 ensemble은 Train OOF로 고정했지만 public Dev 자체는 완전한 미관측 holdout이 아니다.
 
 ### Always Light
 
@@ -254,7 +301,7 @@ SPDX-License-Identifier: Apache-2.0
 ### Risk Router v4 Train-only
 
 - ID: `risk-router-v4-train-only`
-- 상태: `champion`
+- 상태: `reference`
 - 평가: `template-group-worst-fold-train-to-dev` (`train` → `dev`)
 - 공정 홀드아웃: `yes`
 - 최종 점수: `0.689318`

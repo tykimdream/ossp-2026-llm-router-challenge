@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest import mock
 
-from ossp_router import competition, heuristic, submission
+from ossp_router import aggressive_v5, heuristic, submission
 from ossp_router.protocol import Episode, InputBatch, load_bundled_policy, load_input
 
 
@@ -22,18 +22,19 @@ class SubmissionRouterTest(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.inputs = load_input(ROOT / "data/toy/inputs.json")
         cls.policy = load_bundled_policy()
-        cls.artifact = competition.load_artifact()
+        cls.artifact = submission.load_submission_artifact()
 
-    def test_default_artifact_is_risk_v4(self) -> None:
+    def test_default_artifact_is_aggressive_v5(self) -> None:
         self.assertEqual(512, self.artifact.hash_bins)
         self.assertEqual(
-            "pooled-and-worst-template-fold",
+            "aggressive-pooled-and-worst-template-fold",
             self.artifact.training_summary["budget_calibration"],
         )
+        self.assertEqual(6, len(self.artifact.models))
 
     def test_public_path_matches_learned_router(self) -> None:
         for tier in ("fast", "balanced", "premium"):
-            expected = competition.make_submission(
+            expected = aggressive_v5.make_submission(
                 self.inputs, self.policy, self.artifact, tier
             )
             actual = submission.make_submission(

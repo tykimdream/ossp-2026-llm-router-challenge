@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 
 이 fork의 `router-run`은 [`submission.py`](../src/ossp_router/submission.py)를
 유일한 제출 진입점으로 사용하고, 내부에서 공개 Train 1,760문항과 Dev
-880문항으로 학습한 prompt-only 선형 라우터를 실행합니다. 모델 답변을
+880문항으로 학습한 prompt-only tier-specific Ridge ensemble을 실행합니다. 모델 답변을
 생성하거나 평가용 모델을 호출하지 않으며, 실행 중 네트워크와 외부 파일이
 필요하지 않습니다. 제출 경계와 결정론은
 [`SUBMISSION_ROUTER.md`](SUBMISSION_ROUTER.md)에 분리해 기록합니다.
@@ -22,16 +22,18 @@ SPDX-License-Identifier: Apache-2.0
 - 길이 구간과 일부 문제 형식의 조합 특징
 - 숫자 값을 정규화한 단어 1~3-gram과 문자 3~4-gram feature hashing
 
-학습기는 세 모델의 공개 score와 log-cost를 각각 ridge 회귀로 예측합니다.
-런타임은 등급별 보수적 예산 안에서 예측 품질과 비용을 함께 고려해 모델을
+학습기는 세 모델의 공개 score와 log-cost를 각각 Ridge로 예측합니다.
+[`aggressive_v5.py`](../src/ossp_router/aggressive_v5.py)는 tier별로 Train OOF에서
+선택한 alpha head를 평균합니다. 런타임은 등급별 공격적 내부 예산 안에서
+예측 품질과 비용을 함께 고려해 모델을
 선택합니다. 문항 ID, 입력 순서, `challenge_id`와 `split`은 특징으로 사용하지
 않습니다.
 
 최종 컨테이너에는 NumPy나 공개 프롬프트를 넣지 않습니다. 표준 라이브러리
-런타임과 약 131 KiB의 512-bin 학습 계수
-[`risk-router.v4.json`](../src/ossp_router/resources/risk-router.v4.json)만
-포함합니다. 이전 256-bin `competition-router.v1.json`은 비교 재현용으로
-보존합니다.
+런타임과 약 888 KiB의 512-bin ensemble 계수
+[`aggressive-router.v5.json`](../src/ossp_router/resources/aggressive-router.v5.json)을
+활성 경로에 사용합니다. 이전 `risk-router.v4.json`과 256-bin
+`competition-router.v1.json`은 비교·롤백 재현용으로 보존합니다.
 
 ## 학습 재현
 
@@ -50,12 +52,11 @@ PYTHONPATH=src .venv/bin/python tools/build_public_training_pool.py \
   --output-outcomes build/training/public-train-dev-outcomes.json
 
 VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=src \
-  .venv-data/bin/python tools/train_risk_router_v4.py \
+  .venv-data/bin/python tools/train_aggressive_router_v5.py \
   --input build/training/public-train-dev-inputs.json \
   --outcomes build/training/public-train-dev-outcomes.json \
-  --alphas 10000 \
-  --artifact src/ossp_router/resources/risk-router.v4.json \
-  --report experiments/results/risk-v4-full-training.json
+  --artifact src/ossp_router/resources/aggressive-router.v5.json \
+  --report experiments/results/aggressive-v5-full-training.json
 ```
 
 템플릿 그룹 교차검증은 숫자와 공백을 정규화한 프롬프트 내용의 FNV-1a 해시로
@@ -76,20 +77,22 @@ materialized 입력과 캐시는 artifact나 제출 이미지에 포함하지 �
 
 ## 공개 검증 결과
 
-공정한 Train-only → Dev 검증에서 v4와 기존 v1은 다음과 같았습니다.
+Train-only → Dev 검증에서 v5와 이전 champion은 다음과 같았습니다.
 
 | 라우터 | 최종 점수 | Fast 비용 | Balanced 비용 | Premium 비용 |
 | --- | --- | ---: | ---: | ---: |
-| Risk Router v4 | **0.689318** | 1.157468 | 1.596435 | 2.725700 |
+| Aggressive Router v5 | **0.695170** | 1.143321 | 1.661573 | 3.072558 |
+| Risk Router v4 | 0.689318 | 1.157468 | 1.596435 | 2.725700 |
 | Ridge v1 | 0.687188 | 1.190838 | 1.884889 | 2.923078 |
 
-v4는 512-bin Ridge와 템플릿 그룹 OOF를 사용하며, pooled와 각 fold의 실제
-비용이 모두 Fast `1.18`, Balanced `1.85`, Premium `3.5` 아래인 안전계수만
-허용합니다. 전체 공개 refit의 결합 Train+Dev 점수는 `0.696667`, 비용은
-`1.155856 / 1.629934 / 3.020807`입니다. 이 refit 값은 일반화 점수가 아닙니다.
+v5는 512-bin Ridge를 유지하면서 Fast `300/500/5000`, Balanced `10000`,
+Premium `3000/10000/15000` alpha head를 사용합니다. pooled와 각 fold의 실제
+비용이 모두 Fast `1.23`, Balanced `1.95`, Premium `3.85` 아래인 안전계수만
+허용합니다. 전체 공개 refit의 결합 Train+Dev 점수는 `0.703277`, 비용은
+`1.152316 / 1.744540 / 2.931772`입니다. 이 refit 값은 일반화 점수가 아닙니다.
 
 Apple Silicon·Colima `linux/arm64`에서 공개 Train+Dev 2,640문항을 공식
-`check_runtime.py` 조건으로 검사한 결과 `16.825 / 17.711 / 18.133초`에
+`check_runtime.py` 조건으로 검사한 결과 `13.592 / 12.434 / 14.170초`에
 완료했습니다.
 
 ## 검증 명령
@@ -141,17 +144,16 @@ Direct Uplift는 예산을 안전하게 지켰지만 기존 Ridge보다 `0.00122
 Extra Trees는 Train 표본 수에 비해 모델 자유도가 커 일반화 품질이 더 낮았고,
 최악 fold 비용 제한 때문에 Premium에서 K1을 3문항만 선택했습니다. Hash Regex는
 Fast 품질 자체는 `0.664773`이었지만 비용 비율이 `1.257062`로 한도 `1.25`를
-조금 넘어 Fast 점수 전체가 0이 됐습니다. 따라서 현재 증거로는 모델을 더
-복잡하게 만드는 것보다 템플릿 그룹 OOF, 보수적인 비용 예측, 등급별 안전
-마진을 함께 유지하는 선형 Ridge가 더 안정적입니다.
+조금 넘어 Fast 점수 전체가 0이 됐습니다. 따라서 현재 증거로는 비선형 모델의
+자유도를 늘리는 것보다 템플릿 그룹 OOF와 tier별 Ridge 규제 강도를 분리하는
+방식이 더 높은 상방을 보였습니다.
 
 비용 예측 잔차의 50%·60% 분위수를 모델별 log-cost에 더하는 보정도 Train OOF
 성능 게이트에서 각각 `0.654063`, `0.653494`에 그쳤습니다. 기존 후보보다 낮아
-Dev를 보며 추가 튜닝하지 않고 중단했습니다. 다음 우선순위는 (1) K1 선택만
-따로 학습하는 2단계 gate, (2) 문제 유형별 소형 전문가 모델, (3) 여러 모델이
-동의할 때만 승격하는 consensus ensemble입니다. 모두 문항 ID가 아니라 prompt
-내용만 사용하고, template-group OOF의 최악 fold가 내부 비용 목표를 통과할 때만
-Dev 평가로 진입해야 합니다.
+Dev를 보며 추가 튜닝하지 않고 중단했습니다. v5는 여러 Ridge head를 단순
+consensus gate로 쓰는 대신 tier별 연속 예측 평균으로 결합해 이 실패를
+우회했습니다. 이후 후보도 문항 ID가 아니라 prompt 내용만 사용하고,
+template-group OOF의 최악 fold가 내부 비용 목표를 통과할 때만 평가합니다.
 
 Direct Uplift 재현 명령은 다음과 같습니다.
 

@@ -1,0 +1,23 @@
+{
+  "artifact": "experiments/artifacts/aggressive-v5-train-only.v1.json",
+  "input": "data/materialized/dev/inputs.json",
+  "passed": true,
+  "report_type": "ossp-submission-determinism-audit-v1",
+  "tiers": {
+    "balanced": {
+      "num_episodes": 880,
+      "order_id_split_challenge_mismatches": 0,
+      "repeat_identical": true
+    },
+    "fast": {
+      "num_episodes": 880,
+      "order_id_split_challenge_mismatches": 0,
+      "repeat_identical": true
+    },
+    "premium": {
+      "num_episodes": 880,
+      "order_id_split_challenge_mismatches": 0,
+      "repeat_identical": true
+    }
+  }
+}

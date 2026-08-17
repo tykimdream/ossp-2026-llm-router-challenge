@@ -9,34 +9,34 @@ SPDX-License-Identifier: Apache-2.0
 
 최종 컨테이너는 실험 모듈을 직접 실행하지 않습니다. 유일한 제출 진입점은
 [`submission.py`](../src/ossp_router/submission.py)이고, 고정된
-[`risk-router.v4.json`](../src/ossp_router/resources/risk-router.v4.json)
-계수로 512-bin Ridge 점수·비용을 예측합니다.
+[`aggressive-router.v5.json`](../src/ossp_router/resources/aggressive-router.v5.json)
+계수로 tier별 512-bin Ridge ensemble의 점수·비용을 예측합니다.
 
 ```text
 container/entrypoint.py
   → ossp_router.submission
     → canonical content order
-      → competition Ridge
-        → 고정 80회 비용 벌점 탐색
+      → tier-specific Ridge ensemble
+        → 고정 48회 비용 벌점 탐색
           → 원래 입력 순서로 결과 복원
 ```
 
-v4는 Train-only → Dev 공정 검증에서 기존 v1을 이긴 뒤 같은 구조를 공개
+v5는 Train-only → Dev 검증에서 기존 v4를 이긴 뒤 같은 구조를 공개
 2,640문항 전체로 refit했습니다. 제출 wrapper는 canonical 정렬과 고정된
 batch 최적화를 적용하여 입력 순서와 ID가 선택에 영향을 주지 않게 합니다.
 
 | 항목 | 활성 값 |
 | --- | --- |
 | 컨테이너 진입점 | `ossp_router.submission:main` |
-| 활성 predictor | Risk Router v4, 512-bin Ridge |
-| 공정 Train-only → Dev 점수 | `0.689318` |
-| 공정 Fast/Balanced/Premium 비용 | `1.157468 / 1.596435 / 2.725700` |
-| 공개 2,640문항 컨테이너 런타임 | `16.825 / 17.711 / 18.133초` |
+| 활성 predictor | Aggressive Router v5, tier-specific Ridge ensemble |
+| 공정 Train-only → Dev 점수 | `0.695170` |
+| 공정 Fast/Balanced/Premium 비용 | `1.143321 / 1.661573 / 3.072558` |
+| 공개 2,640문항 컨테이너 런타임 | `13.592 / 12.434 / 14.170초` |
 | 공식 제한 | 등급별 `90초`, `2 GiB`, CPU 2개 |
 
 비용 한도에 대해서는 중요한 경계가 있습니다. 라우팅 시점에는 숨은 평가의
 실제 출력 토큰과 전체 비용 분모가 없으므로 학습형 라우터가 수학적으로 절대
-한도 미초과를 보장할 수는 없습니다. v4는 공식 한도보다 낮은 내부 목표와
+한도 미초과를 보장할 수는 없습니다. v5는 공식 한도보다 낮은 공격적 내부 목표와
 Train OOF 최악 fold 보정으로 위험을 줄입니다. 어떤 분포에서도 절대 보장이
 필요하다면 모든 문항을 Light로 보내는 정책을 선택해야 합니다.
 
@@ -55,12 +55,12 @@ Train OOF 최악 fold 보정으로 위험을 줄입니다. 어떤 분포에서�
 1. prompt 또는 role을 포함한 messages 내용을 canonical key로 변환
 2. FNV-1a 내용 해시와 전체 내용으로 정렬
 3. 고정 artifact로 예측
-4. 고정 80회 이분 탐색
+4. 고정 48회 이분 탐색
 5. 모델 동점은 `Light → AX31 → K1` 고정 순서로 해소
 6. 선택 뒤 원래 `episode_id` 순서로 출력만 복원
 
 20문항을 무작위로 섞은 10,000회 감사에서 Fast, Balanced, Premium 모두
-달라진 실행과 결정이 `0`이었습니다. 활성 v4의 전체 Dev 880문항을 역순으로
+달라진 실행과 결정이 `0`이었습니다. 활성 v5의 전체 Dev 880문항을 역순으로
 바꾸고 ID·split·challenge_id를 전면 교체한 감사에서도 세 등급 불일치가
 `0/880`이었습니다.
 
@@ -118,12 +118,12 @@ Train-only 구성의 Dev 결과는 `0.687983`, 비용은
 
 ```console
 PYTHONPATH=src .venv/bin/python -m unittest \
-  tests.test_submission_router tests.test_robust_router
+  tests.test_submission_router tests.test_aggressive_v5_router
 
 docker build --platform linux/arm64 \
-  --file container/Dockerfile --tag ossp-router:risk-v4 .
+  --file container/Dockerfile --tag ossp-router:aggressive-v5 .
 
 PYTHONPATH=src .venv/bin/python tools/check_runtime.py \
-  --image ossp-router:risk-v4 \
-  --report experiments/results/risk-v4-runtime.json
+  --image ossp-router:aggressive-v5 \
+  --report experiments/results/aggressive-v5-runtime.json
 ```

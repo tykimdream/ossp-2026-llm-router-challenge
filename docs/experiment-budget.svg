@@ -1,21 +1,21 @@
 <!-- SPDX-FileCopyrightText: Copyright 2026 SK TELECOM CO., LTD. -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="2070" viewBox="0 0 1100 2070" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="2274" viewBox="0 0 1100 2274" role="img" aria-labelledby="title desc">
 <title id="title">라우터 실험별 예산 사용률</title>
 <desc id="desc">Fast, Balanced, Premium의 공식 한도 대비 실제 비용 사용률을 비교한다.</desc>
-<rect x="0" y="0" width="1100" height="2070" fill="#ffffff"/>
+<rect x="0" y="0" width="1100" height="2274" fill="#ffffff"/>
 <text x="24" y="34" font-family="sans-serif" font-size="22" font-weight="700" fill="#172033">공식 한도 대비 예산 사용률</text>
 <text x="24" y="56" font-family="sans-serif" font-size="12" fill="#596579">100%를 넘으면 해당 등급 점수는 0</text>
-<line x1="300.0" y1="62" x2="300.0" y2="2028" stroke="#e5e9f0" stroke-width="1"/>
-<text x="300.0" y="2050" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">0%</text>
-<line x1="462.9" y1="62" x2="462.9" y2="2028" stroke="#e5e9f0" stroke-width="1"/>
-<text x="462.9" y="2050" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">25%</text>
-<line x1="625.9" y1="62" x2="625.9" y2="2028" stroke="#e5e9f0" stroke-width="1"/>
-<text x="625.9" y="2050" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">50%</text>
-<line x1="788.8" y1="62" x2="788.8" y2="2028" stroke="#e5e9f0" stroke-width="1"/>
-<text x="788.8" y="2050" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">75%</text>
-<line x1="951.8" y1="62" x2="951.8" y2="2028" stroke="#dc2626" stroke-width="2"/>
-<text x="951.8" y="2050" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">100%</text>
+<line x1="300.0" y1="62" x2="300.0" y2="2232" stroke="#e5e9f0" stroke-width="1"/>
+<text x="300.0" y="2254" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">0%</text>
+<line x1="462.9" y1="62" x2="462.9" y2="2232" stroke="#e5e9f0" stroke-width="1"/>
+<text x="462.9" y="2254" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">25%</text>
+<line x1="625.9" y1="62" x2="625.9" y2="2232" stroke="#e5e9f0" stroke-width="1"/>
+<text x="625.9" y="2254" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">50%</text>
+<line x1="788.8" y1="62" x2="788.8" y2="2232" stroke="#e5e9f0" stroke-width="1"/>
+<text x="788.8" y="2254" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">75%</text>
+<line x1="951.8" y1="62" x2="951.8" y2="2232" stroke="#dc2626" stroke-width="2"/>
+<text x="951.8" y="2254" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#596579">100%</text>
 <text x="286" y="90" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Ridge Full Public · Fast</text>
 <rect x="300" y="78" width="609.2" height="17" rx="2" fill="#2563eb"/>
 <text x="916.2" y="91" font-family="monospace" font-size="11" fill="#172033">93.5%</text>
@@ -34,157 +34,175 @@
 <text x="286" y="260" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Submission Router v1 (Previous Active) · Premium</text>
 <rect x="300" y="248" width="548.7" height="17" rx="2" fill="#ea580c"/>
 <text x="855.7" y="261" font-family="monospace" font-size="11" fill="#172033">84.2%</text>
-<text x="286" y="294" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Full Public v1 · Fast</text>
-<rect x="300" y="282" width="604.3" height="17" rx="2" fill="#2563eb"/>
-<text x="911.3" y="295" font-family="monospace" font-size="11" fill="#172033">92.7%</text>
-<text x="286" y="328" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Full Public v1 · Balanced</text>
-<rect x="300" y="316" width="574.0" height="17" rx="2" fill="#7c3aed"/>
-<text x="881.0" y="329" font-family="monospace" font-size="11" fill="#172033">88.1%</text>
-<text x="286" y="362" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Full Public v1 · Premium</text>
-<rect x="300" y="350" width="535.8" height="17" rx="2" fill="#ea580c"/>
-<text x="842.8" y="363" font-family="monospace" font-size="11" fill="#172033">82.2%</text>
-<text x="286" y="396" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Active · Fast</text>
-<rect x="300" y="384" width="607.0" height="17" rx="2" fill="#2563eb"/>
-<text x="914.0" y="397" font-family="monospace" font-size="11" fill="#172033">93.1%</text>
-<text x="286" y="430" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Active · Balanced</text>
-<rect x="300" y="418" width="534.1" height="17" rx="2" fill="#7c3aed"/>
-<text x="841.1" y="431" font-family="monospace" font-size="11" fill="#172033">81.9%</text>
-<text x="286" y="464" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Active · Premium</text>
-<rect x="300" y="452" width="492.3" height="17" rx="2" fill="#ea580c"/>
-<text x="799.3" y="465" font-family="monospace" font-size="11" fill="#172033">75.5%</text>
-<text x="286" y="498" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 Full Public · Fast</text>
-<rect x="300" y="486" width="597.6" height="17" rx="2" fill="#2563eb"/>
-<text x="904.6" y="499" font-family="monospace" font-size="11" fill="#172033">91.7%</text>
-<text x="286" y="532" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 Full Public · Balanced</text>
-<rect x="300" y="520" width="536.7" height="17" rx="2" fill="#7c3aed"/>
-<text x="843.7" y="533" font-family="monospace" font-size="11" fill="#172033">82.4%</text>
-<text x="286" y="566" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 Full Public · Premium</text>
-<rect x="300" y="554" width="523.8" height="17" rx="2" fill="#ea580c"/>
-<text x="830.8" y="567" font-family="monospace" font-size="11" fill="#172033">80.4%</text>
-<text x="286" y="600" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge Full Public · Fast</text>
-<rect x="300" y="588" width="599.7" height="17" rx="2" fill="#2563eb"/>
-<text x="906.7" y="601" font-family="monospace" font-size="11" fill="#172033">92.0%</text>
-<text x="286" y="634" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge Full Public · Balanced</text>
-<rect x="300" y="622" width="544.5" height="17" rx="2" fill="#7c3aed"/>
-<text x="851.5" y="635" font-family="monospace" font-size="11" fill="#172033">83.5%</text>
-<text x="286" y="668" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge Full Public · Premium</text>
-<rect x="300" y="656" width="482.2" height="17" rx="2" fill="#ea580c"/>
-<text x="789.2" y="669" font-family="monospace" font-size="11" fill="#172033">74.0%</text>
-<text x="286" y="702" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 Full Public · Fast</text>
-<rect x="300" y="690" width="601.2" height="17" rx="2" fill="#2563eb"/>
-<text x="908.2" y="703" font-family="monospace" font-size="11" fill="#172033">92.2%</text>
-<text x="286" y="736" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 Full Public · Balanced</text>
-<rect x="300" y="724" width="536.7" height="17" rx="2" fill="#7c3aed"/>
-<text x="843.7" y="737" font-family="monospace" font-size="11" fill="#172033">82.4%</text>
-<text x="286" y="770" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 Full Public · Premium</text>
-<rect x="300" y="758" width="457.5" height="17" rx="2" fill="#ea580c"/>
-<text x="764.5" y="771" font-family="monospace" font-size="11" fill="#172033">70.2%</text>
-<text x="286" y="804" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Provided Hash Regex · Fast</text>
-<rect x="300" y="792" width="644.5" height="17" rx="2" fill="#2563eb"/>
-<text x="951.5" y="805" font-family="monospace" font-size="11" fill="#172033">98.9%</text>
-<text x="286" y="838" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Provided Hash Regex · Balanced</text>
-<rect x="300" y="826" width="639.2" height="17" rx="2" fill="#7c3aed"/>
-<text x="946.2" y="839" font-family="monospace" font-size="11" fill="#172033">98.1%</text>
-<text x="286" y="872" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Provided Hash Regex · Premium</text>
-<rect x="300" y="860" width="649.4" height="17" rx="2" fill="#ea580c"/>
-<text x="956.4" y="873" font-family="monospace" font-size="11" fill="#172033">99.6%</text>
-<text x="286" y="906" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Train-only · Fast</text>
-<rect x="300" y="894" width="603.5" height="17" rx="2" fill="#2563eb"/>
-<text x="910.5" y="907" font-family="monospace" font-size="11" fill="#172033">92.6%</text>
-<text x="286" y="940" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Train-only · Balanced</text>
-<rect x="300" y="928" width="520.3" height="17" rx="2" fill="#7c3aed"/>
-<text x="827.3" y="941" font-family="monospace" font-size="11" fill="#172033">79.8%</text>
-<text x="286" y="974" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Train-only · Premium</text>
-<rect x="300" y="962" width="444.1" height="17" rx="2" fill="#ea580c"/>
-<text x="751.1" y="975" font-family="monospace" font-size="11" fill="#172033">68.1%</text>
-<text x="286" y="1008" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 · Fast</text>
-<rect x="300" y="996" width="585.2" height="17" rx="2" fill="#2563eb"/>
-<text x="892.2" y="1009" font-family="monospace" font-size="11" fill="#172033">89.8%</text>
-<text x="286" y="1042" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 · Balanced</text>
-<rect x="300" y="1030" width="517.7" height="17" rx="2" fill="#7c3aed"/>
-<text x="824.7" y="1043" font-family="monospace" font-size="11" fill="#172033">79.4%</text>
-<text x="286" y="1076" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 · Premium</text>
-<rect x="300" y="1064" width="537.7" height="17" rx="2" fill="#ea580c"/>
-<text x="844.7" y="1077" font-family="monospace" font-size="11" fill="#172033">82.5%</text>
-<text x="286" y="1110" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Ridge Train-only · Fast</text>
-<rect x="300" y="1098" width="620.9" height="17" rx="2" fill="#2563eb"/>
-<text x="927.9" y="1111" font-family="monospace" font-size="11" fill="#172033">95.3%</text>
-<text x="286" y="1144" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Ridge Train-only · Balanced</text>
-<rect x="300" y="1132" width="614.3" height="17" rx="2" fill="#7c3aed"/>
-<text x="921.3" y="1145" font-family="monospace" font-size="11" fill="#172033">94.2%</text>
-<text x="286" y="1178" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Ridge Train-only · Premium</text>
-<rect x="300" y="1166" width="476.3" height="17" rx="2" fill="#ea580c"/>
-<text x="783.3" y="1179" font-family="monospace" font-size="11" fill="#172033">73.1%</text>
-<text x="286" y="1212" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Safe v1 · Fast</text>
-<rect x="300" y="1200" width="603.8" height="17" rx="2" fill="#2563eb"/>
-<text x="910.8" y="1213" font-family="monospace" font-size="11" fill="#172033">92.6%</text>
-<text x="286" y="1246" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Safe v1 · Balanced</text>
-<rect x="300" y="1234" width="597.3" height="17" rx="2" fill="#7c3aed"/>
-<text x="904.3" y="1247" font-family="monospace" font-size="11" fill="#172033">91.6%</text>
-<text x="286" y="1280" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Safe v1 · Premium</text>
-<rect x="300" y="1268" width="548.3" height="17" rx="2" fill="#ea580c"/>
-<text x="855.3" y="1281" font-family="monospace" font-size="11" fill="#172033">84.1%</text>
-<text x="286" y="1314" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 · Fast</text>
-<rect x="300" y="1302" width="588.0" height="17" rx="2" fill="#2563eb"/>
-<text x="895.0" y="1315" font-family="monospace" font-size="11" fill="#172033">90.2%</text>
-<text x="286" y="1348" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 · Balanced</text>
-<rect x="300" y="1336" width="524.3" height="17" rx="2" fill="#7c3aed"/>
-<text x="831.3" y="1349" font-family="monospace" font-size="11" fill="#172033">80.4%</text>
-<text x="286" y="1382" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 · Premium</text>
-<rect x="300" y="1370" width="439.0" height="17" rx="2" fill="#ea580c"/>
-<text x="746.0" y="1383" font-family="monospace" font-size="11" fill="#172033">67.4%</text>
-<text x="286" y="1416" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge v1 · Fast</text>
-<rect x="300" y="1404" width="588.0" height="17" rx="2" fill="#2563eb"/>
-<text x="895.0" y="1417" font-family="monospace" font-size="11" fill="#172033">90.2%</text>
-<text x="286" y="1450" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge v1 · Balanced</text>
-<rect x="300" y="1438" width="524.3" height="17" rx="2" fill="#7c3aed"/>
-<text x="831.3" y="1451" font-family="monospace" font-size="11" fill="#172033">80.4%</text>
-<text x="286" y="1484" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge v1 · Premium</text>
-<rect x="300" y="1472" width="439.0" height="17" rx="2" fill="#ea580c"/>
-<text x="746.0" y="1485" font-family="monospace" font-size="11" fill="#172033">67.4%</text>
-<text x="286" y="1518" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Extra Trees Uplift Prototype · Fast</text>
-<rect x="300" y="1506" width="586.0" height="17" rx="2" fill="#2563eb"/>
-<text x="893.0" y="1519" font-family="monospace" font-size="11" fill="#172033">89.9%</text>
-<text x="286" y="1552" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Extra Trees Uplift Prototype · Balanced</text>
-<rect x="300" y="1540" width="529.7" height="17" rx="2" fill="#7c3aed"/>
-<text x="836.7" y="1553" font-family="monospace" font-size="11" fill="#172033">81.3%</text>
-<text x="286" y="1586" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Extra Trees Uplift Prototype · Premium</text>
-<rect x="300" y="1574" width="322.9" height="17" rx="2" fill="#ea580c"/>
-<text x="629.9" y="1587" font-family="monospace" font-size="11" fill="#172033">49.5%</text>
-<text x="286" y="1620" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Prompt Heuristic · Fast</text>
-<rect x="300" y="1608" width="559.1" height="17" rx="2" fill="#2563eb"/>
-<text x="866.1" y="1621" font-family="monospace" font-size="11" fill="#172033">85.8%</text>
-<text x="286" y="1654" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Prompt Heuristic · Balanced</text>
-<rect x="300" y="1642" width="445.8" height="17" rx="2" fill="#7c3aed"/>
-<text x="752.8" y="1655" font-family="monospace" font-size="11" fill="#172033">68.4%</text>
-<text x="286" y="1688" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Prompt Heuristic · Premium</text>
-<rect x="300" y="1676" width="342.5" height="17" rx="2" fill="#ea580c"/>
-<text x="649.5" y="1689" font-family="monospace" font-size="11" fill="#172033">52.6%</text>
-<text x="286" y="1722" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Always Light · Fast</text>
-<rect x="300" y="1710" width="521.4" height="17" rx="2" fill="#2563eb"/>
-<text x="828.4" y="1723" font-family="monospace" font-size="11" fill="#172033">80.0%</text>
-<text x="286" y="1756" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Always Light · Balanced</text>
-<rect x="300" y="1744" width="325.9" height="17" rx="2" fill="#7c3aed"/>
-<text x="632.9" y="1757" font-family="monospace" font-size="11" fill="#172033">50.0%</text>
-<text x="286" y="1790" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Always Light · Premium</text>
-<rect x="300" y="1778" width="162.9" height="17" rx="2" fill="#ea580c"/>
-<text x="469.9" y="1791" font-family="monospace" font-size="11" fill="#172033">25.0%</text>
-<text x="286" y="1824" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Train-calibrated · Fast</text>
-<rect x="300" y="1812" width="619.3" height="17" rx="2" fill="#2563eb"/>
-<text x="926.3" y="1825" font-family="monospace" font-size="11" fill="#172033">95.0%</text>
-<text x="286" y="1858" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Train-calibrated · Balanced</text>
-<rect x="300" y="1846" width="670.1" height="17" rx="2" fill="#7c3aed"/>
-<text x="977.1" y="1859" font-family="monospace" font-size="11" fill="#172033">102.8%</text>
-<text x="286" y="1892" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Train-calibrated · Premium</text>
-<rect x="300" y="1880" width="569.4" height="17" rx="2" fill="#ea580c"/>
-<text x="876.4" y="1893" font-family="monospace" font-size="11" fill="#172033">87.4%</text>
-<text x="286" y="1926" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hash Regex Train-only · Fast</text>
-<rect x="300" y="1914" width="655.5" height="17" rx="2" fill="#2563eb"/>
-<text x="962.5" y="1927" font-family="monospace" font-size="11" fill="#172033">100.6%</text>
-<text x="286" y="1960" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hash Regex Train-only · Balanced</text>
-<rect x="300" y="1948" width="639.2" height="17" rx="2" fill="#7c3aed"/>
-<text x="946.2" y="1961" font-family="monospace" font-size="11" fill="#172033">98.1%</text>
-<text x="286" y="1994" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hash Regex Train-only · Premium</text>
-<rect x="300" y="1982" width="598.7" height="17" rx="2" fill="#ea580c"/>
-<text x="905.7" y="1995" font-family="monospace" font-size="11" fill="#172033">91.8%</text>
+<text x="286" y="294" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Aggressive Router v5 Full Public · Fast</text>
+<rect x="300" y="282" width="614.5" height="17" rx="2" fill="#2563eb"/>
+<text x="921.5" y="295" font-family="monospace" font-size="11" fill="#172033">94.3%</text>
+<text x="286" y="328" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Aggressive Router v5 Full Public · Balanced</text>
+<rect x="300" y="316" width="571.5" height="17" rx="2" fill="#7c3aed"/>
+<text x="878.5" y="329" font-family="monospace" font-size="11" fill="#172033">87.7%</text>
+<text x="286" y="362" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Aggressive Router v5 Full Public · Premium</text>
+<rect x="300" y="350" width="471.5" height="17" rx="2" fill="#ea580c"/>
+<text x="778.5" y="363" font-family="monospace" font-size="11" fill="#172033">72.3%</text>
+<text x="286" y="396" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Full Public v1 · Fast</text>
+<rect x="300" y="384" width="604.3" height="17" rx="2" fill="#2563eb"/>
+<text x="911.3" y="397" font-family="monospace" font-size="11" fill="#172033">92.7%</text>
+<text x="286" y="430" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Full Public v1 · Balanced</text>
+<rect x="300" y="418" width="574.0" height="17" rx="2" fill="#7c3aed"/>
+<text x="881.0" y="431" font-family="monospace" font-size="11" fill="#172033">88.1%</text>
+<text x="286" y="464" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Full Public v1 · Premium</text>
+<rect x="300" y="452" width="535.8" height="17" rx="2" fill="#ea580c"/>
+<text x="842.8" y="465" font-family="monospace" font-size="11" fill="#172033">82.2%</text>
+<text x="286" y="498" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Active · Fast</text>
+<rect x="300" y="486" width="607.0" height="17" rx="2" fill="#2563eb"/>
+<text x="914.0" y="499" font-family="monospace" font-size="11" fill="#172033">93.1%</text>
+<text x="286" y="532" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Active · Balanced</text>
+<rect x="300" y="520" width="534.1" height="17" rx="2" fill="#7c3aed"/>
+<text x="841.1" y="533" font-family="monospace" font-size="11" fill="#172033">81.9%</text>
+<text x="286" y="566" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Active · Premium</text>
+<rect x="300" y="554" width="492.3" height="17" rx="2" fill="#ea580c"/>
+<text x="799.3" y="567" font-family="monospace" font-size="11" fill="#172033">75.5%</text>
+<text x="286" y="600" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 Full Public · Fast</text>
+<rect x="300" y="588" width="597.6" height="17" rx="2" fill="#2563eb"/>
+<text x="904.6" y="601" font-family="monospace" font-size="11" fill="#172033">91.7%</text>
+<text x="286" y="634" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 Full Public · Balanced</text>
+<rect x="300" y="622" width="536.7" height="17" rx="2" fill="#7c3aed"/>
+<text x="843.7" y="635" font-family="monospace" font-size="11" fill="#172033">82.4%</text>
+<text x="286" y="668" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 Full Public · Premium</text>
+<rect x="300" y="656" width="523.8" height="17" rx="2" fill="#ea580c"/>
+<text x="830.8" y="669" font-family="monospace" font-size="11" fill="#172033">80.4%</text>
+<text x="286" y="702" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge Full Public · Fast</text>
+<rect x="300" y="690" width="599.7" height="17" rx="2" fill="#2563eb"/>
+<text x="906.7" y="703" font-family="monospace" font-size="11" fill="#172033">92.0%</text>
+<text x="286" y="736" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge Full Public · Balanced</text>
+<rect x="300" y="724" width="544.5" height="17" rx="2" fill="#7c3aed"/>
+<text x="851.5" y="737" font-family="monospace" font-size="11" fill="#172033">83.5%</text>
+<text x="286" y="770" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge Full Public · Premium</text>
+<rect x="300" y="758" width="482.2" height="17" rx="2" fill="#ea580c"/>
+<text x="789.2" y="771" font-family="monospace" font-size="11" fill="#172033">74.0%</text>
+<text x="286" y="804" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 Full Public · Fast</text>
+<rect x="300" y="792" width="601.2" height="17" rx="2" fill="#2563eb"/>
+<text x="908.2" y="805" font-family="monospace" font-size="11" fill="#172033">92.2%</text>
+<text x="286" y="838" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 Full Public · Balanced</text>
+<rect x="300" y="826" width="536.7" height="17" rx="2" fill="#7c3aed"/>
+<text x="843.7" y="839" font-family="monospace" font-size="11" fill="#172033">82.4%</text>
+<text x="286" y="872" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 Full Public · Premium</text>
+<rect x="300" y="860" width="457.5" height="17" rx="2" fill="#ea580c"/>
+<text x="764.5" y="873" font-family="monospace" font-size="11" fill="#172033">70.2%</text>
+<text x="286" y="906" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Provided Hash Regex · Fast</text>
+<rect x="300" y="894" width="644.5" height="17" rx="2" fill="#2563eb"/>
+<text x="951.5" y="907" font-family="monospace" font-size="11" fill="#172033">98.9%</text>
+<text x="286" y="940" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Provided Hash Regex · Balanced</text>
+<rect x="300" y="928" width="639.2" height="17" rx="2" fill="#7c3aed"/>
+<text x="946.2" y="941" font-family="monospace" font-size="11" fill="#172033">98.1%</text>
+<text x="286" y="974" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Provided Hash Regex · Premium</text>
+<rect x="300" y="962" width="649.4" height="17" rx="2" fill="#ea580c"/>
+<text x="956.4" y="975" font-family="monospace" font-size="11" fill="#172033">99.6%</text>
+<text x="286" y="1008" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Aggressive Router v5 Train-only · Fast</text>
+<rect x="300" y="996" width="596.2" height="17" rx="2" fill="#2563eb"/>
+<text x="903.2" y="1009" font-family="monospace" font-size="11" fill="#172033">91.5%</text>
+<text x="286" y="1042" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Aggressive Router v5 Train-only · Balanced</text>
+<rect x="300" y="1030" width="541.5" height="17" rx="2" fill="#7c3aed"/>
+<text x="848.5" y="1043" font-family="monospace" font-size="11" fill="#172033">83.1%</text>
+<text x="286" y="1076" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Aggressive Router v5 Train-only · Premium</text>
+<rect x="300" y="1064" width="500.7" height="17" rx="2" fill="#ea580c"/>
+<text x="807.7" y="1077" font-family="monospace" font-size="11" fill="#172033">76.8%</text>
+<text x="286" y="1110" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Train-only · Fast</text>
+<rect x="300" y="1098" width="603.5" height="17" rx="2" fill="#2563eb"/>
+<text x="910.5" y="1111" font-family="monospace" font-size="11" fill="#172033">92.6%</text>
+<text x="286" y="1144" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Train-only · Balanced</text>
+<rect x="300" y="1132" width="520.3" height="17" rx="2" fill="#7c3aed"/>
+<text x="827.3" y="1145" font-family="monospace" font-size="11" fill="#172033">79.8%</text>
+<text x="286" y="1178" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Risk Router v4 Train-only · Premium</text>
+<rect x="300" y="1166" width="444.1" height="17" rx="2" fill="#ea580c"/>
+<text x="751.1" y="1179" font-family="monospace" font-size="11" fill="#172033">68.1%</text>
+<text x="286" y="1212" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 · Fast</text>
+<rect x="300" y="1200" width="585.2" height="17" rx="2" fill="#2563eb"/>
+<text x="892.2" y="1213" font-family="monospace" font-size="11" fill="#172033">89.8%</text>
+<text x="286" y="1246" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 · Balanced</text>
+<rect x="300" y="1234" width="517.7" height="17" rx="2" fill="#7c3aed"/>
+<text x="824.7" y="1247" font-family="monospace" font-size="11" fill="#172033">79.4%</text>
+<text x="286" y="1280" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Fixed-Scenario v2 · Premium</text>
+<rect x="300" y="1268" width="537.7" height="17" rx="2" fill="#ea580c"/>
+<text x="844.7" y="1281" font-family="monospace" font-size="11" fill="#172033">82.5%</text>
+<text x="286" y="1314" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Ridge Train-only · Fast</text>
+<rect x="300" y="1302" width="620.9" height="17" rx="2" fill="#2563eb"/>
+<text x="927.9" y="1315" font-family="monospace" font-size="11" fill="#172033">95.3%</text>
+<text x="286" y="1348" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Ridge Train-only · Balanced</text>
+<rect x="300" y="1336" width="614.3" height="17" rx="2" fill="#7c3aed"/>
+<text x="921.3" y="1349" font-family="monospace" font-size="11" fill="#172033">94.2%</text>
+<text x="286" y="1382" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Ridge Train-only · Premium</text>
+<rect x="300" y="1370" width="476.3" height="17" rx="2" fill="#ea580c"/>
+<text x="783.3" y="1383" font-family="monospace" font-size="11" fill="#172033">73.1%</text>
+<text x="286" y="1416" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Safe v1 · Fast</text>
+<rect x="300" y="1404" width="603.8" height="17" rx="2" fill="#2563eb"/>
+<text x="910.8" y="1417" font-family="monospace" font-size="11" fill="#172033">92.6%</text>
+<text x="286" y="1450" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Safe v1 · Balanced</text>
+<rect x="300" y="1438" width="597.3" height="17" rx="2" fill="#7c3aed"/>
+<text x="904.3" y="1451" font-family="monospace" font-size="11" fill="#172033">91.6%</text>
+<text x="286" y="1484" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Safe v1 · Premium</text>
+<rect x="300" y="1472" width="548.3" height="17" rx="2" fill="#ea580c"/>
+<text x="855.3" y="1485" font-family="monospace" font-size="11" fill="#172033">84.1%</text>
+<text x="286" y="1518" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 · Fast</text>
+<rect x="300" y="1506" width="588.0" height="17" rx="2" fill="#2563eb"/>
+<text x="895.0" y="1519" font-family="monospace" font-size="11" fill="#172033">90.2%</text>
+<text x="286" y="1552" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 · Balanced</text>
+<rect x="300" y="1540" width="524.3" height="17" rx="2" fill="#7c3aed"/>
+<text x="831.3" y="1553" font-family="monospace" font-size="11" fill="#172033">80.4%</text>
+<text x="286" y="1586" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Robust Train-OOF v3 · Premium</text>
+<rect x="300" y="1574" width="439.0" height="17" rx="2" fill="#ea580c"/>
+<text x="746.0" y="1587" font-family="monospace" font-size="11" fill="#172033">67.4%</text>
+<text x="286" y="1620" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge v1 · Fast</text>
+<rect x="300" y="1608" width="588.0" height="17" rx="2" fill="#2563eb"/>
+<text x="895.0" y="1621" font-family="monospace" font-size="11" fill="#172033">90.2%</text>
+<text x="286" y="1654" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge v1 · Balanced</text>
+<rect x="300" y="1642" width="524.3" height="17" rx="2" fill="#7c3aed"/>
+<text x="831.3" y="1655" font-family="monospace" font-size="11" fill="#172033">80.4%</text>
+<text x="286" y="1688" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Direct Uplift Ridge v1 · Premium</text>
+<rect x="300" y="1676" width="439.0" height="17" rx="2" fill="#ea580c"/>
+<text x="746.0" y="1689" font-family="monospace" font-size="11" fill="#172033">67.4%</text>
+<text x="286" y="1722" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Extra Trees Uplift Prototype · Fast</text>
+<rect x="300" y="1710" width="586.0" height="17" rx="2" fill="#2563eb"/>
+<text x="893.0" y="1723" font-family="monospace" font-size="11" fill="#172033">89.9%</text>
+<text x="286" y="1756" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Extra Trees Uplift Prototype · Balanced</text>
+<rect x="300" y="1744" width="529.7" height="17" rx="2" fill="#7c3aed"/>
+<text x="836.7" y="1757" font-family="monospace" font-size="11" fill="#172033">81.3%</text>
+<text x="286" y="1790" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Extra Trees Uplift Prototype · Premium</text>
+<rect x="300" y="1778" width="322.9" height="17" rx="2" fill="#ea580c"/>
+<text x="629.9" y="1791" font-family="monospace" font-size="11" fill="#172033">49.5%</text>
+<text x="286" y="1824" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Prompt Heuristic · Fast</text>
+<rect x="300" y="1812" width="559.1" height="17" rx="2" fill="#2563eb"/>
+<text x="866.1" y="1825" font-family="monospace" font-size="11" fill="#172033">85.8%</text>
+<text x="286" y="1858" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Prompt Heuristic · Balanced</text>
+<rect x="300" y="1846" width="445.8" height="17" rx="2" fill="#7c3aed"/>
+<text x="752.8" y="1859" font-family="monospace" font-size="11" fill="#172033">68.4%</text>
+<text x="286" y="1892" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Prompt Heuristic · Premium</text>
+<rect x="300" y="1880" width="342.5" height="17" rx="2" fill="#ea580c"/>
+<text x="649.5" y="1893" font-family="monospace" font-size="11" fill="#172033">52.6%</text>
+<text x="286" y="1926" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Always Light · Fast</text>
+<rect x="300" y="1914" width="521.4" height="17" rx="2" fill="#2563eb"/>
+<text x="828.4" y="1927" font-family="monospace" font-size="11" fill="#172033">80.0%</text>
+<text x="286" y="1960" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Always Light · Balanced</text>
+<rect x="300" y="1948" width="325.9" height="17" rx="2" fill="#7c3aed"/>
+<text x="632.9" y="1961" font-family="monospace" font-size="11" fill="#172033">50.0%</text>
+<text x="286" y="1994" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Always Light · Premium</text>
+<rect x="300" y="1982" width="162.9" height="17" rx="2" fill="#ea580c"/>
+<text x="469.9" y="1995" font-family="monospace" font-size="11" fill="#172033">25.0%</text>
+<text x="286" y="2028" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Train-calibrated · Fast</text>
+<rect x="300" y="2016" width="619.3" height="17" rx="2" fill="#2563eb"/>
+<text x="926.3" y="2029" font-family="monospace" font-size="11" fill="#172033">95.0%</text>
+<text x="286" y="2062" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Train-calibrated · Balanced</text>
+<rect x="300" y="2050" width="670.1" height="17" rx="2" fill="#7c3aed"/>
+<text x="977.1" y="2063" font-family="monospace" font-size="11" fill="#172033">102.8%</text>
+<text x="286" y="2096" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hybrid Train-calibrated · Premium</text>
+<rect x="300" y="2084" width="569.4" height="17" rx="2" fill="#ea580c"/>
+<text x="876.4" y="2097" font-family="monospace" font-size="11" fill="#172033">87.4%</text>
+<text x="286" y="2130" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hash Regex Train-only · Fast</text>
+<rect x="300" y="2118" width="655.5" height="17" rx="2" fill="#2563eb"/>
+<text x="962.5" y="2131" font-family="monospace" font-size="11" fill="#172033">100.6%</text>
+<text x="286" y="2164" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hash Regex Train-only · Balanced</text>
+<rect x="300" y="2152" width="639.2" height="17" rx="2" fill="#7c3aed"/>
+<text x="946.2" y="2165" font-family="monospace" font-size="11" fill="#172033">98.1%</text>
+<text x="286" y="2198" text-anchor="end" font-family="sans-serif" font-size="12" fill="#172033">Hash Regex Train-only · Premium</text>
+<rect x="300" y="2186" width="598.7" height="17" rx="2" fill="#ea580c"/>
+<text x="905.7" y="2199" font-family="monospace" font-size="11" fill="#172033">91.8%</text>
 </svg>

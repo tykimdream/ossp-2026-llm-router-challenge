@@ -13,7 +13,8 @@ SPDX-License-Identifier: Apache-2.0
 
 | 라우터 | 평가 | 점수 | Fast | Balanced | Premium | 결정론 | 현재 판단 |
 | --- | --- | ---: | ---: | ---: | ---: | --- | --- |
-| Risk Router v4 Full Public | 참고 | 0.710341 | 1.164139 | 1.638858 | 3.021285 | 강화됨 | **활성 제출 경로** |
+| Aggressive v5 Full Public | 참고 | 0.714915 | 1.178468 | 1.753652 | 2.893612 | 강화됨 | **활성 제출 경로** |
+| Risk Router v4 Full Public | 참고 | 0.710341 | 1.164139 | 1.638858 | 3.021285 | 강화됨 | 이전 활성 경로 |
 | Submission Router v1 | 참고 | **0.716477** | 1.168267 | 1.834377 | 3.367389 | 강화됨 | 이전 활성 경로 |
 | Ridge Full Public | 참고 | **0.716477** | 1.168267 | 1.834377 | 3.367389 | 예 | 이전 predictor |
 | Hybrid Full Public | 참고 | 0.714801 | 1.158894 | 1.761224 | 3.287951 | 예 | 안전하지만 점수 하락 |
@@ -22,7 +23,8 @@ SPDX-License-Identifier: Apache-2.0
 | Uplift Full Public | 참고 | 0.701023 | 1.150062 | 1.670668 | 2.959508 | 예 | 기각·보존 |
 | Provided Hash Regex | 참고 | 0.695369 | 1.235989 | 1.961506 | 3.985205 | 예 | 한도에 너무 근접 |
 | Robust v2 Train-only 구성 | Dev 조정 | 0.687983 | 1.122335 | 1.588707 | 3.299693 | 강화됨 | 안전 후보, 공정 주장 안 함 |
-| Risk Router v4 Train-only | 공정 | **0.689318** | 1.157468 | 1.596435 | 2.725700 | 강화됨 | **현재 공정 champion** |
+| Aggressive v5 Train-only | 공정 | **0.695170** | 1.143321 | 1.661573 | 3.072558 | 강화됨 | **현재 champion** |
+| Risk Router v4 Train-only | 공정 | 0.689318 | 1.157468 | 1.596435 | 2.725700 | 강화됨 | 이전 champion |
 | Ridge Train-only | 공정 | **0.687187** | 1.190838 | 1.884889 | 2.923078 | 예 | 공정 비교 기준 |
 | Hybrid Safe | 공정 | 0.686903 | 1.158051 | 1.832795 | 3.365117 | 예 | Ridge보다 0.000284 낮음 |
 | Direct Uplift Train-only | 공정 | 0.685966 | 1.127580 | 1.608746 | 2.694441 | 예 | 높은 안전 여유 |
@@ -41,6 +43,7 @@ SPDX-License-Identifier: Apache-2.0
 | 계열 | 가장 잘하는 것 | 주요 장점 | 주요 약점·예외 |
 | --- | --- | --- | --- |
 | Submission wrapper | 제출 안정성 | canonical 정렬, 대형 입력 fallback, 활성 경로 분리 | 기반 Ridge의 비용 예측 오차는 그대로 존재 |
+| Aggressive v5 | 점수 상방 | tier별 alpha ensemble, 공격적 OOF 예산 목표, 공유 특징 추출 | v4보다 Premium 비용과 ensemble 복잡도 증가 |
 | Ridge | 전체 점수 | 단순·빠름, 공개 확인 점수 최고 | 선형 관계, 분포 이동 시 비용 오차 |
 | Hybrid | 위험한 선택 차단 | Fast K1 금지, 규칙 설명 가능 | 규칙 밖의 좋은 문제도 차단 가능 |
 | Direct Uplift | Light 대비 승격 판단 | Fast/Balanced 비용 여유, 직접적인 학습 목표 | Premium 품질 상한이 Ridge보다 낮음 |
@@ -54,9 +57,9 @@ SPDX-License-Identifier: Apache-2.0
 
 | 검사 | 결과 |
 | --- | --- |
-| 활성 v4 이미지 공개 2,640문항 Fast | `16.825초 / 90초` |
-| 활성 v4 이미지 공개 2,640문항 Balanced | `17.711초 / 90초` |
-| 활성 v4 이미지 공개 2,640문항 Premium | `18.133초 / 90초` |
+| 활성 v5 이미지 공개 2,640문항 Fast | `13.592초 / 90초` |
+| 활성 v5 이미지 공개 2,640문항 Balanced | `12.434초 / 90초` |
+| 활성 v5 이미지 공개 2,640문항 Premium | `14.170초 / 90초` |
 | v1 선택 최적화만 2,640문항 | 약 `0.13초` |
 | v1 특징 추출과 Ridge 예측 2,640문항 | 약 `13.60초` 로컬 측정 |
 | 5,280문항 합성 배치 | `27.397초` 로컬 측정 |
@@ -67,6 +70,7 @@ SPDX-License-Identifier: Apache-2.0
 | V3 48회 대 기존 80회 전체 공개 감사 | 세 등급 선택 불일치 `0/2,640` |
 | V3 Dev 역순·ID 전면 교체 감사 | Premium 내용별 선택 불일치 `0/880` |
 | 활성 v4 Dev 역순·ID·split·challenge 변경 감사 | 세 등급 내용별 선택 불일치 `0/880` |
+| 활성 v5 Dev 역순·ID·split·challenge 변경 감사 | 세 등급 내용별 선택 불일치 `0/880` |
 
 점수·비용의 원본과 자동 생성 그래프는
 [`EXPERIMENT_COMPARISON.md`](EXPERIMENT_COMPARISON.md), 제출 경계와 결정론은
