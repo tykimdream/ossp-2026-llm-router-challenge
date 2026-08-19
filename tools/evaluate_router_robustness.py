@@ -127,9 +127,12 @@ def _route_indices(
     artifact: aggressive_v6.V6Artifact,
     policy: RoutingPolicy,
     tier: str,
+    safety_multiplier: float = 1.0,
 ) -> Mapping[str, Any]:
     if not indices:
         raise ValueError("robustness scenario는 문항을 하나 이상 포함해야 합니다.")
+    if not 0.0 <= safety_multiplier <= 1.0:
+        raise ValueError("safety multiplier는 0~1 사이여야 합니다.")
     scores = [dict(prepared.predicted_scores[tier][index]) for index in indices]
     costs = [prepared.predicted_costs[tier][index] for index in indices]
     if tier == "fast":
@@ -139,7 +142,7 @@ def _route_indices(
         scores,
         costs,
         budget_multiplier=float(policy.tiers[tier].budget_multiplier),
-        safety_ratio=artifact.base.tiers[tier].safety_ratio,
+        safety_ratio=artifact.base.tiers[tier].safety_ratio * safety_multiplier,
         steps=artifact.base.fixed_bisection_steps,
     )
     if tier == "premium":
@@ -148,7 +151,9 @@ def _route_indices(
             scores,
             costs,
             budget_multiplier=float(policy.tiers[tier].budget_multiplier),
-            safety_ratio=artifact.base.premium_fill_safety_ratio,
+            safety_ratio=(
+                artifact.base.premium_fill_safety_ratio * safety_multiplier
+            ),
             steps=artifact.base.fixed_bisection_steps,
         )
     light_total = math.fsum(
@@ -183,9 +188,17 @@ def evaluate_indices(
     prepared: PreparedEvaluation,
     artifact: aggressive_v6.V6Artifact,
     policy: RoutingPolicy,
+    safety_multiplier: float = 1.0,
 ) -> Mapping[str, Any]:
     tiers = {
-        tier: _route_indices(indices, prepared, artifact, policy, tier)
+        tier: _route_indices(
+            indices,
+            prepared,
+            artifact,
+            policy,
+            tier,
+            safety_multiplier,
+        )
         for tier in TIERS
     }
     final_score = math.fsum(

@@ -1,0 +1,33 @@
+{
+  "artifact_type": "ossp-adaptive-safety-profile-v7",
+  "schema_version": 1,
+  "signal_names": [
+    "korean_hangul_10pct",
+    "code_marker",
+    "math_or_numeric",
+    "long_context_gt_8000",
+    "short_context_le_100",
+    "messages"
+  ],
+  "reference_rates": {
+    "korean_hangul_10pct": 0.2056818181818182,
+    "code_marker": 0.26931818181818185,
+    "math_or_numeric": 0.4909090909090909,
+    "long_context_gt_8000": 0.09090909090909091,
+    "short_context_le_100": 0.17784090909090908,
+    "messages": 0.0
+  },
+  "stable_batch_size": 1000,
+  "composition_penalty": 1.0,
+  "small_batch_penalty": 0.25,
+  "calibration": {
+    "protocol": "train-calibrate-then-fixed-eval",
+    "train_episodes": 1760,
+    "train_input_sha256": "029a0fb1f70432a05b837a1291d86d42278bb202d808a6a12911b0dae8628ac4",
+    "train_outcomes_sha256": "97a5a787086b3e1d9fa9c7945518543540e527ea248df4a4760de581b612a4ba",
+    "stress_seed": 20260819,
+    "bootstrap_trials_per_size": 50,
+    "mixture_trials_per_cell": 20,
+    "train_stress_tier_budget_failures": 0
+  }
+}

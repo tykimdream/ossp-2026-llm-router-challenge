@@ -24,6 +24,8 @@ SPDX-License-Identifier: Apache-2.0
   ablation과 채택 판단
 - [SCORE_OBJECTIVES_V7.md](SCORE_OBJECTIVES_V7.md): direct uplift와 생성수 가중
   score objective 비교
+- [ROUTER_V7_ADAPTIVE.md](ROUTER_V7_ADAPTIVE.md): Train-only 배치 구성·표본수
+  reserve, 스트레스 결과와 안전 한계
 - [ROBUST_V3_ADVERSARIAL_REVIEW.md](ROBUST_V3_ADVERSARIAL_REVIEW.md): V2 공격
   리뷰, V3 보완점과 V1·V2·V3 비교
 - [EDGE_CASES.md](EDGE_CASES.md): 시간·메모리·출력 크기·결정론 합성 엣지케이스

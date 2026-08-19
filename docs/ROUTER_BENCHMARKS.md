@@ -13,7 +13,7 @@ SPDX-License-Identifier: Apache-2.0
 
 | 라우터 | 평가 | 점수 | Fast | Balanced | Premium | 결정론 | 현재 판단 |
 | --- | --- | ---: | ---: | ---: | ---: | --- | --- |
-| Aggressive v6.1 Competitive Full Public | 참고 | 0.714915 | 1.178468 | 1.753652 | 2.893612 | 강화됨 | **활성 제출 경로** |
+| Aggressive v6.1 Competitive Full Public | 참고 | 0.714915 | 1.178468 | 1.753652 | 2.893612 | 강화됨 | 이전 활성 경로 |
 | Aggressive v6.0 Safe Full Public | 참고 | 0.708722 | 1.138882 | 1.601014 | 2.605352 | 강화됨 | 안전 실험 보존 |
 | Aggressive v5 Full Public | 참고 | 0.714915 | 1.178468 | 1.753652 | 2.893612 | 강화됨 | 이전 활성 경로 |
 | Risk Router v4 Full Public | 참고 | 0.710341 | 1.164139 | 1.638858 | 3.021285 | 강화됨 | 이전 활성 경로 |
@@ -27,6 +27,7 @@ SPDX-License-Identifier: Apache-2.0
 | Robust v2 Train-only 구성 | Dev 조정 | 0.687983 | 1.122335 | 1.588707 | 3.299693 | 강화됨 | 안전 후보, 공정 주장 안 함 |
 | Aggressive v5 Train-only | 공정 | **0.695170** | 1.143321 | 1.661573 | 3.072558 | 강화됨 | 점수 champion |
 | Aggressive v6.1 Competitive Train-only | 공정 | **0.695170** | 1.143321 | 1.661573 | 3.072558 | 강화됨 | **운영 개선 champion** |
+| Adaptive v7 Train-only | 공정 | 0.691477 | 1.145521 | 1.653162 | 3.006001 | 강화됨 | **stress-safe 활성 후보** |
 | Aggressive v6.0 Safe Train-only | 공정 | 0.685256 | 1.142155 | 1.569580 | 2.523548 | 강화됨 | 안전 실험 보존 |
 | Risk Router v4 Train-only | 공정 | 0.689318 | 1.157468 | 1.596435 | 2.725700 | 강화됨 | 이전 champion |
 | Ridge Train-only | 공정 | **0.687187** | 1.190838 | 1.884889 | 2.923078 | 예 | 공정 비교 기준 |
@@ -46,6 +47,7 @@ SPDX-License-Identifier: Apache-2.0
 
 | 계열 | 가장 잘하는 것 | 주요 장점 | 주요 약점·예외 |
 | --- | --- | --- | --- |
+| Adaptive v7 | 예산 하방 방어 | Train-only 구성·표본수 reserve, 공개 stress 실패 0 | V6.1 대비 점수 0.003693 하락, 절대 보장은 아님 |
 | Aggressive v6.1 | V5 점수+운영 안전성 | V5 결정 동일, compact 출력, streaming hash, 중복 cache | V5의 숨은 비용 위험도 그대로 유지 |
 | Aggressive v6.0 Safe | 비용 여유 | 보수적 목표, 운영 hardening | 공정 Dev 점수 약 0.0099 하락 |
 | Submission wrapper | 제출 안정성 | canonical 정렬, multi-signal workload fallback, 활성 경로 분리 | guard 경계에서 배치 전체 정책 절벽 |

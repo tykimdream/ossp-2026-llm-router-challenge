@@ -257,3 +257,34 @@ V5 대비 `0.009915` 낮아졌다. compact 출력·streaming hash·cache·compil
   비용의 절대 보장은 여전히 불가능합니다.
 - 출력은 공식 규모와 합성 21,399문항 경계에서 통과했지만, episode 수 상한이
   없는 프로토콜의 임의 크기 입력까지 4 MiB를 보장할 수는 없습니다.
+
+## v7.0 — Adaptive budget reserve
+
+### 문제
+
+V6.1은 전체 Dev를 통과했지만 content standalone 1건, bootstrap 13건, mixture
+110건의 tier 예산 실패가 재현됐다. 전체 평균에 맞춘 단일 safety ratio만으로는
+구성 이동과 작은 배치의 비용 꼬리를 동시에 막기 어려웠다.
+
+### 선택
+
+- V6.1 score·cost head와 승격 순위는 유지
+- Train의 여섯 observable content 비율을 기준 분포로 동결
+- 기준 구성과의 최대 차이에 따라 safety cap을 지수적으로 수축
+- 1,000문항 미만에서 `sqrt(1000/n)` 기반 표본수 reserve 적용
+- Train stress 0건을 처음 만족한 small-batch penalty `0.25` 채택
+- workload guard 초과 시 수학적으로 비용 안전한 Always-Light fallback
+
+### 검증과 판단
+
+- Train stress tier 실패: `0`
+- 고정 Dev standalone/bootstrap/mixture tier 실패: `0/0/0`
+- 공정 Dev 점수: `0.691477` (V6.1 대비 `-0.003693`)
+- 공정 비용: `1.145521 / 1.653162 / 3.006001`
+- 점수의 약 0.53%를 하방 보험료로 지불하는 안전 우선 후보로 활성화
+
+### 안전 한계와 롤백
+
+- 공개 stress 0건은 임의의 숨은 비용에 대한 수학적 보장이 아니다.
+- 작은 정상 배치에서도 보수적이므로 평가 batch가 작을수록 점수 손실이 커진다.
+- V6.1 롤백은 profile 적용을 제거하고 기존 `aggressive_v6` 경로를 선택하면 된다.

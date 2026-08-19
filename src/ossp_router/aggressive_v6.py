@@ -173,9 +173,17 @@ def _linear(head: RawLinearHead, raw: Sequence[float]) -> float:
 def predict_episode(
     episode: Episode, artifact: V6Artifact, tier: str
 ) -> Tuple[Mapping[str, float], Mapping[str, float]]:
+    raw = raw_feature_vector(episode, artifact.hash_bins)
+    return predict_raw(raw, artifact, tier)
+
+
+def predict_raw(
+    raw: Sequence[float], artifact: V6Artifact, tier: str
+) -> Tuple[Mapping[str, float], Mapping[str, float]]:
+    """Predict from one already-computed feature vector."""
+
     if tier not in TIERS:
         raise ProtocolError(f"알 수 없는 tier: {tier}")
-    raw = raw_feature_vector(episode, artifact.hash_bins)
     compiled = artifact.compiled_tiers[tier]
     score_values = tuple(_linear(compiled.score_heads[model_id], raw) for model_id in MODEL_IDS)
     log_cost_values = tuple(
