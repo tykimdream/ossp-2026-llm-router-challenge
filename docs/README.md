@@ -18,6 +18,8 @@ SPDX-License-Identifier: Apache-2.0
   학습 재현과 공개 검증 결과
 - [SUBMISSION_ROUTER.md](SUBMISSION_ROUTER.md): 활성 제출 진입점과 결정론 경계
 - [ROUTER_BENCHMARKS.md](ROUTER_BENCHMARKS.md): 역대 라우터 성능·비용·장단점 표
+- [ROBUSTNESS_PROTOCOL.md](ROBUSTNESS_PROTOCOL.md): 독립 group·batch mixture
+  일반화·예산 강건성 검증
 - [ROBUST_V3_ADVERSARIAL_REVIEW.md](ROBUST_V3_ADVERSARIAL_REVIEW.md): V2 공격
   리뷰, V3 보완점과 V1·V2·V3 비교
 - [EDGE_CASES.md](EDGE_CASES.md): 시간·메모리·출력 크기·결정론 합성 엣지케이스

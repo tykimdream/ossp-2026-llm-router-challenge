@@ -1,0 +1,1733 @@
+{
+  "artifact": {
+    "path": "experiments/artifacts/aggressive-v5-train-only.v1.json",
+    "sha256": "ffb44d3430ec6e2f6c655775c9f3b1164f5df5557098f2d113b848c9e1a4e0f9"
+  },
+  "bootstrap": {
+    "100": {
+      "all_tier_failure_trials": 8,
+      "final_score_mean": 0.6487,
+      "final_score_p05": 0.273,
+      "tiers": {
+        "balanced": {
+          "budget_failure_rate": 0.06,
+          "budget_failures": 3,
+          "budget_limit": 2.0,
+          "budget_ratio_max": 2.6397861344515428,
+          "budget_ratio_p50": 1.6844654308841287,
+          "budget_ratio_p90": 1.893223643470727,
+          "budget_ratio_p95": 2.0234024780288133,
+          "budget_ratio_p99": 2.6397861344515428,
+          "quality_score_mean": 0.696
+        },
+        "fast": {
+          "budget_failure_rate": 0.08,
+          "budget_failures": 4,
+          "budget_limit": 1.25,
+          "budget_ratio_max": 1.2769064470839926,
+          "budget_ratio_p50": 1.1657007133292348,
+          "budget_ratio_p90": 1.229820894330937,
+          "budget_ratio_p95": 1.2593942660690796,
+          "budget_ratio_p99": 1.2769064470839926,
+          "quality_score_mean": 0.6696500000000001
+        },
+        "premium": {
+          "budget_failure_rate": 0.08,
+          "budget_failures": 4,
+          "budget_limit": 4.0,
+          "budget_ratio_max": 4.688735497999264,
+          "budget_ratio_p50": 3.2547809563926884,
+          "budget_ratio_p90": 3.862342140535335,
+          "budget_ratio_p95": 4.220689525829838,
+          "budget_ratio_p99": 4.688735497999264,
+          "quality_score_mean": 0.7393000000000001
+        }
+      },
+      "trials": 50
+    },
+    "300": {
+      "all_tier_failure_trials": 2,
+      "final_score_mean": 0.6829883333333333,
+      "final_score_p05": 0.626,
+      "tiers": {
+        "balanced": {
+          "budget_failure_rate": 0.0,
+          "budget_failures": 0,
+          "budget_limit": 2.0,
+          "budget_ratio_max": 1.9952874308708082,
+          "budget_ratio_p50": 1.6705314009113628,
+          "budget_ratio_p90": 1.9087666477239713,
+          "budget_ratio_p95": 1.9704884830675158,
+          "budget_ratio_p99": 1.9952874308708082,
+          "quality_score_mean": 0.6875833333333334
+        },
+        "fast": {
+          "budget_failure_rate": 0.0,
+          "budget_failures": 0,
+          "budget_limit": 1.25,
+          "budget_ratio_max": 1.2372595998539242,
+          "budget_ratio_p50": 1.1675380496772139,
+          "budget_ratio_p90": 1.1991497688254291,
+          "budget_ratio_p95": 1.2136290642236143,
+          "budget_ratio_p99": 1.2372595998539242,
+          "quality_score_mean": 0.6636333333333333
+        },
+        "premium": {
+          "budget_failure_rate": 0.04,
+          "budget_failures": 2,
+          "budget_limit": 4.0,
+          "budget_ratio_max": 4.403344163050839,
+          "budget_ratio_p50": 3.1265424992546094,
+          "budget_ratio_p90": 3.606579318572692,
+          "budget_ratio_p95": 3.897428463369029,
+          "budget_ratio_p99": 4.403344163050839,
+          "quality_score_mean": 0.7351166666666668
+        }
+      },
+      "trials": 50
+    },
+    "880": {
+      "all_tier_failure_trials": 0,
+      "final_score_mean": 0.6905170454545454,
+      "final_score_p05": 0.6664204545454546,
+      "tiers": {
+        "balanced": {
+          "budget_failure_rate": 0.0,
+          "budget_failures": 0,
+          "budget_limit": 2.0,
+          "budget_ratio_max": 1.921876901673561,
+          "budget_ratio_p50": 1.670284369741982,
+          "budget_ratio_p90": 1.801246656163109,
+          "budget_ratio_p95": 1.8281618718633454,
+          "budget_ratio_p99": 1.921876901673561,
+          "quality_score_mean": 0.6869431818181817
+        },
+        "fast": {
+          "budget_failure_rate": 0.0,
+          "budget_failures": 0,
+          "budget_limit": 1.25,
+          "budget_ratio_max": 1.2082150545337142,
+          "budget_ratio_p50": 1.1563124030413883,
+          "budget_ratio_p90": 1.1819902591391687,
+          "budget_ratio_p95": 1.189801231888607,
+          "budget_ratio_p99": 1.2082150545337142,
+          "quality_score_mean": 0.6610284090909091
+        },
+        "premium": {
+          "budget_failure_rate": 0.0,
+          "budget_failures": 0,
+          "budget_limit": 4.0,
+          "budget_ratio_max": 3.588272853207955,
+          "budget_ratio_p50": 3.044610227519722,
+          "budget_ratio_p90": 3.3122075838963427,
+          "budget_ratio_p95": 3.409358941387234,
+          "budget_ratio_p99": 3.588272853207955,
+          "quality_score_mean": 0.7334090909090909
+        }
+      },
+      "trials": 50
+    }
+  },
+  "gates": {
+    "all_budget_stress_passed": false,
+    "bootstrap_budget_failures": 13,
+    "mixture_budget_failures": 110,
+    "standalone_budget_failures": {
+      "korean_hangul_10pct": [
+        "premium"
+      ]
+    }
+  },
+  "groups": {
+    "aime": 12,
+    "all": 880,
+    "code_marker": 233,
+    "deepmind_math": 153,
+    "korean_hangul_10pct": 181,
+    "long_context_gt_8000": 80,
+    "math_or_numeric": 431,
+    "short_context_le_100": 161
+  },
+  "input": {
+    "path": "data/materialized/dev/inputs.json",
+    "sha256": "5920f9ea9e3da147aa546659054feb08afb7e11a0e4db6967b293ff79b759abc"
+  },
+  "mixtures": {
+    "aime": {
+      "batch_size": 300,
+      "complement_size": 868,
+      "group_size": 12,
+      "proportions": {
+        "0.25": {
+          "all_tier_failure_trials": 0,
+          "final_score_mean": 0.5412125,
+          "final_score_p05": 0.5015000000000001,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.396983531047594,
+              "budget_ratio_p50": 1.220790733575766,
+              "budget_ratio_p90": 1.3439471413465858,
+              "budget_ratio_p95": 1.3912767750710175,
+              "budget_ratio_p99": 1.396983531047594,
+              "quality_score_mean": 0.5321666666666667
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.1629447630814256,
+              "budget_ratio_p50": 1.1112295341089846,
+              "budget_ratio_p90": 1.128408120634674,
+              "budget_ratio_p95": 1.1526880128647523,
+              "budget_ratio_p99": 1.1629447630814256,
+              "quality_score_mean": 0.516625
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 2.096807804246675,
+              "budget_ratio_p50": 1.7425663145015486,
+              "budget_ratio_p90": 1.9719024573058104,
+              "budget_ratio_p95": 2.0684840896068577,
+              "budget_ratio_p99": 2.096807804246675,
+              "quality_score_mean": 0.5830416666666667
+            }
+          },
+          "trials": 20
+        },
+        "0.50": {
+          "all_tier_failure_trials": 0,
+          "final_score_mean": 0.36692916666666664,
+          "final_score_p05": 0.33475,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.221896861020083,
+              "budget_ratio_p50": 1.1215193847885145,
+              "budget_ratio_p90": 1.1895483812744756,
+              "budget_ratio_p95": 1.1897237840574928,
+              "budget_ratio_p99": 1.221896861020083,
+              "quality_score_mean": 0.357
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.1416903562121135,
+              "budget_ratio_p50": 1.0916378664203081,
+              "budget_ratio_p90": 1.1189024222977333,
+              "budget_ratio_p95": 1.1198095938246866,
+              "budget_ratio_p99": 1.1416903562121135,
+              "quality_score_mean": 0.34629166666666666
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 1.7479819608281193,
+              "budget_ratio_p50": 1.4490494217711076,
+              "budget_ratio_p90": 1.5428436272494293,
+              "budget_ratio_p95": 1.6988723328840778,
+              "budget_ratio_p99": 1.7479819608281193,
+              "quality_score_mean": 0.40437500000000004
+            }
+          },
+          "trials": 20
+        },
+        "0.75": {
+          "all_tier_failure_trials": 0,
+          "final_score_mean": 0.19845,
+          "final_score_p05": 0.16366666666666668,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.2052763340142956,
+              "budget_ratio_p50": 1.101431225676035,
+              "budget_ratio_p90": 1.1433200487752035,
+              "budget_ratio_p95": 1.1537741311949687,
+              "budget_ratio_p99": 1.2052763340142956,
+              "quality_score_mean": 0.18916666666666665
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.1205959679182298,
+              "budget_ratio_p50": 1.0973556951852836,
+              "budget_ratio_p90": 1.1025347651657296,
+              "budget_ratio_p95": 1.1070672643120565,
+              "budget_ratio_p99": 1.1205959679182298,
+              "quality_score_mean": 0.18375
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 2.8712507970671135,
+              "budget_ratio_p50": 1.324952210413799,
+              "budget_ratio_p90": 1.481871836928183,
+              "budget_ratio_p95": 1.5344526976583492,
+              "budget_ratio_p99": 2.8712507970671135,
+              "quality_score_mean": 0.22733333333333333
+            }
+          },
+          "trials": 20
+        },
+        "1.00": {
+          "all_tier_failure_trials": 0,
+          "final_score_mean": 0.03348333333333333,
+          "final_score_p05": 0.018833333333333334,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.1700693206998045,
+              "budget_ratio_p50": 1.0718919575344088,
+              "budget_ratio_p90": 1.1131948165020829,
+              "budget_ratio_p95": 1.126385208642039,
+              "budget_ratio_p99": 1.1700693206998045,
+              "quality_score_mean": 0.021708333333333333
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.100325823306494,
+              "budget_ratio_p50": 1.0893496944410506,
+              "budget_ratio_p90": 1.0968498777909905,
+              "budget_ratio_p95": 1.0975135821372575,
+              "budget_ratio_p99": 1.100325823306494,
+              "quality_score_mean": 0.021708333333333333
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 2.6399621933503514,
+              "budget_ratio_p50": 1.2095607030545157,
+              "budget_ratio_p90": 2.547406339058143,
+              "budget_ratio_p95": 2.60438343956589,
+              "budget_ratio_p99": 2.6399621933503514,
+              "quality_score_mean": 0.06095833333333334
+            }
+          },
+          "trials": 20
+        }
+      }
+    },
+    "code_marker": {
+      "batch_size": 300,
+      "complement_size": 647,
+      "group_size": 233,
+      "proportions": {
+        "0.25": {
+          "all_tier_failure_trials": 2,
+          "final_score_mean": 0.6663041666666667,
+          "final_score_p05": 0.46108333333333335,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.1,
+              "budget_failures": 2,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.069585440649237,
+              "budget_ratio_p50": 1.680292938024722,
+              "budget_ratio_p90": 1.911144494004881,
+              "budget_ratio_p95": 2.016719778819997,
+              "budget_ratio_p99": 2.069585440649237,
+              "quality_score_mean": 0.6832916666666666
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.195243423005231,
+              "budget_ratio_p50": 1.1600805607119071,
+              "budget_ratio_p90": 1.1937315092969671,
+              "budget_ratio_p95": 1.194316052648227,
+              "budget_ratio_p99": 1.195243423005231,
+              "quality_score_mean": 0.6566666666666666
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.6916825346137028,
+              "budget_ratio_p50": 3.1593000814782277,
+              "budget_ratio_p90": 3.454778650737735,
+              "budget_ratio_p95": 3.4592835701643567,
+              "budget_ratio_p99": 3.6916825346137028,
+              "quality_score_mean": 0.729625
+            }
+          },
+          "trials": 20
+        },
+        "0.50": {
+          "all_tier_failure_trials": 7,
+          "final_score_mean": 0.5613583333333334,
+          "final_score_p05": 0.2085,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.2079286838470136,
+              "budget_ratio_p50": 1.6906905597049389,
+              "budget_ratio_p90": 1.8786054826308356,
+              "budget_ratio_p95": 1.9496240590782004,
+              "budget_ratio_p99": 2.2079286838470136,
+              "quality_score_mean": 0.651875
+            },
+            "fast": {
+              "budget_failure_rate": 0.35,
+              "budget_failures": 7,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.5267985422110344,
+              "budget_ratio_p50": 1.1875699499074885,
+              "budget_ratio_p90": 1.3836830356178955,
+              "budget_ratio_p95": 1.4321186833172812,
+              "budget_ratio_p99": 1.5267985422110344,
+              "quality_score_mean": 0.6244583333333333
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.8259719402029218,
+              "budget_ratio_p50": 3.2019622635934812,
+              "budget_ratio_p90": 3.570544240432139,
+              "budget_ratio_p95": 3.590983365287083,
+              "budget_ratio_p99": 3.8259719402029218,
+              "quality_score_mean": 0.7049583333333334
+            }
+          },
+          "trials": 20
+        },
+        "0.75": {
+          "all_tier_failure_trials": 5,
+          "final_score_mean": 0.5580416666666667,
+          "final_score_p05": 0.366,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.7757608838058834,
+              "budget_ratio_p50": 1.6528767090258183,
+              "budget_ratio_p90": 1.7605498663039636,
+              "budget_ratio_p95": 1.7694807648511814,
+              "budget_ratio_p99": 1.7757608838058834,
+              "quality_score_mean": 0.6096666666666667
+            },
+            "fast": {
+              "budget_failure_rate": 0.25,
+              "budget_failures": 5,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.3344520231406913,
+              "budget_ratio_p50": 1.1790869826938586,
+              "budget_ratio_p90": 1.3100382802143735,
+              "budget_ratio_p95": 1.312566484877284,
+              "budget_ratio_p99": 1.3344520231406913,
+              "quality_score_mean": 0.5850833333333333
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.4934802505631777,
+              "budget_ratio_p50": 2.994537903275029,
+              "budget_ratio_p90": 3.334272049355238,
+              "budget_ratio_p95": 3.3694782586664256,
+              "budget_ratio_p99": 3.4934802505631777,
+              "quality_score_mean": 0.6675833333333333
+            }
+          },
+          "trials": 20
+        },
+        "1.00": {
+          "all_tier_failure_trials": 0,
+          "final_score_mean": 0.5777916666666666,
+          "final_score_p05": 0.5343333333333333,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.7776032953147982,
+              "budget_ratio_p50": 1.5672600083708692,
+              "budget_ratio_p90": 1.6536195235362594,
+              "budget_ratio_p95": 1.7108736595902916,
+              "budget_ratio_p99": 1.7776032953147982,
+              "quality_score_mean": 0.574125
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2195734393861672,
+              "budget_ratio_p50": 1.1838308478363873,
+              "budget_ratio_p90": 1.206422301206993,
+              "budget_ratio_p95": 1.2185010431385788,
+              "budget_ratio_p99": 1.2195734393861672,
+              "quality_score_mean": 0.5352916666666666
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.932235402194005,
+              "budget_ratio_p50": 3.1325272955759442,
+              "budget_ratio_p90": 3.5134352660895565,
+              "budget_ratio_p95": 3.5522930681575966,
+              "budget_ratio_p99": 3.932235402194005,
+              "quality_score_mean": 0.6381249999999999
+            }
+          },
+          "trials": 20
+        }
+      }
+    },
+    "deepmind_math": {
+      "batch_size": 300,
+      "complement_size": 727,
+      "group_size": 153,
+      "proportions": {
+        "0.25": {
+          "all_tier_failure_trials": 2,
+          "final_score_mean": 0.651675,
+          "final_score_p05": 0.46399999999999997,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.01266779925123,
+              "budget_ratio_p50": 1.6955848590129035,
+              "budget_ratio_p90": 1.8632735658443418,
+              "budget_ratio_p95": 1.9178824660523044,
+              "budget_ratio_p99": 2.01266779925123,
+              "quality_score_mean": 0.6715
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2155459172367946,
+              "budget_ratio_p50": 1.1611398021631638,
+              "budget_ratio_p90": 1.197804164034726,
+              "budget_ratio_p95": 1.2019870108765196,
+              "budget_ratio_p99": 1.2155459172367946,
+              "quality_score_mean": 0.641375
+            },
+            "premium": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.099698915988452,
+              "budget_ratio_p50": 3.2353768368522076,
+              "budget_ratio_p90": 3.72028640737943,
+              "budget_ratio_p95": 3.744530853244929,
+              "budget_ratio_p99": 4.099698915988452,
+              "quality_score_mean": 0.7165833333333333
+            }
+          },
+          "trials": 20
+        },
+        "0.50": {
+          "all_tier_failure_trials": 3,
+          "final_score_mean": 0.5800041666666667,
+          "final_score_p05": 0.40908333333333335,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.15,
+              "budget_failures": 3,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.2353070589359465,
+              "budget_ratio_p50": 1.7002528627005107,
+              "budget_ratio_p90": 2.056027817514998,
+              "budget_ratio_p95": 2.1073315333761795,
+              "budget_ratio_p99": 2.2353070589359465,
+              "quality_score_mean": 0.6083333333333333
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2368396191203008,
+              "budget_ratio_p50": 1.1615189689862646,
+              "budget_ratio_p90": 1.1958936954156372,
+              "budget_ratio_p95": 1.1976519224410673,
+              "budget_ratio_p99": 1.2368396191203008,
+              "quality_score_mean": 0.5717916666666667
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.99616508138505,
+              "budget_ratio_p50": 3.385734333264179,
+              "budget_ratio_p90": 3.644430146349844,
+              "budget_ratio_p95": 3.6542662950293012,
+              "budget_ratio_p99": 3.99616508138505,
+              "quality_score_mean": 0.6535833333333334
+            }
+          },
+          "trials": 20
+        },
+        "0.75": {
+          "all_tier_failure_trials": 9,
+          "final_score_mean": 0.42005416666666673,
+          "final_score_p05": 0.19333333333333336,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.45,
+              "budget_failures": 9,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 3.0004763510378933,
+              "budget_ratio_p50": 1.9533331941681031,
+              "budget_ratio_p90": 2.5160890365627715,
+              "budget_ratio_p95": 2.8197730575954023,
+              "budget_ratio_p99": 3.0004763510378933,
+              "quality_score_mean": 0.5626249999999999
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2016982973449304,
+              "budget_ratio_p50": 1.1411328919714603,
+              "budget_ratio_p90": 1.1696088770682378,
+              "budget_ratio_p95": 1.1777083311021497,
+              "budget_ratio_p99": 1.2016982973449304,
+              "quality_score_mean": 0.5014166666666667
+            },
+            "premium": {
+              "budget_failure_rate": 0.3,
+              "budget_failures": 6,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.539575950273137,
+              "budget_ratio_p50": 3.3594969047383314,
+              "budget_ratio_p90": 4.333187783208147,
+              "budget_ratio_p95": 4.3953951920324545,
+              "budget_ratio_p99": 4.539575950273137,
+              "quality_score_mean": 0.604125
+            }
+          },
+          "trials": 20
+        },
+        "1.00": {
+          "all_tier_failure_trials": 4,
+          "final_score_mean": 0.4504833333333333,
+          "final_score_p05": 0.3011666666666667,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.1,
+              "budget_failures": 2,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.2267763301030765,
+              "budget_ratio_p50": 1.678995041112147,
+              "budget_ratio_p90": 1.999753533187151,
+              "budget_ratio_p95": 2.005176462028693,
+              "budget_ratio_p99": 2.2267763301030765,
+              "quality_score_mean": 0.4993333333333333
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.170552409609629,
+              "budget_ratio_p50": 1.1363461287707108,
+              "budget_ratio_p90": 1.1615698511346788,
+              "budget_ratio_p95": 1.165390350227261,
+              "budget_ratio_p99": 1.170552409609629,
+              "quality_score_mean": 0.42833333333333334
+            },
+            "premium": {
+              "budget_failure_rate": 0.1,
+              "budget_failures": 2,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.85295241749113,
+              "budget_ratio_p50": 3.2599512004733615,
+              "budget_ratio_p90": 3.8683338879752887,
+              "budget_ratio_p95": 4.398628639222779,
+              "budget_ratio_p99": 4.85295241749113,
+              "quality_score_mean": 0.5331666666666667
+            }
+          },
+          "trials": 20
+        }
+      }
+    },
+    "korean_hangul_10pct": {
+      "batch_size": 300,
+      "complement_size": 699,
+      "group_size": 181,
+      "proportions": {
+        "0.25": {
+          "all_tier_failure_trials": 1,
+          "final_score_mean": 0.6704916666666667,
+          "final_score_p05": 0.2185,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.0471691502337697,
+              "budget_ratio_p50": 1.7020832100076768,
+              "budget_ratio_p90": 1.7932517901960368,
+              "budget_ratio_p95": 1.9013888556760286,
+              "budget_ratio_p99": 2.0471691502337697,
+              "quality_score_mean": 0.690875
+            },
+            "fast": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.251197579305077,
+              "budget_ratio_p50": 1.1784555413834212,
+              "budget_ratio_p90": 1.2055289971343723,
+              "budget_ratio_p95": 1.2159655174039297,
+              "budget_ratio_p99": 1.251197579305077,
+              "quality_score_mean": 0.6655416666666667
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.744969344592326,
+              "budget_ratio_p50": 3.131286011039522,
+              "budget_ratio_p90": 3.5655737267808334,
+              "budget_ratio_p95": 3.7380968354062807,
+              "budget_ratio_p99": 3.744969344592326,
+              "quality_score_mean": 0.734375
+            }
+          },
+          "trials": 20
+        },
+        "0.50": {
+          "all_tier_failure_trials": 0,
+          "final_score_mean": 0.7165375,
+          "final_score_p05": 0.6491666666666667,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.831278097007194,
+              "budget_ratio_p50": 1.701008043544682,
+              "budget_ratio_p90": 1.8251391662756424,
+              "budget_ratio_p95": 1.825359232640985,
+              "budget_ratio_p99": 1.831278097007194,
+              "quality_score_mean": 0.7151666666666666
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2147307733961317,
+              "budget_ratio_p50": 1.1558332560405702,
+              "budget_ratio_p90": 1.1898991659971259,
+              "budget_ratio_p95": 1.2042044517536867,
+              "budget_ratio_p99": 1.2147307733961317,
+              "quality_score_mean": 0.692
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.9236850963864867,
+              "budget_ratio_p50": 3.1762829936658536,
+              "budget_ratio_p90": 3.4498982611856652,
+              "budget_ratio_p95": 3.469095907010973,
+              "budget_ratio_p99": 3.9236850963864867,
+              "quality_score_mean": 0.750625
+            }
+          },
+          "trials": 20
+        },
+        "0.75": {
+          "all_tier_failure_trials": 4,
+          "final_score_mean": 0.6975791666666666,
+          "final_score_p05": 0.5063333333333334,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.15,
+              "budget_failures": 3,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.1797489710333378,
+              "budget_ratio_p50": 1.679069203694082,
+              "budget_ratio_p90": 2.089459688812204,
+              "budget_ratio_p95": 2.119055057514476,
+              "budget_ratio_p99": 2.1797489710333378,
+              "quality_score_mean": 0.7485
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.181501844376284,
+              "budget_ratio_p50": 1.1422121395694225,
+              "budget_ratio_p90": 1.1717550300355266,
+              "budget_ratio_p95": 1.1741193640080365,
+              "budget_ratio_p99": 1.181501844376284,
+              "quality_score_mean": 0.7156666666666667
+            },
+            "premium": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.123564068271558,
+              "budget_ratio_p50": 3.265725149499429,
+              "budget_ratio_p90": 3.659510606238372,
+              "budget_ratio_p95": 3.6881841214390554,
+              "budget_ratio_p99": 4.123564068271558,
+              "quality_score_mean": 0.7742916666666667
+            }
+          },
+          "trials": 20
+        },
+        "1.00": {
+          "all_tier_failure_trials": 5,
+          "final_score_mean": 0.708475,
+          "final_score_p05": 0.5195,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.8427160075870355,
+              "budget_ratio_p50": 1.7911827492894723,
+              "budget_ratio_p90": 1.8397862557916027,
+              "budget_ratio_p95": 1.8410585096221728,
+              "budget_ratio_p99": 1.8427160075870355,
+              "quality_score_mean": 0.7806666666666666
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2148353799353369,
+              "budget_ratio_p50": 1.1766044539828158,
+              "budget_ratio_p90": 1.2065314756068801,
+              "budget_ratio_p95": 1.2089114192235566,
+              "budget_ratio_p99": 1.2148353799353369,
+              "quality_score_mean": 0.74
+            },
+            "premium": {
+              "budget_failure_rate": 0.25,
+              "budget_failures": 5,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.234361093857009,
+              "budget_ratio_p50": 3.7988492605663073,
+              "budget_ratio_p90": 4.138699429855947,
+              "budget_ratio_p95": 4.196615266738096,
+              "budget_ratio_p99": 4.234361093857009,
+              "quality_score_mean": 0.7945
+            }
+          },
+          "trials": 20
+        }
+      }
+    },
+    "long_context_gt_8000": {
+      "batch_size": 300,
+      "complement_size": 800,
+      "group_size": 80,
+      "proportions": {
+        "0.25": {
+          "all_tier_failure_trials": 5,
+          "final_score_mean": 0.6108541666666667,
+          "final_score_p05": 0.20075,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.8851881473194843,
+              "budget_ratio_p50": 1.7143948202472314,
+              "budget_ratio_p90": 1.856460923138675,
+              "budget_ratio_p95": 1.87916015747156,
+              "budget_ratio_p99": 1.8851881473194843,
+              "quality_score_mean": 0.679125
+            },
+            "fast": {
+              "budget_failure_rate": 0.1,
+              "budget_failures": 2,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.3194153779497597,
+              "budget_ratio_p50": 1.1813765935838514,
+              "budget_ratio_p90": 1.231624818589403,
+              "budget_ratio_p95": 1.2780786100410817,
+              "budget_ratio_p99": 1.3194153779497597,
+              "quality_score_mean": 0.6435833333333333
+            },
+            "premium": {
+              "budget_failure_rate": 0.2,
+              "budget_failures": 4,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.760676006856923,
+              "budget_ratio_p50": 3.6227577658476577,
+              "budget_ratio_p90": 4.1421298938542535,
+              "budget_ratio_p95": 4.713006888694289,
+              "budget_ratio_p99": 4.760676006856923,
+              "quality_score_mean": 0.7254583333333333
+            }
+          },
+          "trials": 20
+        },
+        "0.50": {
+          "all_tier_failure_trials": 11,
+          "final_score_mean": 0.5245083333333334,
+          "final_score_p05": 0.40349999999999997,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.9125711397922514,
+              "budget_ratio_p50": 1.6343721963415119,
+              "budget_ratio_p90": 1.886778241587366,
+              "budget_ratio_p95": 1.9106933279916416,
+              "budget_ratio_p99": 1.9125711397922514,
+              "quality_score_mean": 0.6420416666666666
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2261677228289716,
+              "budget_ratio_p50": 1.1489962210032612,
+              "budget_ratio_p90": 1.212389948699954,
+              "budget_ratio_p95": 1.2251120323750142,
+              "budget_ratio_p99": 1.2261677228289716,
+              "quality_score_mean": 0.5960833333333333
+            },
+            "premium": {
+              "budget_failure_rate": 0.55,
+              "budget_failures": 11,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 5.285131352719497,
+              "budget_ratio_p50": 4.082846603329474,
+              "budget_ratio_p90": 4.550083289219475,
+              "budget_ratio_p95": 4.614386281779356,
+              "budget_ratio_p99": 5.285131352719497,
+              "quality_score_mean": 0.693
+            }
+          },
+          "trials": 20
+        },
+        "0.75": {
+          "all_tier_failure_trials": 6,
+          "final_score_mean": 0.5041375,
+          "final_score_p05": 0.20133333333333334,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.2,
+              "budget_failures": 4,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 3.131092159425161,
+              "budget_ratio_p50": 1.7828371540831993,
+              "budget_ratio_p90": 2.445909262869507,
+              "budget_ratio_p95": 2.9060532759918196,
+              "budget_ratio_p99": 3.131092159425161,
+              "quality_score_mean": 0.6004166666666666
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2122258264275212,
+              "budget_ratio_p50": 1.1542422760845272,
+              "budget_ratio_p90": 1.162647192288793,
+              "budget_ratio_p95": 1.1644186394713234,
+              "budget_ratio_p99": 1.2122258264275212,
+              "quality_score_mean": 0.551875
+            },
+            "premium": {
+              "budget_failure_rate": 0.25,
+              "budget_failures": 5,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.74630663765759,
+              "budget_ratio_p50": 3.534530929638302,
+              "budget_ratio_p90": 4.501443412015386,
+              "budget_ratio_p95": 4.71117535185504,
+              "budget_ratio_p99": 4.74630663765759,
+              "quality_score_mean": 0.610125
+            }
+          },
+          "trials": 20
+        },
+        "1.00": {
+          "all_tier_failure_trials": 0,
+          "final_score_mean": 0.5170250000000001,
+          "final_score_p05": 0.44166666666666665,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.936277263746841,
+              "budget_ratio_p50": 1.892100435242585,
+              "budget_ratio_p90": 1.9106278365170881,
+              "budget_ratio_p95": 1.9161826432932272,
+              "budget_ratio_p99": 1.936277263746841,
+              "quality_score_mean": 0.5387500000000001
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.174436293927359,
+              "budget_ratio_p50": 1.1570894519510702,
+              "budget_ratio_p90": 1.1713888971402049,
+              "budget_ratio_p95": 1.1743447815532166,
+              "budget_ratio_p99": 1.174436293927359,
+              "quality_score_mean": 0.499
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.425977022440735,
+              "budget_ratio_p50": 3.1464555740637863,
+              "budget_ratio_p90": 3.278845739919967,
+              "budget_ratio_p95": 3.339897429216505,
+              "budget_ratio_p99": 3.425977022440735,
+              "quality_score_mean": 0.5193333333333333
+            }
+          },
+          "trials": 20
+        }
+      }
+    },
+    "math_or_numeric": {
+      "batch_size": 300,
+      "complement_size": 449,
+      "group_size": 431,
+      "proportions": {
+        "0.25": {
+          "all_tier_failure_trials": 1,
+          "final_score_mean": 0.7429833333333333,
+          "final_score_p05": 0.5229999999999999,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.090365773874108,
+              "budget_ratio_p50": 1.7158335831052252,
+              "budget_ratio_p90": 1.8341198322121515,
+              "budget_ratio_p95": 1.844687502087327,
+              "budget_ratio_p99": 2.090365773874108,
+              "quality_score_mean": 0.7517916666666666
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.204266689369638,
+              "budget_ratio_p50": 1.1636514716789257,
+              "budget_ratio_p90": 1.193630163130069,
+              "budget_ratio_p95": 1.1959951006258642,
+              "budget_ratio_p99": 1.204266689369638,
+              "quality_score_mean": 0.7287083333333333
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.958647911290825,
+              "budget_ratio_p50": 3.203797163542082,
+              "budget_ratio_p90": 3.7323750521809593,
+              "budget_ratio_p95": 3.7947416199708623,
+              "budget_ratio_p99": 3.958647911290825,
+              "quality_score_mean": 0.7906666666666666
+            }
+          },
+          "trials": 20
+        },
+        "0.50": {
+          "all_tier_failure_trials": 1,
+          "final_score_mean": 0.6787958333333333,
+          "final_score_p05": 0.47308333333333336,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.9969842337548458,
+              "budget_ratio_p50": 1.562262686454185,
+              "budget_ratio_p90": 1.9040421425604224,
+              "budget_ratio_p95": 1.9731318904023998,
+              "budget_ratio_p99": 1.9969842337548458,
+              "quality_score_mean": 0.6849583333333333
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2253167150643316,
+              "budget_ratio_p50": 1.1212747902358875,
+              "budget_ratio_p90": 1.2063333942771068,
+              "budget_ratio_p95": 1.2142496945746963,
+              "budget_ratio_p99": 1.2253167150643316,
+              "quality_score_mean": 0.6622083333333333
+            },
+            "premium": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.067806724109714,
+              "budget_ratio_p50": 3.0182366592391334,
+              "budget_ratio_p90": 3.6830528000480274,
+              "budget_ratio_p95": 3.7136470306171074,
+              "budget_ratio_p99": 4.067806724109714,
+              "quality_score_mean": 0.7327083333333333
+            }
+          },
+          "trials": 20
+        },
+        "0.75": {
+          "all_tier_failure_trials": 2,
+          "final_score_mean": 0.5948249999999999,
+          "final_score_p05": 0.3685,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.9639113835246977,
+              "budget_ratio_p50": 1.666743410938476,
+              "budget_ratio_p90": 1.8902428249229022,
+              "budget_ratio_p95": 1.9008130841363322,
+              "budget_ratio_p99": 1.9639113835246977,
+              "quality_score_mean": 0.610125
+            },
+            "fast": {
+              "budget_failure_rate": 0.1,
+              "budget_failures": 2,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.487769999585994,
+              "budget_ratio_p50": 1.133019433955394,
+              "budget_ratio_p90": 1.2167707966430974,
+              "budget_ratio_p95": 1.3376320333778395,
+              "budget_ratio_p99": 1.487769999585994,
+              "quality_score_mean": 0.5839166666666666
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.815434831749543,
+              "budget_ratio_p50": 3.0600379706004843,
+              "budget_ratio_p90": 3.3876028652448307,
+              "budget_ratio_p95": 3.4800478235571033,
+              "budget_ratio_p99": 3.815434831749543,
+              "quality_score_mean": 0.6672916666666666
+            }
+          },
+          "trials": 20
+        },
+        "1.00": {
+          "all_tier_failure_trials": 3,
+          "final_score_mean": 0.5185916666666667,
+          "final_score_p05": 0.3195,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.8724531479047202,
+              "budget_ratio_p50": 1.5802308744563283,
+              "budget_ratio_p90": 1.8320631121078077,
+              "budget_ratio_p95": 1.833811251303774,
+              "budget_ratio_p99": 1.8724531479047202,
+              "quality_score_mean": 0.5410416666666666
+            },
+            "fast": {
+              "budget_failure_rate": 0.15,
+              "budget_failures": 3,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.3211037036528321,
+              "budget_ratio_p50": 1.1859666070300319,
+              "budget_ratio_p90": 1.2653753301373312,
+              "budget_ratio_p95": 1.309306609648014,
+              "budget_ratio_p99": 1.3211037036528321,
+              "quality_score_mean": 0.5085416666666667
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.538763391746928,
+              "budget_ratio_p50": 2.811718049367573,
+              "budget_ratio_p90": 3.23129191852243,
+              "budget_ratio_p95": 3.483542896294089,
+              "budget_ratio_p99": 3.538763391746928,
+              "quality_score_mean": 0.6057083333333333
+            }
+          },
+          "trials": 20
+        }
+      }
+    },
+    "short_context_le_100": {
+      "batch_size": 300,
+      "complement_size": 719,
+      "group_size": 161,
+      "proportions": {
+        "0.25": {
+          "all_tier_failure_trials": 1,
+          "final_score_mean": 0.6738083333333333,
+          "final_score_p05": 0.48883333333333334,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.052471471863327,
+              "budget_ratio_p50": 1.6025149579693423,
+              "budget_ratio_p90": 1.7689723932181123,
+              "budget_ratio_p95": 1.9282315865340978,
+              "budget_ratio_p99": 2.052471471863327,
+              "quality_score_mean": 0.6820833333333334
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2416058187816725,
+              "budget_ratio_p50": 1.165095176658971,
+              "budget_ratio_p90": 1.210806991395741,
+              "budget_ratio_p95": 1.2142716354944578,
+              "budget_ratio_p99": 1.2416058187816725,
+              "quality_score_mean": 0.6563333333333333
+            },
+            "premium": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.5792091453051915,
+              "budget_ratio_p50": 3.0346685860455827,
+              "budget_ratio_p90": 3.468263209835899,
+              "budget_ratio_p95": 3.5619677734261606,
+              "budget_ratio_p99": 3.5792091453051915,
+              "quality_score_mean": 0.723125
+            }
+          },
+          "trials": 20
+        },
+        "0.50": {
+          "all_tier_failure_trials": 4,
+          "final_score_mean": 0.581525,
+          "final_score_p05": 0.23433333333333334,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.2,
+              "budget_failures": 4,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.489046629116768,
+              "budget_ratio_p50": 1.7825563248769376,
+              "budget_ratio_p90": 2.0255557511147484,
+              "budget_ratio_p95": 2.115389838284345,
+              "budget_ratio_p99": 2.489046629116768,
+              "quality_score_mean": 0.63375
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.1992714712779746,
+              "budget_ratio_p50": 1.1617216227159104,
+              "budget_ratio_p90": 1.1955120128777643,
+              "budget_ratio_p95": 1.1970255322612937,
+              "budget_ratio_p99": 1.1992714712779746,
+              "quality_score_mean": 0.594125
+            },
+            "premium": {
+              "budget_failure_rate": 0.05,
+              "budget_failures": 1,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.888811672618444,
+              "budget_ratio_p50": 3.4092188465516866,
+              "budget_ratio_p90": 3.9183826592170696,
+              "budget_ratio_p95": 3.955486669314847,
+              "budget_ratio_p99": 4.888811672618444,
+              "quality_score_mean": 0.675125
+            }
+          },
+          "trials": 20
+        },
+        "0.75": {
+          "all_tier_failure_trials": 10,
+          "final_score_mean": 0.3958625,
+          "final_score_p05": 0.19866666666666666,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.45,
+              "budget_failures": 9,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 2.720636540406235,
+              "budget_ratio_p50": 1.926096542280363,
+              "budget_ratio_p90": 2.5271294215229196,
+              "budget_ratio_p95": 2.583129199729017,
+              "budget_ratio_p99": 2.720636540406235,
+              "quality_score_mean": 0.5544583333333334
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.2023926834437932,
+              "budget_ratio_p50": 1.1317984911736398,
+              "budget_ratio_p90": 1.1659166404785795,
+              "budget_ratio_p95": 1.1789424760020943,
+              "budget_ratio_p99": 1.2023926834437932,
+              "quality_score_mean": 0.501875
+            },
+            "premium": {
+              "budget_failure_rate": 0.4,
+              "budget_failures": 8,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.876124855509422,
+              "budget_ratio_p50": 3.564982594706294,
+              "budget_ratio_p90": 4.653702656634866,
+              "budget_ratio_p95": 4.77113724649818,
+              "budget_ratio_p99": 4.876124855509422,
+              "quality_score_mean": 0.5940416666666667
+            }
+          },
+          "trials": 20
+        },
+        "1.00": {
+          "all_tier_failure_trials": 4,
+          "final_score_mean": 0.46285,
+          "final_score_p05": 0.30766666666666664,
+          "tiers": {
+            "balanced": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.8704622016091201,
+              "budget_ratio_p50": 1.6420945806859284,
+              "budget_ratio_p90": 1.8213122261336547,
+              "budget_ratio_p95": 1.852749310158117,
+              "budget_ratio_p99": 1.8704622016091201,
+              "quality_score_mean": 0.515
+            },
+            "fast": {
+              "budget_failure_rate": 0.0,
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.128930665333109,
+              "budget_ratio_p50": 1.0825143231236214,
+              "budget_ratio_p90": 1.1167101288919454,
+              "budget_ratio_p95": 1.1191474002188289,
+              "budget_ratio_p99": 1.128930665333109,
+              "quality_score_mean": 0.4415
+            },
+            "premium": {
+              "budget_failure_rate": 0.2,
+              "budget_failures": 4,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.511639470353423,
+              "budget_ratio_p50": 3.27653859527199,
+              "budget_ratio_p90": 4.117150831998904,
+              "budget_ratio_p95": 4.289752920341527,
+              "budget_ratio_p99": 4.511639470353423,
+              "quality_score_mean": 0.5434166666666667
+            }
+          },
+          "trials": 20
+        }
+      }
+    }
+  },
+  "num_episodes": 880,
+  "outcomes": {
+    "path": "data/dev/outcomes.json",
+    "sha256": "acb7c5ed522c4e1b65e9ab14b3fe9458fcba32eb3d9de8d3f53e24b8904d2e66"
+  },
+  "report_type": "ossp-router-robustness-v1",
+  "router_version": "6.1-competitive",
+  "schema_version": 1,
+  "seed": 20260819,
+  "standalone": {
+    "aime": {
+      "all_tiers_passed": true,
+      "final_score": 0.02708333333333333,
+      "num_episodes": 12,
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.0650481481978387,
+          "model_counts": {
+            "ax31": 7,
+            "ax31-light": 5,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.779618665609148,
+          "quality_score": 0.020833333333333332,
+          "tier_score": 0.020833333333333332
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.087923823211758,
+          "model_counts": {
+            "ax31": 2,
+            "ax31-light": 10,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1319707934280805,
+          "quality_score": 0.020833333333333332,
+          "tier_score": 0.020833333333333332
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 1.1833239513386238,
+          "model_counts": {
+            "ax31": 12,
+            "ax31-light": 0,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 2.5632966711747556,
+          "quality_score": 0.041666666666666664,
+          "tier_score": 0.041666666666666664
+        }
+      }
+    },
+    "all": {
+      "all_tiers_passed": true,
+      "final_score": 0.6951704545454545,
+      "num_episodes": 880,
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.6615728191813264,
+          "model_counts": {
+            "ax31": 786,
+            "ax31-light": 90,
+            "axk1-think": 4
+          },
+          "predicted_budget_ratio": 1.9332398186547217,
+          "quality_score": 0.6897727272727273,
+          "tier_score": 0.6897727272727273
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.143320817779044,
+          "model_counts": {
+            "ax31": 318,
+            "ax31-light": 562,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1802365287963714,
+          "quality_score": 0.6670454545454545,
+          "tier_score": 0.6670454545454545
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.0725578484914053,
+          "model_counts": {
+            "ax31": 662,
+            "ax31-light": 99,
+            "axk1-think": 119
+          },
+          "predicted_budget_ratio": 3.8386839553000587,
+          "quality_score": 0.7380681818181818,
+          "tier_score": 0.7380681818181818
+        }
+      }
+    },
+    "code_marker": {
+      "all_tiers_passed": true,
+      "final_score": 0.5763948497854077,
+      "num_episodes": 233,
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.5948727309194994,
+          "model_counts": {
+            "ax31": 137,
+            "ax31-light": 81,
+            "axk1-think": 15
+          },
+          "predicted_budget_ratio": 1.9339008824800379,
+          "quality_score": 0.5740343347639485,
+          "tier_score": 0.5740343347639485
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1812137881035456,
+          "model_counts": {
+            "ax31": 104,
+            "ax31-light": 129,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1750483204689566,
+          "quality_score": 0.5332618025751072,
+          "tier_score": 0.5332618025751072
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.1031994546936046,
+          "model_counts": {
+            "ax31": 98,
+            "ax31-light": 81,
+            "axk1-think": 54
+          },
+          "predicted_budget_ratio": 3.7979626149362944,
+          "quality_score": 0.6362660944206009,
+          "tier_score": 0.6362660944206009
+        }
+      }
+    },
+    "deepmind_math": {
+      "all_tiers_passed": true,
+      "final_score": 0.4718954248366013,
+      "num_episodes": 153,
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.4824717925629736,
+          "model_counts": {
+            "ax31": 103,
+            "ax31-light": 50,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.9405880266944202,
+          "quality_score": 0.49019607843137253,
+          "tier_score": 0.49019607843137253
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1215139968866132,
+          "model_counts": {
+            "ax31": 43,
+            "ax31-light": 110,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.173936613235763,
+          "quality_score": 0.4150326797385621,
+          "tier_score": 0.4150326797385621
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.3587335021022993,
+          "model_counts": {
+            "ax31": 145,
+            "ax31-light": 0,
+            "axk1-think": 8
+          },
+          "predicted_budget_ratio": 3.769735852505665,
+          "quality_score": 0.5294117647058824,
+          "tier_score": 0.5294117647058824
+        }
+      }
+    },
+    "korean_hangul_10pct": {
+      "all_tiers_passed": false,
+      "final_score": 0.5287292817679559,
+      "num_episodes": 181,
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.793156110707992,
+          "model_counts": {
+            "ax31": 120,
+            "ax31-light": 61,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.9477333831351145,
+          "quality_score": 0.7790055248618785,
+          "tier_score": 0.7790055248618785
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1809029879755364,
+          "model_counts": {
+            "ax31": 28,
+            "ax31-light": 153,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.175618460721942,
+          "quality_score": 0.7375690607734806,
+          "tier_score": 0.7375690607734806
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": false,
+          "budget_ratio": 4.117881459261947,
+          "model_counts": {
+            "ax31": 165,
+            "ax31-light": 5,
+            "axk1-think": 11
+          },
+          "predicted_budget_ratio": 3.8584385969581683,
+          "quality_score": 0.8011049723756906,
+          "tier_score": 0.0
+        }
+      }
+    },
+    "long_context_gt_8000": {
+      "all_tiers_passed": true,
+      "final_score": 0.5231250000000001,
+      "num_episodes": 80,
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.8946393956698426,
+          "model_counts": {
+            "ax31": 65,
+            "ax31-light": 15,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.9409356683286745,
+          "quality_score": 0.54375,
+          "tier_score": 0.54375
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.162314631145442,
+          "model_counts": {
+            "ax31": 14,
+            "ax31-light": 66,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1783876855915316,
+          "quality_score": 0.50625,
+          "tier_score": 0.50625
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.222012741782738,
+          "model_counts": {
+            "ax31": 64,
+            "ax31-light": 0,
+            "axk1-think": 16
+          },
+          "predicted_budget_ratio": 3.84419250985609,
+          "quality_score": 0.525,
+          "tier_score": 0.525
+        }
+      }
+    },
+    "math_or_numeric": {
+      "all_tiers_passed": true,
+      "final_score": 0.5512761020881671,
+      "num_episodes": 431,
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.6835400297747745,
+          "model_counts": {
+            "ax31": 334,
+            "ax31-light": 82,
+            "axk1-think": 15
+          },
+          "predicted_budget_ratio": 1.9252311013315495,
+          "quality_score": 0.5464037122969838,
+          "tier_score": 0.5464037122969838
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.229736191485156,
+          "model_counts": {
+            "ax31": 197,
+            "ax31-light": 234,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1809389475646326,
+          "quality_score": 0.5133410672853829,
+          "tier_score": 0.5133410672853829
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 2.9530015912825394,
+          "model_counts": {
+            "ax31": 263,
+            "ax31-light": 88,
+            "axk1-think": 80
+          },
+          "predicted_budget_ratio": 3.8468297338884163,
+          "quality_score": 0.6067285382830626,
+          "tier_score": 0.6067285382830626
+        }
+      }
+    },
+    "short_context_le_100": {
+      "all_tiers_passed": true,
+      "final_score": 0.4863354037267081,
+      "num_episodes": 161,
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.6550748511817057,
+          "model_counts": {
+            "ax31": 107,
+            "ax31-light": 54,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.9403922048960465,
+          "quality_score": 0.5031055900621118,
+          "tier_score": 0.5031055900621118
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.0928646216605344,
+          "model_counts": {
+            "ax31": 40,
+            "ax31-light": 121,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1791902670081396,
+          "quality_score": 0.43788819875776397,
+          "tier_score": 0.43788819875776397
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.410592452576009,
+          "model_counts": {
+            "ax31": 153,
+            "ax31-light": 1,
+            "axk1-think": 7
+          },
+          "predicted_budget_ratio": 3.775508489429074,
+          "quality_score": 0.5341614906832298,
+          "tier_score": 0.5341614906832298
+        }
+      }
+    }
+  }
+}
