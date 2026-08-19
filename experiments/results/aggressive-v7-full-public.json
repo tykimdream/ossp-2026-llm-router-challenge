@@ -1,0 +1,301 @@
+{
+  "artifact": {
+    "path": "src/ossp_router/resources/aggressive-router.v5.json",
+    "sha256": "ae76686bc84dcc42c5cccaafe26107d281608e1f683ac2f5c4f2751069c16f7d"
+  },
+  "input": {
+    "path": "build/training/public-train-dev-inputs.json",
+    "sha256": "e7e384c59218f8786f430bcba2aa3b7f565fddf678a0cb5e64a2c9beabb85ea3"
+  },
+  "num_episodes": 2640,
+  "outcomes": {
+    "path": "build/training/public-train-dev-outcomes.json",
+    "sha256": "b4262e9764c399ba332412553287657474708dd471bbc06e88d50cd55282b3a1"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "profile": {
+    "composition_penalty": 1.0,
+    "path": "src/ossp_router/resources/adaptive-safety.v7.json",
+    "sha256": "172ddac2eda27b58d3ef0c5d684e1183a4e86988cd0fc662ed73c9defe2215f2",
+    "small_batch_penalty": 0.25,
+    "stable_batch_size": 1000
+  },
+  "python": "3.9.6",
+  "report_type": "ossp-aggressive-v7-comparison-v1",
+  "routers": {
+    "v6": {
+      "decision_sha256": {
+        "balanced": "71fa8bb69bf9ec588779a3507f6df9c18751e2034a04a93f5924fafe52da74a8",
+        "fast": "342d4e38bf1f9c81b0b959e6654b66eb50b961926f3c64ad4cf1354734f98725",
+        "premium": "bbe145af357e5be63305d38986b4bc46f7d70263bd278db1dc7ebc96fd26f69d"
+      },
+      "router_version": "6.1-competitive",
+      "runtime_seconds": {
+        "balanced": 15.718869959000001,
+        "fast": 15.699494916,
+        "premium": 15.651227708999997
+      },
+      "score": {
+        "challenge_id": "ossp-2026-llm-router-challenge",
+        "final_score": "0.703276515152",
+        "final_weighted_points_total": "1856.65",
+        "policy_id": "ossp-2026-prompt-router-v1",
+        "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+        "report_type": "prompt-only-routing-final-score",
+        "schema_version": 1,
+        "score_decimal_places": 12,
+        "score_rounding": "ROUND_HALF_EVEN",
+        "split": "public-train-dev",
+        "tier_weights": {
+          "balanced": "0.3",
+          "fast": "0.4",
+          "premium": "0.3"
+        },
+        "tiers": {
+          "balanced": {
+            "budget_limit": "25.970428",
+            "budget_multiplier": "2",
+            "budget_passed": true,
+            "budget_ratio": "1.744539604738",
+            "challenge_id": "ossp-2026-llm-router-challenge",
+            "cost_unit": "credits",
+            "light_baseline_cost": "12.985214",
+            "model_counts": {
+              "ax31": 2220,
+              "ax31-light": 373,
+              "axk1-think": 47
+            },
+            "near_budget": false,
+            "num_episodes": 2640,
+            "over_budget_zero_applied": false,
+            "policy_id": "ossp-2026-prompt-router-v1",
+            "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+            "quality_points_total": "1835.5",
+            "quality_score": "0.695265151515",
+            "report_type": "prompt-only-routing-tier-score",
+            "schema_version": 1,
+            "score_decimal_places": 12,
+            "score_rounding": "ROUND_HALF_EVEN",
+            "selected_generations": 6018,
+            "selected_input_tokens": 6362370,
+            "selected_output_tokens": 1705965,
+            "split": "public-train-dev",
+            "tier": "balanced",
+            "tier_points_total": "1835.5",
+            "tier_score": "0.695265151515",
+            "token_unit": 1000000,
+            "total_cost": "22.653220099"
+          },
+          "fast": {
+            "budget_limit": "16.2315175",
+            "budget_multiplier": "1.25",
+            "budget_passed": true,
+            "budget_ratio": "1.152315903227",
+            "challenge_id": "ossp-2026-llm-router-challenge",
+            "cost_unit": "credits",
+            "light_baseline_cost": "12.985214",
+            "model_counts": {
+              "ax31": 1036,
+              "ax31-light": 1604,
+              "axk1-think": 0
+            },
+            "near_budget": false,
+            "num_episodes": 2640,
+            "over_budget_zero_applied": false,
+            "policy_id": "ossp-2026-prompt-router-v1",
+            "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+            "quality_points_total": "1791.25",
+            "quality_score": "0.678503787879",
+            "report_type": "prompt-only-routing-tier-score",
+            "schema_version": 1,
+            "score_decimal_places": 12,
+            "score_rounding": "ROUND_HALF_EVEN",
+            "selected_generations": 6018,
+            "selected_input_tokens": 6370992,
+            "selected_output_tokens": 1623236,
+            "split": "public-train-dev",
+            "tier": "fast",
+            "tier_points_total": "1791.25",
+            "tier_score": "0.678503787879",
+            "token_unit": 1000000,
+            "total_cost": "14.963068599"
+          },
+          "premium": {
+            "budget_limit": "51.940856",
+            "budget_multiplier": "4",
+            "budget_passed": true,
+            "budget_ratio": "2.93177222809",
+            "challenge_id": "ossp-2026-llm-router-challenge",
+            "cost_unit": "credits",
+            "light_baseline_cost": "12.985214",
+            "model_counts": {
+              "ax31": 1913,
+              "ax31-light": 400,
+              "axk1-think": 327
+            },
+            "near_budget": false,
+            "num_episodes": 2640,
+            "over_budget_zero_applied": false,
+            "policy_id": "ossp-2026-prompt-router-v1",
+            "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+            "quality_points_total": "1965",
+            "quality_score": "0.744318181818",
+            "report_type": "prompt-only-routing-tier-score",
+            "schema_version": 1,
+            "score_decimal_places": 12,
+            "score_rounding": "ROUND_HALF_EVEN",
+            "selected_generations": 6018,
+            "selected_input_tokens": 6361186,
+            "selected_output_tokens": 2195142,
+            "split": "public-train-dev",
+            "tier": "premium",
+            "tier_points_total": "1965",
+            "tier_score": "0.744318181818",
+            "token_unit": 1000000,
+            "total_cost": "38.069689781"
+          }
+        }
+      }
+    },
+    "v7": {
+      "decision_sha256": {
+        "balanced": "71fa8bb69bf9ec588779a3507f6df9c18751e2034a04a93f5924fafe52da74a8",
+        "fast": "fbc9d36f47c7f6fea65efec7acfb36cef057c558328b2eb8c4bba5842cc4835e",
+        "premium": "2f4622b72eb27b673ba5cfa578f108d57bba05b308c4f342b7343cc2f5ade8ba"
+      },
+      "router_version": "7.0-adaptive-budget",
+      "runtime_seconds": {
+        "balanced": 15.90818683300001,
+        "fast": 15.849835958,
+        "premium": 15.954079583999999
+      },
+      "score": {
+        "challenge_id": "ossp-2026-llm-router-challenge",
+        "final_score": "0.703276515152",
+        "final_weighted_points_total": "1856.65",
+        "policy_id": "ossp-2026-prompt-router-v1",
+        "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+        "report_type": "prompt-only-routing-final-score",
+        "schema_version": 1,
+        "score_decimal_places": 12,
+        "score_rounding": "ROUND_HALF_EVEN",
+        "split": "public-train-dev",
+        "tier_weights": {
+          "balanced": "0.3",
+          "fast": "0.4",
+          "premium": "0.3"
+        },
+        "tiers": {
+          "balanced": {
+            "budget_limit": "25.970428",
+            "budget_multiplier": "2",
+            "budget_passed": true,
+            "budget_ratio": "1.744539604738",
+            "challenge_id": "ossp-2026-llm-router-challenge",
+            "cost_unit": "credits",
+            "light_baseline_cost": "12.985214",
+            "model_counts": {
+              "ax31": 2220,
+              "ax31-light": 373,
+              "axk1-think": 47
+            },
+            "near_budget": false,
+            "num_episodes": 2640,
+            "over_budget_zero_applied": false,
+            "policy_id": "ossp-2026-prompt-router-v1",
+            "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+            "quality_points_total": "1835.5",
+            "quality_score": "0.695265151515",
+            "report_type": "prompt-only-routing-tier-score",
+            "schema_version": 1,
+            "score_decimal_places": 12,
+            "score_rounding": "ROUND_HALF_EVEN",
+            "selected_generations": 6018,
+            "selected_input_tokens": 6362370,
+            "selected_output_tokens": 1705965,
+            "split": "public-train-dev",
+            "tier": "balanced",
+            "tier_points_total": "1835.5",
+            "tier_score": "0.695265151515",
+            "token_unit": 1000000,
+            "total_cost": "22.653220099"
+          },
+          "fast": {
+            "budget_limit": "16.2315175",
+            "budget_multiplier": "1.25",
+            "budget_passed": true,
+            "budget_ratio": "1.150399700459",
+            "challenge_id": "ossp-2026-llm-router-challenge",
+            "cost_unit": "credits",
+            "light_baseline_cost": "12.985214",
+            "model_counts": {
+              "ax31": 1031,
+              "ax31-light": 1609,
+              "axk1-think": 0
+            },
+            "near_budget": false,
+            "num_episodes": 2640,
+            "over_budget_zero_applied": false,
+            "policy_id": "ossp-2026-prompt-router-v1",
+            "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+            "quality_points_total": "1791.25",
+            "quality_score": "0.678503787879",
+            "report_type": "prompt-only-routing-tier-score",
+            "schema_version": 1,
+            "score_decimal_places": 12,
+            "score_rounding": "ROUND_HALF_EVEN",
+            "selected_generations": 6018,
+            "selected_input_tokens": 6371012,
+            "selected_output_tokens": 1622305,
+            "split": "public-train-dev",
+            "tier": "fast",
+            "tier_points_total": "1791.25",
+            "tier_score": "0.678503787879",
+            "token_unit": 1000000,
+            "total_cost": "14.938186296"
+          },
+          "premium": {
+            "budget_limit": "51.940856",
+            "budget_multiplier": "4",
+            "budget_passed": true,
+            "budget_ratio": "2.92791827189",
+            "challenge_id": "ossp-2026-llm-router-challenge",
+            "cost_unit": "credits",
+            "light_baseline_cost": "12.985214",
+            "model_counts": {
+              "ax31": 1915,
+              "ax31-light": 400,
+              "axk1-think": 325
+            },
+            "near_budget": false,
+            "num_episodes": 2640,
+            "over_budget_zero_applied": false,
+            "policy_id": "ossp-2026-prompt-router-v1",
+            "policy_sha256": "7c892c423da5fa762e7e1a93b9fa071be51e259b65d2b63a5ba434c4342d7a8e",
+            "quality_points_total": "1965",
+            "quality_score": "0.744318181818",
+            "report_type": "prompt-only-routing-tier-score",
+            "schema_version": 1,
+            "score_decimal_places": 12,
+            "score_rounding": "ROUND_HALF_EVEN",
+            "selected_generations": 6018,
+            "selected_input_tokens": 6361180,
+            "selected_output_tokens": 2194344,
+            "split": "public-train-dev",
+            "tier": "premium",
+            "tier_points_total": "1965",
+            "tier_score": "0.744318181818",
+            "token_unit": 1000000,
+            "total_cost": "38.019645335"
+          }
+        }
+      }
+    }
+  },
+  "schema_version": 1,
+  "v6_v7_decision_mismatches": {
+    "balanced": 0,
+    "fast": 5,
+    "premium": 2
+  }
+}

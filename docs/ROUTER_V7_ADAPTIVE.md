@@ -75,3 +75,6 @@ V7은 공정 Dev 점수 `0.003693`을 보험료로 지불하고 이 프로토콜
 - 기준 비율은 현재 Train에 messages가 없음을 OOD 신호로 취급한다. 새로운
   메시지형 데이터가 정상 분포라면 별도 독립 calibration이 필요하다.
 - 임의 데이터의 절대 예산 보장은 workload guard의 Always-Light 경로에만 있다.
+
+최종 ARM64·결정론·엣지 gate와 활성 판단은
+[`FINAL_BAKEOFF_V7.md`](FINAL_BAKEOFF_V7.md)에 기록한다.
