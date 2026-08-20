@@ -1,0 +1,604 @@
+{
+  "composition_penalties": [
+    1.0
+  ],
+  "fixed_eval": {
+    "all_tier_failure_scenarios": 0,
+    "categories": {
+      "bootstrap": {
+        "all_tier_failure_scenarios": 0,
+        "failure_details": [],
+        "final_score_mean": 0.6657460353535353,
+        "safety_multiplier_mean": 0.7648301674928302,
+        "safety_multiplier_min": 0.5206233132349201,
+        "scenarios": 150,
+        "tier_budget_failures": 0,
+        "tiers": {
+          "balanced": {
+            "budget_failures": 0,
+            "budget_limit": 2.0,
+            "budget_ratio_max": 1.8415058590456703,
+            "budget_ratio_mean": 1.354221053188209,
+            "quality_score_mean": 0.6632757575757575
+          },
+          "fast": {
+            "budget_failures": 0,
+            "budget_limit": 1.25,
+            "budget_ratio_max": 1.1718024666547933,
+            "budget_ratio_mean": 1.041484170021516,
+            "quality_score_mean": 0.6299300505050505
+          },
+          "premium": {
+            "budget_failures": 0,
+            "budget_limit": 4.0,
+            "budget_ratio_max": 3.324666322530849,
+            "budget_ratio_mean": 2.4441027018220947,
+            "quality_score_mean": 0.7159709595959596
+          }
+        }
+      },
+      "mixtures": {
+        "all_tier_failure_scenarios": 0,
+        "failure_details": [],
+        "final_score_mean": 0.6042764583333333,
+        "safety_multiplier_mean": 0.5619157213977344,
+        "safety_multiplier_min": 0.3277427183476328,
+        "scenarios": 400,
+        "tier_budget_failures": 0,
+        "tiers": {
+          "balanced": {
+            "budget_failures": 0,
+            "budget_limit": 2.0,
+            "budget_ratio_max": 1.7895561396638417,
+            "budget_ratio_mean": 1.129470318597638,
+            "quality_score_mean": 0.5992083333333333
+          },
+          "fast": {
+            "budget_failures": 0,
+            "budget_limit": 1.25,
+            "budget_ratio_max": 1.0,
+            "budget_ratio_mean": 1.0,
+            "quality_score_mean": 0.5755520833333333
+          },
+          "premium": {
+            "budget_failures": 0,
+            "budget_limit": 4.0,
+            "budget_ratio_max": 3.1149163322716293,
+            "budget_ratio_mean": 1.8939409060693533,
+            "quality_score_mean": 0.64764375
+          }
+        }
+      },
+      "standalone": {
+        "all_tier_failure_scenarios": 0,
+        "failure_details": [],
+        "final_score_mean": 0.5318923446204422,
+        "safety_multiplier_mean": 0.3469063099958325,
+        "safety_multiplier_min": 0.21374439674355675,
+        "scenarios": 5,
+        "tier_budget_failures": 0,
+        "tiers": {
+          "balanced": {
+            "budget_failures": 0,
+            "budget_limit": 2.0,
+            "budget_ratio_max": 1.0093772182824527,
+            "budget_ratio_mean": 1.0018754436564905,
+            "quality_score_mean": 0.5240746982906689
+          },
+          "fast": {
+            "budget_failures": 0,
+            "budget_limit": 1.25,
+            "budget_ratio_max": 1.0,
+            "budget_ratio_mean": 1.0,
+            "quality_score_mean": 0.5233786426062141
+          },
+          "premium": {
+            "budget_failures": 0,
+            "budget_limit": 4.0,
+            "budget_ratio_max": 1.7858546503008363,
+            "budget_ratio_mean": 1.272308580873988,
+            "quality_score_mean": 0.5510615936358532
+          }
+        }
+      },
+      "whole": {
+        "all_tier_failure_scenarios": 0,
+        "failure_details": [],
+        "final_score_mean": 0.6914772727272727,
+        "safety_multiplier_mean": 0.978617388231418,
+        "safety_multiplier_min": 0.978617388231418,
+        "scenarios": 1,
+        "tier_budget_failures": 0,
+        "tiers": {
+          "balanced": {
+            "budget_failures": 0,
+            "budget_limit": 2.0,
+            "budget_ratio_max": 1.6531621224860937,
+            "budget_ratio_mean": 1.6531621224860937,
+            "quality_score_mean": 0.6897727272727273
+          },
+          "fast": {
+            "budget_failures": 0,
+            "budget_limit": 1.25,
+            "budget_ratio_max": 1.1455207831784524,
+            "budget_ratio_mean": 1.1455207831784524,
+            "quality_score_mean": 0.6599431818181818
+          },
+          "premium": {
+            "budget_failures": 0,
+            "budget_limit": 4.0,
+            "budget_ratio_max": 3.0060005265406624,
+            "budget_ratio_mean": 3.0060005265406624,
+            "quality_score_mean": 0.7352272727272727
+          }
+        }
+      }
+    },
+    "stress_final_score_mean": 0.6202377483954339,
+    "tier_budget_failures": 0
+  },
+  "protocol": "train-calibrate-then-fixed-eval",
+  "reference_rates": {
+    "code_marker": 0.26931818181818185,
+    "korean_hangul_10pct": 0.2056818181818182,
+    "long_context_gt_8000": 0.09090909090909091,
+    "math_or_numeric": 0.4909090909090909,
+    "messages": 0.0,
+    "short_context_le_100": 0.17784090909090908
+  },
+  "report_type": "ossp-adaptive-safety-study-v1",
+  "schema_version": 1,
+  "seed": 20260819,
+  "selected_profile": {
+    "composition_penalty": 1.0,
+    "name": "composition-1-small-0.25",
+    "small_batch_penalty": 0.25
+  },
+  "small_batch_penalties": [
+    0.2,
+    0.225,
+    0.25
+  ],
+  "stable_batch_size": 1000,
+  "train_candidates": {
+    "composition-1-small-0.2": {
+      "all_tier_failure_scenarios": 1,
+      "categories": {
+        "bootstrap": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.6638283712121212,
+          "safety_multiplier_mean": 0.798977844694332,
+          "safety_multiplier_min": 0.5818477629676222,
+          "scenarios": 150,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.8444529048614429,
+              "budget_ratio_mean": 1.3693113646367971,
+              "quality_score_mean": 0.667397095959596
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.130345572703329,
+              "budget_ratio_mean": 1.0276260356244227,
+              "quality_score_mean": 0.6193500000000001
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.6278051614771663,
+              "budget_ratio_mean": 2.6304008065834172,
+              "quality_score_mean": 0.7195641414141414
+            }
+          }
+        },
+        "mixtures": {
+          "all_tier_failure_scenarios": 1,
+          "failure_details": [
+            {
+              "failed_tiers": {
+                "premium": 4.179787724314076
+              },
+              "num_episodes": 300,
+              "safety_multiplier": 0.8345770663189611,
+              "scenario_index": 187,
+              "signal_rates": {
+                "code_marker": 0.2633333333333333,
+                "korean_hangul_10pct": 0.19,
+                "long_context_gt_8000": 0.1,
+                "math_or_numeric": 0.5,
+                "messages": 0.0,
+                "short_context_le_100": 0.19333333333333333
+              }
+            }
+          ],
+          "final_score_mean": 0.5934645833333333,
+          "safety_multiplier_mean": 0.5853847684220894,
+          "safety_multiplier_min": 0.34155748584815865,
+          "scenarios": 400,
+          "tier_budget_failures": 1,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.557373913199345,
+              "budget_ratio_mean": 1.1169508592100883,
+              "quality_score_mean": 0.5880645833333333
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.0,
+              "budget_ratio_mean": 1.0,
+              "quality_score_mean": 0.5506145833333334
+            },
+            "premium": {
+              "budget_failures": 1,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.179787724314076,
+              "budget_ratio_mean": 1.9430219236372444,
+              "quality_score_mean": 0.6577645833333334
+            }
+          }
+        },
+        "standalone": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.5214526613218142,
+          "safety_multiplier_mean": 0.42033354061119665,
+          "safety_multiplier_min": 0.29846849112509755,
+          "scenarios": 5,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.0916906357687965,
+              "budget_ratio_mean": 1.0183381271537593,
+              "quality_score_mean": 0.5047734462396073
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.0,
+              "budget_ratio_mean": 1.0,
+              "quality_score_mean": 0.492389186980348
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 1.9459408889484324,
+              "budget_ratio_mean": 1.4643249855234834,
+              "quality_score_mean": 0.5768831755259762
+            }
+          }
+        },
+        "whole": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.6972869318181818,
+          "safety_multiplier_mean": 1.0,
+          "safety_multiplier_min": 1.0,
+          "scenarios": 1,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.696363388048006,
+              "budget_ratio_mean": 1.696363388048006,
+              "quality_score_mean": 0.6805397727272727
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.119747869484434,
+              "budget_ratio_mean": 1.119747869484434,
+              "quality_score_mean": 0.6737215909090909
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.2083586589671107,
+              "budget_ratio_mean": 3.2083586589671107,
+              "quality_score_mean": 0.7454545454545455
+            }
+          }
+        }
+      },
+      "stress_final_score_mean": 0.6118330672464155,
+      "tier_budget_failures": 1
+    },
+    "composition-1-small-0.225": {
+      "all_tier_failure_scenarios": 1,
+      "categories": {
+        "bootstrap": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.6619628030303031,
+          "safety_multiplier_mean": 0.7821464036801207,
+          "safety_multiplier_min": 0.5512298629805571,
+          "scenarios": 150,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.8444529048614429,
+              "budget_ratio_mean": 1.346758478526423,
+              "quality_score_mean": 0.6637926767676767
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.1286387811140843,
+              "budget_ratio_mean": 1.0270784946072098,
+              "quality_score_mean": 0.6192553030303031
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.6278051614771663,
+              "budget_ratio_mean": 2.575400206574849,
+              "quality_score_mean": 0.7170762626262627
+            }
+          }
+        },
+        "mixtures": {
+          "all_tier_failure_scenarios": 1,
+          "failure_details": [
+            {
+              "failed_tiers": {
+                "premium": 4.172216697058255
+              },
+              "num_episodes": 300,
+              "safety_multiplier": 0.8175250485020191,
+              "scenario_index": 187,
+              "signal_rates": {
+                "code_marker": 0.2633333333333333,
+                "korean_hangul_10pct": 0.19,
+                "long_context_gt_8000": 0.1,
+                "math_or_numeric": 0.5,
+                "messages": 0.0,
+                "short_context_le_100": 0.19333333333333333
+              }
+            }
+          ],
+          "final_score_mean": 0.5923158333333334,
+          "safety_multiplier_mean": 0.5734242294811775,
+          "safety_multiplier_min": 0.3345788081810601,
+          "scenarios": 400,
+          "tier_budget_failures": 1,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.5251603200778874,
+              "budget_ratio_mean": 1.106303606821189,
+              "quality_score_mean": 0.5863375
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.0,
+              "budget_ratio_mean": 1.0,
+              "quality_score_mean": 0.5506145833333334
+            },
+            "premium": {
+              "budget_failures": 1,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 4.172216697058255,
+              "budget_ratio_mean": 1.904505587504745,
+              "quality_score_mean": 0.6556624999999999
+            }
+          }
+        },
+        "standalone": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.5205239417482701,
+          "safety_multiplier_mean": 0.41415928855309847,
+          "safety_multiplier_min": 0.2874831845172506,
+          "scenarios": 5,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.0905694911691537,
+              "budget_ratio_mean": 1.0181138982338307,
+              "quality_score_mean": 0.5047734462396073
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.0,
+              "budget_ratio_mean": 1.0,
+              "quality_score_mean": 0.492389186980348
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 1.9459408889484324,
+              "budget_ratio_mean": 1.446515341555011,
+              "quality_score_mean": 0.5737874436141623
+            }
+          }
+        },
+        "whole": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.6972869318181818,
+          "safety_multiplier_mean": 1.0,
+          "safety_multiplier_min": 1.0,
+          "scenarios": 1,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.696363388048006,
+              "budget_ratio_mean": 1.696363388048006,
+              "quality_score_mean": 0.6805397727272727
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.119747869484434,
+              "budget_ratio_mean": 1.119747869484434,
+              "quality_score_mean": 0.6737215909090909
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.2083586589671107,
+              "budget_ratio_mean": 3.2083586589671107,
+              "quality_score_mean": 0.7454545454545455
+            }
+          }
+        }
+      },
+      "stress_final_score_mean": 0.610492564858775,
+      "tier_budget_failures": 1
+    },
+    "composition-1-small-0.25": {
+      "all_tier_failure_scenarios": 0,
+      "categories": {
+        "bootstrap": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.6599706439393939,
+          "safety_multiplier_mean": 0.7659941803740467,
+          "safety_multiplier_min": 0.5222231332330004,
+          "scenarios": 150,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.8444529048614429,
+              "budget_ratio_mean": 1.3286531044944898,
+              "quality_score_mean": 0.6591114898989898
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.1266312995714753,
+              "budget_ratio_mean": 1.0266086252707618,
+              "quality_score_mean": 0.619194696969697
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.6278051614771663,
+              "budget_ratio_mean": 2.52672083117062,
+              "quality_score_mean": 0.7151977272727272
+            }
+          }
+        },
+        "mixtures": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.5918602083333333,
+          "safety_multiplier_mean": 0.5617080674005359,
+          "safety_multiplier_min": 0.3277427183476328,
+          "scenarios": 400,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.4999128875913368,
+              "budget_ratio_mean": 1.0965451221299183,
+              "quality_score_mean": 0.58514375
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.0,
+              "budget_ratio_mean": 1.0,
+              "quality_score_mean": 0.5506145833333334
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.681052022449522,
+              "budget_ratio_mean": 1.8713494656141783,
+              "quality_score_mean": 0.6535708333333333
+            }
+          }
+        },
+        "standalone": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.5187667240420291,
+          "safety_multiplier_mean": 0.40812732252813577,
+          "safety_multiplier_min": 0.2769021985156207,
+          "scenarios": 5,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.0900308408929742,
+              "budget_ratio_mean": 1.0180061681785948,
+              "quality_score_mean": 0.5050049277210887
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.0,
+              "budget_ratio_mean": 1.0,
+              "quality_score_mean": 0.492389186980348
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 1.9459408889484324,
+              "budget_ratio_mean": 1.4265615168406816,
+              "quality_score_mean": 0.567698569778544
+            }
+          }
+        },
+        "whole": {
+          "all_tier_failure_scenarios": 0,
+          "failure_details": [],
+          "final_score_mean": 0.6972869318181818,
+          "safety_multiplier_mean": 1.0,
+          "safety_multiplier_min": 1.0,
+          "scenarios": 1,
+          "tier_budget_failures": 0,
+          "tiers": {
+            "balanced": {
+              "budget_failures": 0,
+              "budget_limit": 2.0,
+              "budget_ratio_max": 1.696363388048006,
+              "budget_ratio_mean": 1.696363388048006,
+              "quality_score_mean": 0.6805397727272727
+            },
+            "fast": {
+              "budget_failures": 0,
+              "budget_limit": 1.25,
+              "budget_ratio_max": 1.119747869484434,
+              "budget_ratio_mean": 1.119747869484434,
+              "quality_score_mean": 0.6737215909090909
+            },
+            "premium": {
+              "budget_failures": 0,
+              "budget_limit": 4.0,
+              "budget_ratio_max": 3.2083586589671107,
+              "budget_ratio_mean": 3.2083586589671107,
+              "quality_score_mean": 0.7454545454545455
+            }
+          }
+        }
+      },
+      "stress_final_score_mean": 0.609609934314329,
+      "tier_budget_failures": 0
+    }
+  }
+}

@@ -9,6 +9,7 @@ src/ossp_router/**
 !src/ossp_router/__init__.py
 !src/ossp_router/aggressive_v5.py
 !src/ossp_router/aggressive_v6.py
+!src/ossp_router/aggressive_v7.py
 !src/ossp_router/cli.py
 !src/ossp_router/competition.py
 !src/ossp_router/hybrid.py
@@ -24,6 +25,7 @@ src/ossp_router/**
 src/ossp_router/resources/**
 !src/ossp_router/resources/__init__.py
 !src/ossp_router/resources/aggressive-router.v5.json
+!src/ossp_router/resources/adaptive-safety.v7.json
 !src/ossp_router/resources/competition-router.v1.json
 !src/ossp_router/resources/hybrid-router.v1.json
 !src/ossp_router/resources/risk-router.v4.json

@@ -177,8 +177,9 @@ PYTHONPATH=src python3 tools/check_runtime.py \
 ## 이 fork의 참가 라우터
 
 이 fork의 `router-run`은 공개 Train+Dev로 학습한 tier-specific feature-hashing
-Ridge ensemble을 V6.1 Competitive 운영 hardening wrapper에서 실행합니다. 활성 제출 경계와 실험용
-라우터는 [제출용 라우터 문서](docs/SUBMISSION_ROUTER.md), 학습 재현과 내용
+Ridge ensemble을 V6.1 운영 hardening wrapper에서 실행하고, V7 Adaptive의
+Train-calibrated batch reserve를 적용합니다. 활성 제출 경계와 실험용 라우터는
+[제출용 라우터 문서](docs/SUBMISSION_ROUTER.md), 학습 재현과 내용
 기반 특징은 [참가 라우터 구현 문서](docs/ROUTER_IMPLEMENTATION.md), 역대 결과는
 [라우터 벤치마크](docs/ROUTER_BENCHMARKS.md)에 기록했습니다.
 
