@@ -1,0 +1,135 @@
+{
+  "image": {
+    "platform": "linux/arm64",
+    "requested_reference": "ossp-router:v7-final",
+    "resolved_local_id": "sha256:9ba595dc2f0d04369039825a8ff8dbc2600f056a7a0e1cab18b4ae3d2db25417"
+  },
+  "limits": {
+    "cpu_cores": 2,
+    "memory_bytes": 2147483648,
+    "memory_swap_total_bytes": 2147483648,
+    "output_bytes": 4194304,
+    "processes_and_threads_total": 32,
+    "temporary_storage_bytes": 268435456,
+    "wall_time_seconds_per_tier": 90
+  },
+  "passed": true,
+  "report_type": "participant-public-runtime-check",
+  "runtime": {
+    "docker_server_platform": "linux/arm64",
+    "official_platform": "linux/arm64"
+  },
+  "schema_version": 1,
+  "tiers": [
+    {
+      "elapsed_seconds_max": 13.08076075,
+      "passed": true,
+      "repetitions": [
+        {
+          "detail": "유효한 제출 파일",
+          "elapsed_seconds": 12.937783375,
+          "limit_seconds": 90,
+          "output_bytes": 129499,
+          "output_sha256": "808822bc3e2e038843bcb78112e0493ebfb5c085dc366b48e80770a07be3f48a",
+          "passed": true,
+          "repetition": 1,
+          "returncode": 0,
+          "status": "valid",
+          "stderr_tail": "",
+          "timed_out": false
+        },
+        {
+          "detail": "유효한 제출 파일",
+          "elapsed_seconds": 13.08076075,
+          "limit_seconds": 90,
+          "output_bytes": 129499,
+          "output_sha256": "808822bc3e2e038843bcb78112e0493ebfb5c085dc366b48e80770a07be3f48a",
+          "passed": true,
+          "repetition": 2,
+          "returncode": 0,
+          "status": "valid",
+          "stderr_tail": "",
+          "timed_out": false
+        }
+      ],
+      "tier": "fast"
+    },
+    {
+      "elapsed_seconds_max": 12.92203125,
+      "passed": true,
+      "repetitions": [
+        {
+          "detail": "유효한 제출 파일",
+          "elapsed_seconds": 12.92203125,
+          "limit_seconds": 90,
+          "output_bytes": 122369,
+          "output_sha256": "b0d60e696b91adbb140a6173729cc3d3de3d89be6d5b602f9ab2f3bea64352c3",
+          "passed": true,
+          "repetition": 1,
+          "returncode": 0,
+          "status": "valid",
+          "stderr_tail": "",
+          "timed_out": false
+        },
+        {
+          "detail": "유효한 제출 파일",
+          "elapsed_seconds": 12.75904175,
+          "limit_seconds": 90,
+          "output_bytes": 122369,
+          "output_sha256": "b0d60e696b91adbb140a6173729cc3d3de3d89be6d5b602f9ab2f3bea64352c3",
+          "passed": true,
+          "repetition": 2,
+          "returncode": 0,
+          "status": "valid",
+          "stderr_tail": "",
+          "timed_out": false
+        }
+      ],
+      "tier": "balanced"
+    },
+    {
+      "elapsed_seconds_max": 13.21253525,
+      "passed": true,
+      "repetitions": [
+        {
+          "detail": "유효한 제출 파일",
+          "elapsed_seconds": 13.21253525,
+          "limit_seconds": 90,
+          "output_bytes": 124198,
+          "output_sha256": "35527512d1d89cdab8f6fafa07b967d8f8e626512601cb1cd653d980042513a6",
+          "passed": true,
+          "repetition": 1,
+          "returncode": 0,
+          "status": "valid",
+          "stderr_tail": "",
+          "timed_out": false
+        },
+        {
+          "detail": "유효한 제출 파일",
+          "elapsed_seconds": 12.795659916,
+          "limit_seconds": 90,
+          "output_bytes": 124198,
+          "output_sha256": "35527512d1d89cdab8f6fafa07b967d8f8e626512601cb1cd653d980042513a6",
+          "passed": true,
+          "repetition": 2,
+          "returncode": 0,
+          "status": "valid",
+          "stderr_tail": "",
+          "timed_out": false
+        }
+      ],
+      "tier": "premium"
+    }
+  ],
+  "warnings": [
+    "로컬 검사는 출력 파일을 사후 검증합니다. 공식 평가는 제한된 tmpfs 출력 볼륨과 별도 보안 검사를 추가로 적용합니다."
+  ],
+  "workload": {
+    "basis": "materialized-public-train-dev-inputs",
+    "bytes": 11780297,
+    "episodes": 2640,
+    "profile_id": "ossp-2026-public-train-dev-runtime-v1",
+    "represents_evaluation_distribution": false,
+    "sha256": "542caab9eb481c7ac5f87f3752db02aabef83d42f2c0962e5557dab0c7a1f04f"
+  }
+}

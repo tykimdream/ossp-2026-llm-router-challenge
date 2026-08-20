@@ -26,6 +26,8 @@ SPDX-License-Identifier: Apache-2.0
   score objective 비교
 - [ROUTER_V7_ADAPTIVE.md](ROUTER_V7_ADAPTIVE.md): Train-only 배치 구성·표본수
   reserve, 스트레스 결과와 안전 한계
+- [FINAL_BAKEOFF_V7.md](FINAL_BAKEOFF_V7.md): V6.1/V7 최종 점수·강건성·ARM64
+  gate와 활성 후보 판단
 - [ROBUST_V3_ADVERSARIAL_REVIEW.md](ROBUST_V3_ADVERSARIAL_REVIEW.md): V2 공격
   리뷰, V3 보완점과 V1·V2·V3 비교
 - [EDGE_CASES.md](EDGE_CASES.md): 시간·메모리·출력 크기·결정론 합성 엣지케이스
@@ -36,6 +38,8 @@ SPDX-License-Identifier: Apache-2.0
 - [EDGE_CASE_RESULTS_V6.md](EDGE_CASE_RESULTS_V6.md): V5/V6 엣지케이스 전체 측정표
 - [EDGE_CASE_RESULTS_V6_COMPETITIVE.md](EDGE_CASE_RESULTS_V6_COMPETITIVE.md):
   V5 정책을 보존한 V6.1 Competitive 전체 측정표
+- [EDGE_CASE_RESULTS_V7.md](EDGE_CASE_RESULTS_V7.md): V6.1/V7 Adaptive 합성
+  엣지케이스 전체 측정표
 - [EXPERIMENT_COMPARISON.md](EXPERIMENT_COMPARISON.md): Ridge·휴리스틱·하이브리드
   실험의 공정성, 점수와 예산 사용률 비교
 - [SCORING.md](SCORING.md): 비용, 예산 한도, 등급별 점수 계산

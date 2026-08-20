@@ -13,6 +13,7 @@ SPDX-License-Identifier: Apache-2.0
 
 | 라우터 | 평가 | 점수 | Fast | Balanced | Premium | 결정론 | 현재 판단 |
 | --- | --- | ---: | ---: | ---: | ---: | --- | --- |
+| Adaptive v7 Full Public | 참고 | 0.703277 | 1.150400 | 1.744540 | 2.927918 | 강화됨 | **활성 제출 경로** |
 | Aggressive v6.1 Competitive Full Public | 참고 | 0.714915 | 1.178468 | 1.753652 | 2.893612 | 강화됨 | 이전 활성 경로 |
 | Aggressive v6.0 Safe Full Public | 참고 | 0.708722 | 1.138882 | 1.601014 | 2.605352 | 강화됨 | 안전 실험 보존 |
 | Aggressive v5 Full Public | 참고 | 0.714915 | 1.178468 | 1.753652 | 2.893612 | 강화됨 | 이전 활성 경로 |
@@ -65,6 +66,9 @@ SPDX-License-Identifier: Apache-2.0
 
 | 검사 | 결과 |
 | --- | --- |
+| 활성 v7 이미지 공개 2,640문항 | Fast/Balanced/Premium `13.081 / 12.922 / 13.213초` |
+| 활성 v7 엣지케이스 | `42/42` 성공, timeout·형식·4 MiB 실패 `0` |
+| 활성 v7 결정론 | ARM64 2회 출력 SHA 동일, order/ID 감사 세 tier 불일치 `0` |
 | 활성 v6.1 이미지 공개 2,640문항 | Fast/Balanced/Premium `13.006 / 12.671 / 12.725초` |
 | 활성 v6.1 엣지케이스 | `42/42` 성공, V5 결정 불일치·timeout·형식·4 MiB 실패 `0` |
 | v6.1 50만-token 입력 | 최대 RSS `32.3 MiB` (v5 `187.0 MiB`) |
