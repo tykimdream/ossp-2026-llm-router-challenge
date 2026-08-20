@@ -1,0 +1,703 @@
+{
+  "alphas": [
+    300.0,
+    1000.0,
+    3000.0,
+    10000.0,
+    30000.0,
+    100000.0
+  ],
+  "base_artifact": "experiments/artifacts/aggressive-v5-train-only.v1.json",
+  "baseline": {
+    "final_score": 0.6951704545454545,
+    "tiers": {
+      "balanced": {
+        "budget_limit": 2.0,
+        "budget_passed": true,
+        "budget_ratio": 1.6615728191813266,
+        "model_counts": {
+          "ax31": 786,
+          "ax31-light": 90,
+          "axk1-think": 4
+        },
+        "predicted_budget_ratio": 1.9332398186547217,
+        "quality_score": 0.6897727272727273,
+        "tier_score": 0.6897727272727273
+      },
+      "fast": {
+        "budget_limit": 1.25,
+        "budget_passed": true,
+        "budget_ratio": 1.143320817779044,
+        "model_counts": {
+          "ax31": 318,
+          "ax31-light": 562,
+          "axk1-think": 0
+        },
+        "predicted_budget_ratio": 1.1802365287963714,
+        "quality_score": 0.6670454545454545,
+        "tier_score": 0.6670454545454545
+      },
+      "premium": {
+        "budget_limit": 4.0,
+        "budget_passed": true,
+        "budget_ratio": 3.0725578484914053,
+        "model_counts": {
+          "ax31": 662,
+          "ax31-light": 99,
+          "axk1-think": 119
+        },
+        "predicted_budget_ratio": 3.8386839553000587,
+        "quality_score": 0.7380681818181818,
+        "tier_score": 0.7380681818181818
+      }
+    }
+  },
+  "best_candidate": "direct-uplift-a10000",
+  "candidates": {
+    "direct-uplift-a1000": {
+      "final_score": 0.6922727272727273,
+      "standalone_budget_failures": [
+        {
+          "budget_ratio": 2.0014816345174244,
+          "group": "short_context_le_100",
+          "tier": "balanced"
+        }
+      ],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.7863942317436232,
+          "model_counts": {
+            "ax31": 527,
+            "ax31-light": 330,
+            "axk1-think": 23
+          },
+          "predicted_budget_ratio": 1.941357095079942,
+          "quality_score": 0.6872159090909091,
+          "tier_score": 0.6872159090909091
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.145407609345629,
+          "model_counts": {
+            "ax31": 323,
+            "ax31-light": 557,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1808916133543799,
+          "quality_score": 0.6678977272727272,
+          "tier_score": 0.6678977272727272
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.3946880863955773,
+          "model_counts": {
+            "ax31": 487,
+            "ax31-light": 270,
+            "axk1-think": 123
+          },
+          "predicted_budget_ratio": 3.8483934332666077,
+          "quality_score": 0.7298295454545455,
+          "tier_score": 0.7298295454545455
+        }
+      }
+    },
+    "direct-uplift-a10000": {
+      "final_score": 0.6948863636363637,
+      "standalone_budget_failures": [
+        {
+          "budget_ratio": 4.067336950606407,
+          "group": "korean_hangul_10pct",
+          "tier": "premium"
+        }
+      ],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.6615728191813266,
+          "model_counts": {
+            "ax31": 786,
+            "ax31-light": 90,
+            "axk1-think": 4
+          },
+          "predicted_budget_ratio": 1.9332398186547217,
+          "quality_score": 0.6897727272727273,
+          "tier_score": 0.6897727272727273
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1651795738740887,
+          "model_counts": {
+            "ax31": 401,
+            "ax31-light": 479,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.181172162289971,
+          "quality_score": 0.6667613636363636,
+          "tier_score": 0.6667613636363636
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.1073201625132265,
+          "model_counts": {
+            "ax31": 680,
+            "ax31-light": 84,
+            "axk1-think": 116
+          },
+          "predicted_budget_ratio": 3.85856352262081,
+          "quality_score": 0.7375,
+          "tier_score": 0.7375
+        }
+      }
+    },
+    "direct-uplift-a100000": {
+      "final_score": 0.6825,
+      "standalone_budget_failures": [],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.67280711311472,
+          "model_counts": {
+            "ax31": 800,
+            "ax31-light": 75,
+            "axk1-think": 5
+          },
+          "predicted_budget_ratio": 1.9461728239171356,
+          "quality_score": 0.6911931818181818,
+          "tier_score": 0.6911931818181818
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1628161056167077,
+          "model_counts": {
+            "ax31": 431,
+            "ax31-light": 449,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1809936132911962,
+          "quality_score": 0.6579545454545455,
+          "tier_score": 0.6579545454545455
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 2.8651628667639866,
+          "model_counts": {
+            "ax31": 649,
+            "ax31-light": 36,
+            "axk1-think": 195
+          },
+          "predicted_budget_ratio": 3.857086555642333,
+          "quality_score": 0.7065340909090909,
+          "tier_score": 0.7065340909090909
+        }
+      }
+    },
+    "direct-uplift-a300": {
+      "final_score": 0.6864204545454545,
+      "standalone_budget_failures": [
+        {
+          "budget_ratio": 2.1081714165256176,
+          "group": "math_or_numeric",
+          "tier": "balanced"
+        },
+        {
+          "budget_ratio": 2.004600063989762,
+          "group": "short_context_le_100",
+          "tier": "balanced"
+        }
+      ],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.7537852181982676,
+          "model_counts": {
+            "ax31": 446,
+            "ax31-light": 405,
+            "axk1-think": 29
+          },
+          "predicted_budget_ratio": 1.946229539540467,
+          "quality_score": 0.680965909090909,
+          "tier_score": 0.680965909090909
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1463929940193016,
+          "model_counts": {
+            "ax31": 302,
+            "ax31-light": 578,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1802409495414792,
+          "quality_score": 0.6639204545454546,
+          "tier_score": 0.6639204545454546
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.448907974295139,
+          "model_counts": {
+            "ax31": 409,
+            "ax31-light": 346,
+            "axk1-think": 125
+          },
+          "predicted_budget_ratio": 3.8517892847690285,
+          "quality_score": 0.721875,
+          "tier_score": 0.721875
+        }
+      }
+    },
+    "direct-uplift-a3000": {
+      "final_score": 0.6917045454545455,
+      "standalone_budget_failures": [],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.7392526452562955,
+          "model_counts": {
+            "ax31": 644,
+            "ax31-light": 223,
+            "axk1-think": 13
+          },
+          "predicted_budget_ratio": 1.9447718610992601,
+          "quality_score": 0.6872159090909091,
+          "tier_score": 0.6872159090909091
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1478329147483424,
+          "model_counts": {
+            "ax31": 360,
+            "ax31-light": 520,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.181086103389678,
+          "quality_score": 0.6664772727272728,
+          "tier_score": 0.6664772727272728
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.4069551986247406,
+          "model_counts": {
+            "ax31": 590,
+            "ax31-light": 174,
+            "axk1-think": 116
+          },
+          "predicted_budget_ratio": 3.8422722705923413,
+          "quality_score": 0.7298295454545455,
+          "tier_score": 0.7298295454545455
+        }
+      }
+    },
+    "direct-uplift-a30000": {
+      "final_score": 0.6913068181818182,
+      "standalone_budget_failures": [
+        {
+          "budget_ratio": 1.252356924432466,
+          "group": "korean_hangul_10pct",
+          "tier": "fast"
+        },
+        {
+          "budget_ratio": 4.055316011454339,
+          "group": "korean_hangul_10pct",
+          "tier": "premium"
+        }
+      ],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.6696253801272098,
+          "model_counts": {
+            "ax31": 797,
+            "ax31-light": 78,
+            "axk1-think": 5
+          },
+          "predicted_budget_ratio": 1.941558717615952,
+          "quality_score": 0.6911931818181818,
+          "tier_score": 0.6911931818181818
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1617746186859628,
+          "model_counts": {
+            "ax31": 427,
+            "ax31-light": 453,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1808151003936935,
+          "quality_score": 0.6616477272727272,
+          "tier_score": 0.6616477272727272
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 2.9475408581403144,
+          "model_counts": {
+            "ax31": 673,
+            "ax31-light": 66,
+            "axk1-think": 141
+          },
+          "predicted_budget_ratio": 3.8430368568443805,
+          "quality_score": 0.7309659090909091,
+          "tier_score": 0.7309659090909091
+        }
+      }
+    },
+    "generation-weighted-a1000": {
+      "final_score": 0.47142045454545456,
+      "standalone_budget_failures": [
+        {
+          "budget_ratio": 2.0312786099305487,
+          "group": "korean_hangul_10pct",
+          "tier": "balanced"
+        },
+        {
+          "budget_ratio": 2.100516029885966,
+          "group": "math_or_numeric",
+          "tier": "balanced"
+        },
+        {
+          "budget_ratio": 4.3765146458531525,
+          "group": "math_or_numeric",
+          "tier": "premium"
+        },
+        {
+          "budget_ratio": 2.031878017411951,
+          "group": "short_context_le_100",
+          "tier": "balanced"
+        }
+      ],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.9704811949437493,
+          "model_counts": {
+            "ax31": 465,
+            "ax31-light": 389,
+            "axk1-think": 26
+          },
+          "predicted_budget_ratio": 1.9457714635784662,
+          "quality_score": 0.6835227272727272,
+          "tier_score": 0.6835227272727272
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1419322157068428,
+          "model_counts": {
+            "ax31": 308,
+            "ax31-light": 572,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1806666433375508,
+          "quality_score": 0.6659090909090909,
+          "tier_score": 0.6659090909090909
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": false,
+          "budget_ratio": 4.0632673468558655,
+          "model_counts": {
+            "ax31": 440,
+            "ax31-light": 315,
+            "axk1-think": 125
+          },
+          "predicted_budget_ratio": 3.850240058007353,
+          "quality_score": 0.7224431818181818,
+          "tier_score": 0.0
+        }
+      }
+    },
+    "generation-weighted-a10000": {
+      "final_score": 0.6925284090909091,
+      "standalone_budget_failures": [],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.738714650794216,
+          "model_counts": {
+            "ax31": 696,
+            "ax31-light": 174,
+            "axk1-think": 10
+          },
+          "predicted_budget_ratio": 1.932896707462684,
+          "quality_score": 0.6894886363636363,
+          "tier_score": 0.6894886363636363
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1480470554348947,
+          "model_counts": {
+            "ax31": 371,
+            "ax31-light": 509,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.18076534656924,
+          "quality_score": 0.6644886363636363,
+          "tier_score": 0.6644886363636363
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.3517060807572325,
+          "model_counts": {
+            "ax31": 625,
+            "ax31-light": 138,
+            "axk1-think": 117
+          },
+          "predicted_budget_ratio": 3.8512333738916906,
+          "quality_score": 0.7329545454545454,
+          "tier_score": 0.7329545454545454
+        }
+      }
+    },
+    "generation-weighted-a100000": {
+      "final_score": 0.6875568181818181,
+      "standalone_budget_failures": [
+        {
+          "budget_ratio": 1.252356924432466,
+          "group": "korean_hangul_10pct",
+          "tier": "fast"
+        },
+        {
+          "budget_ratio": 4.063274664403442,
+          "group": "korean_hangul_10pct",
+          "tier": "premium"
+        }
+      ],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.6728714939512872,
+          "model_counts": {
+            "ax31": 798,
+            "ax31-light": 77,
+            "axk1-think": 5
+          },
+          "predicted_budget_ratio": 1.9449290262765924,
+          "quality_score": 0.6911931818181818,
+          "tier_score": 0.6911931818181818
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.159838497631366,
+          "model_counts": {
+            "ax31": 430,
+            "ax31-light": 450,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1811792216441641,
+          "quality_score": 0.6599431818181818,
+          "tier_score": 0.6599431818181818
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 2.7842052524884586,
+          "model_counts": {
+            "ax31": 652,
+            "ax31-light": 53,
+            "axk1-think": 175
+          },
+          "predicted_budget_ratio": 3.845999296869782,
+          "quality_score": 0.7207386363636363,
+          "tier_score": 0.7207386363636363
+        }
+      }
+    },
+    "generation-weighted-a300": {
+      "final_score": 0.46940340909090905,
+      "standalone_budget_failures": [
+        {
+          "budget_ratio": 2.071651281180119,
+          "group": "math_or_numeric",
+          "tier": "balanced"
+        },
+        {
+          "budget_ratio": 4.614435024276942,
+          "group": "math_or_numeric",
+          "tier": "premium"
+        },
+        {
+          "budget_ratio": 2.0219601579536746,
+          "group": "short_context_le_100",
+          "tier": "balanced"
+        },
+        {
+          "budget_ratio": 4.021162085645244,
+          "group": "short_context_le_100",
+          "tier": "premium"
+        }
+      ],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.9893208755227751,
+          "model_counts": {
+            "ax31": 418,
+            "ax31-light": 433,
+            "axk1-think": 29
+          },
+          "predicted_budget_ratio": 1.9397859780065627,
+          "quality_score": 0.680965909090909,
+          "tier_score": 0.680965909090909
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1422717141534677,
+          "model_counts": {
+            "ax31": 291,
+            "ax31-light": 589,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1807318401221065,
+          "quality_score": 0.662784090909091,
+          "tier_score": 0.662784090909091
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": false,
+          "budget_ratio": 4.232025757812294,
+          "model_counts": {
+            "ax31": 396,
+            "ax31-light": 360,
+            "axk1-think": 124
+          },
+          "predicted_budget_ratio": 3.859684818392407,
+          "quality_score": 0.7161931818181818,
+          "tier_score": 0.0
+        }
+      }
+    },
+    "generation-weighted-a3000": {
+      "final_score": 0.6913636363636364,
+      "standalone_budget_failures": [],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.7819231545057914,
+          "model_counts": {
+            "ax31": 556,
+            "ax31-light": 303,
+            "axk1-think": 21
+          },
+          "predicted_budget_ratio": 1.9480263693613697,
+          "quality_score": 0.6866477272727273,
+          "tier_score": 0.6866477272727273
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.1450319713116364,
+          "model_counts": {
+            "ax31": 337,
+            "ax31-light": 543,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1804245248879457,
+          "quality_score": 0.6673295454545455,
+          "tier_score": 0.6673295454545455
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.4273288624165454,
+          "model_counts": {
+            "ax31": 519,
+            "ax31-light": 241,
+            "axk1-think": 120
+          },
+          "predicted_budget_ratio": 3.850791134919051,
+          "quality_score": 0.728125,
+          "tier_score": 0.728125
+        }
+      }
+    },
+    "generation-weighted-a30000": {
+      "final_score": 0.6943181818181817,
+      "standalone_budget_failures": [
+        {
+          "budget_ratio": 4.161005668860787,
+          "group": "korean_hangul_10pct",
+          "tier": "premium"
+        }
+      ],
+      "tiers": {
+        "balanced": {
+          "budget_limit": 2.0,
+          "budget_passed": true,
+          "budget_ratio": 1.6723780367953098,
+          "model_counts": {
+            "ax31": 796,
+            "ax31-light": 80,
+            "axk1-think": 4
+          },
+          "predicted_budget_ratio": 1.9368071254704955,
+          "quality_score": 0.6911931818181818,
+          "tier_score": 0.6911931818181818
+        },
+        "fast": {
+          "budget_limit": 1.25,
+          "budget_passed": true,
+          "budget_ratio": 1.164125669074101,
+          "model_counts": {
+            "ax31": 410,
+            "ax31-light": 470,
+            "axk1-think": 0
+          },
+          "predicted_budget_ratio": 1.1808922977403264,
+          "quality_score": 0.6670454545454545,
+          "tier_score": 0.6670454545454545
+        },
+        "premium": {
+          "budget_limit": 4.0,
+          "budget_passed": true,
+          "budget_ratio": 3.082609468191649,
+          "model_counts": {
+            "ax31": 682,
+            "ax31-light": 77,
+            "axk1-think": 121
+          },
+          "predicted_budget_ratio": 3.8497652426776288,
+          "quality_score": 0.7338068181818181,
+          "tier_score": 0.7338068181818181
+        }
+      }
+    }
+  },
+  "groups": {
+    "all": 880,
+    "code_marker": 233,
+    "korean_hangul_10pct": 181,
+    "long_context_gt_8000": 80,
+    "math_or_numeric": 431,
+    "short_context_le_100": 161
+  },
+  "hash_bins": 512,
+  "protocol": "train-fit-to-dev-report-no-dev-selection",
+  "report_type": "ossp-score-objective-study-v1",
+  "schema_version": 1
+}
