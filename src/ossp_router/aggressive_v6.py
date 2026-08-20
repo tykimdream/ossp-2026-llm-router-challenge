@@ -35,20 +35,11 @@ from .protocol import (
 
 
 ARTIFACT_TYPE = "ossp-aggressive-router-v6-runtime"
+ROUTER_VERSION = "6.1-competitive"
 MAX_LEARNED_EPISODES = 6_000
 MAX_LEARNED_CHARACTERS = 30_000_000
 MAX_LEARNED_MESSAGES = 100_000
 MAX_LEARNED_WORK_UNITS = 40_000_000
-
-# Operational targets: 1.15 / 1.80 / 3.00 predicted cost ratios. These are
-# deliberately below V5's 1.20 / 2.00 / 3.42 selection caps.
-TIER_SAFETY_RATIOS = {
-    "fast": 0.92,
-    "balanced": 0.90,
-    "premium": 0.75,
-}
-PREMIUM_FILL_SAFETY_RATIO = 0.60
-
 
 @dataclass(frozen=True)
 class RawLinearHead:
@@ -288,7 +279,7 @@ def make_submission(
         scores,
         costs,
         budget_multiplier=float(policy.tiers[tier].budget_multiplier),
-        safety_ratio=TIER_SAFETY_RATIOS[tier],
+        safety_ratio=artifact.base.tiers[tier].safety_ratio,
         steps=artifact.base.fixed_bisection_steps,
     )
     if tier == "premium":
@@ -297,7 +288,7 @@ def make_submission(
             scores,
             costs,
             budget_multiplier=float(policy.tiers[tier].budget_multiplier),
-            safety_ratio=PREMIUM_FILL_SAFETY_RATIO,
+            safety_ratio=artifact.base.premium_fill_safety_ratio,
             steps=artifact.base.fixed_bisection_steps,
         )
     routed = Submission(

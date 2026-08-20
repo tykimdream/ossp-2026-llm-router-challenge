@@ -23,26 +23,27 @@ container/entrypoint.py
             → 원래 입력 순서로 결과 복원
 ```
 
-V6는 V5의 계수를 재학습하지 않고 compact 출력, streaming n-gram, 중복 내용
-cache, ensemble head 컴파일, token/message work guard와 보수적인 예측 비용 목표를
-적용합니다. 제출 wrapper는 canonical 정렬과 고정된 batch 최적화를 적용하여
+V6.1 Competitive는 V5의 계수와 tier별 배정 정책을 재학습·재조정하지 않고
+compact 출력, streaming n-gram, 중복 내용 cache, ensemble head 컴파일과
+token/message work guard를 적용합니다. 제출 wrapper는 canonical 정렬과 고정된 batch 최적화를 적용하여
 입력 순서와 ID가 선택에 영향을 주지 않게 합니다.
 
 | 항목 | 활성 값 |
 | --- | --- |
 | 컨테이너 진입점 | `ossp_router.submission:main` |
-| 활성 predictor | Aggressive Router v6, compiled V5 Ridge ensemble |
-| 공정 Train-only → Dev 점수 | `0.685256` |
-| 공정 Fast/Balanced/Premium 비용 | `1.142155 / 1.569580 / 2.523548` |
-| 공개 2,640문항 replay 점수 | `0.696676` (일반화 비교 아님) |
-| 공개 2,640문항 ARM64 컨테이너 | `12.762 / 12.746 / 12.727초`, 모두 통과 |
+| 활성 predictor | Aggressive Router v6.1 Competitive |
+| 공정 Train-only → Dev 점수 | `0.695170` (V5와 동일) |
+| 공정 Fast/Balanced/Premium 비용 | `1.143321 / 1.661573 / 3.072558` |
+| 공개 2,640문항 replay 점수 | `0.703277` (V5와 동일, 일반화 비교 아님) |
+| V5 대비 결정 불일치 | Dev·공개 전체·엣지케이스 모두 `0` |
+| 공개 2,640문항 ARM64 컨테이너 | `13.006 / 12.671 / 12.725초`, 모두 통과 |
 | 엣지케이스 성공 | `42/42`, timeout·형식·출력 한도 실패 0 |
 | 공식 제한 | 등급별 `90초`, `2 GiB`, CPU 2개 |
 
 비용 한도에 대해서는 중요한 경계가 있습니다. 라우팅 시점에는 숨은 평가의
 실제 출력 토큰과 전체 비용 분모가 없으므로 학습형 라우터가 수학적으로 절대
-한도 미초과를 보장할 수는 없습니다. V6는 공식 한도보다 낮은 예측 목표
-`1.15/1.80/3.00`과 V5의 Train OOF 보정을 함께 사용해 위험을 줄입니다. 어떤
+한도 미초과를 보장할 수는 없습니다. V6.1은 V5 artifact의 공격적 OOF 검증
+정책을 그대로 상속합니다. 공개 최악 fold와 Dev는 모두 통과했지만 어떤
 분포에서도 절대 보장이
 필요하다면 모든 문항을 Light로 보내는 정책을 선택해야 합니다.
 

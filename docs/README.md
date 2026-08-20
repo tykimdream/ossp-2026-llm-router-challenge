@@ -26,6 +26,8 @@ SPDX-License-Identifier: Apache-2.0
   근거와 다음 버전 개선 우선순위
 - [ROUTER_V6.md](ROUTER_V6.md): V6 구현, 공개 outcome 비교와 잔여 위험
 - [EDGE_CASE_RESULTS_V6.md](EDGE_CASE_RESULTS_V6.md): V5/V6 엣지케이스 전체 측정표
+- [EDGE_CASE_RESULTS_V6_COMPETITIVE.md](EDGE_CASE_RESULTS_V6_COMPETITIVE.md):
+  V5 정책을 보존한 V6.1 Competitive 전체 측정표
 - [EXPERIMENT_COMPARISON.md](EXPERIMENT_COMPARISON.md): Ridge·휴리스틱·하이브리드
   실험의 공정성, 점수와 예산 사용률 비교
 - [SCORING.md](SCORING.md): 비용, 예산 한도, 등급별 점수 계산
