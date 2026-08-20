@@ -28,6 +28,8 @@ SPDX-License-Identifier: Apache-2.0
   reserve, 스트레스 결과와 안전 한계
 - [FINAL_BAKEOFF_V7.md](FINAL_BAKEOFF_V7.md): V6.1/V7 최종 점수·강건성·ARM64
   gate와 활성 후보 판단
+- [ROUTER_V8_STUDY.md](ROUTER_V8_STUDY.md): cross-fitted residual score,
+  quantile/conformal cost, nested source stress와 V7 유지 판단
 - [ROBUST_V3_ADVERSARIAL_REVIEW.md](ROBUST_V3_ADVERSARIAL_REVIEW.md): V2 공격
   리뷰, V3 보완점과 V1·V2·V3 비교
 - [EDGE_CASES.md](EDGE_CASES.md): 시간·메모리·출력 크기·결정론 합성 엣지케이스

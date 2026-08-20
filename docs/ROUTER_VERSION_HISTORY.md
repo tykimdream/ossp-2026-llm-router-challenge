@@ -290,3 +290,16 @@ V6.1은 전체 Dev를 통과했지만 content standalone 1건, bootstrap 13건, 
 - 공개 stress 0건은 임의의 숨은 비용에 대한 수학적 보장이 아니다.
 - 작은 정상 배치에서도 보수적이므로 평가 batch가 작을수록 점수 손실이 커진다.
 - V6.1 롤백은 profile 적용을 제거하고 기존 `aggressive_v6` 경로를 선택하면 된다.
+
+## V8 연구 — Residual score와 quantile/conformal cost
+
+V5 Ridge에 cross-fitted GBM score residual을 결합하고, 비용 중앙값 배정 뒤
+conformal 상위 분위의 Light 대비 추가비용으로 승격을 제거하는 후보를
+검토했다. 후보는 Train 4×4 nested template OOF와 content/source batch
+stress에서만 선택했다.
+
+source stress까지 포함하면 70개 후보 중 Train stress 실패 0인 후보가 없었다.
+실패 수를 최소화한 `rw0.75-q0.8-r0.85`도 Train 실패 3건, 고정 Dev 실패 3건과
+Dev 점수 `0.666222`에 그쳤다. V7 `0.691477`과 stress 실패 0을 함께 넘지 못해
+활성화하지 않았고 제출 진입점은 V7을 유지한다. 전체 방법과 결과는
+[`ROUTER_V8_STUDY.md`](ROUTER_V8_STUDY.md)에 기록한다.
