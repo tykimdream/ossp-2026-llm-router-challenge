@@ -20,6 +20,8 @@ SPDX-License-Identifier: Apache-2.0
 - [ROUTER_BENCHMARKS.md](ROUTER_BENCHMARKS.md): 역대 라우터 성능·비용·장단점 표
 - [ROBUSTNESS_PROTOCOL.md](ROBUSTNESS_PROTOCOL.md): 독립 group·batch mixture
   일반화·예산 강건성 검증
+- [COST_RISK_V7.md](COST_RISK_V7.md): Light 상대비용 target의 Train→Dev
+  ablation과 채택 판단
 - [ROBUST_V3_ADVERSARIAL_REVIEW.md](ROBUST_V3_ADVERSARIAL_REVIEW.md): V2 공격
   리뷰, V3 보완점과 V1·V2·V3 비교
 - [EDGE_CASES.md](EDGE_CASES.md): 시간·메모리·출력 크기·결정론 합성 엣지케이스
