@@ -290,3 +290,29 @@ V6.1은 전체 Dev를 통과했지만 content standalone 1건, bootstrap 13건, 
 - 공개 stress 0건은 임의의 숨은 비용에 대한 수학적 보장이 아니다.
 - 작은 정상 배치에서도 보수적이므로 평가 batch가 작을수록 점수 손실이 커진다.
 - V6.1 롤백은 profile 적용을 제거하고 기존 `aggressive_v6` 경로를 선택하면 된다.
+
+## v9.0 — Selective budget recovery
+
+### 문제
+
+V7은 stress 실패를 제거했지만 Dev에서 tier별 예산을 상당히 남겼다. 모든 문항을
+추가 승격하면 실제 점수가 좋아지는 비율이 낮고 adaptive reserve를 훼손한다.
+
+### 선택
+
+- V7 첫 배정과 content-shift·small-batch multiplier 유지
+- Train template-group OOF direct-uplift Ridge 추가
+- V7 score와 direct uplift가 결합 문턱을 넘는 문항만 한 단계 승격
+- adaptive 패널티는 유지하고 고정 safety reserve 중 75%만 회수
+- Train 81개 후보 중 source stress 실패 0에서 점수 최대 후보 고정
+
+### 검증과 판단
+
+- 선택 후보: `a30000-w0.5-t0.1-r0.75`
+- 공정 Dev 점수: `0.695114` (V7 대비 `+0.003636`)
+- 공정 비용: `1.161024 / 1.664234 / 3.071147`
+- Train/Dev content·source stress tier 실패: `0 / 0`
+- 공개 Train+Dev replay: `0.705777` (일반화 근거 아님)
+- ARM64 공개 2,640문항 최대 `13.045 / 12.721 / 12.754초`, 반복 SHA 동일
+- 합성 엣지 `42/42`, timeout·형식·출력 한도 실패 0
+- 기본 제출 진입점을 V9로 전환하고 V7을 즉시 롤백 지점으로 유지

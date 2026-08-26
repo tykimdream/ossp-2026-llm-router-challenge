@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest import mock
 
-from ossp_router import aggressive_v7, heuristic, submission
+from ossp_router import aggressive_v9, heuristic, submission
 from ossp_router.protocol import Episode, InputBatch, load_bundled_policy, load_input
 
 
@@ -24,19 +24,20 @@ class SubmissionRouterTest(unittest.TestCase):
         cls.policy = load_bundled_policy()
         cls.artifact = submission.load_submission_artifact()
 
-    def test_default_artifact_is_aggressive_v7(self) -> None:
+    def test_default_artifact_is_aggressive_v9(self) -> None:
         self.assertEqual(512, self.artifact.hash_bins)
-        self.assertEqual(1.0, self.artifact.profile.composition_penalty)
-        self.assertEqual(0.25, self.artifact.profile.small_batch_penalty)
+        self.assertEqual(1.0, self.artifact.base.profile.composition_penalty)
+        self.assertEqual(0.25, self.artifact.base.profile.small_batch_penalty)
+        self.assertEqual(30_000.0, self.artifact.selective.ridge_alpha)
         self.assertEqual(
             "aggressive-pooled-and-worst-template-fold",
-            self.artifact.base.base.training_summary["budget_calibration"],
+            self.artifact.base.base.base.training_summary["budget_calibration"],
         )
-        self.assertEqual(6, len(self.artifact.base.base.models))
+        self.assertEqual(6, len(self.artifact.base.base.base.models))
 
     def test_public_path_matches_learned_router(self) -> None:
         for tier in ("fast", "balanced", "premium"):
-            expected = aggressive_v7.make_submission(
+            expected = aggressive_v9.make_submission(
                 self.inputs, self.policy, self.artifact, tier
             )
             actual = submission.make_submission(
@@ -85,7 +86,7 @@ class SubmissionRouterTest(unittest.TestCase):
 
     def test_large_workload_guard_is_deterministic_always_light(self) -> None:
         with mock.patch.object(
-            aggressive_v7.aggressive_v6, "MAX_LEARNED_EPISODES", 1
+            aggressive_v9.aggressive_v7.aggressive_v6, "MAX_LEARNED_EPISODES", 1
         ), mock.patch.object(
             submission, "_canonical_batch", side_effect=AssertionError("sorted too early")
         ):

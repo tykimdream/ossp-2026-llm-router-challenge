@@ -1,0 +1,23 @@
+{
+  "artifact": "bundled-default",
+  "input": "build/training/public-train-dev-inputs.json",
+  "passed": true,
+  "report_type": "ossp-submission-determinism-audit-v1",
+  "tiers": {
+    "balanced": {
+      "num_episodes": 2640,
+      "order_id_split_challenge_mismatches": 0,
+      "repeat_identical": true
+    },
+    "fast": {
+      "num_episodes": 2640,
+      "order_id_split_challenge_mismatches": 0,
+      "repeat_identical": true
+    },
+    "premium": {
+      "num_episodes": 2640,
+      "order_id_split_challenge_mismatches": 0,
+      "repeat_identical": true
+    }
+  }
+}
