@@ -27,6 +27,7 @@ ROUTERS = {
     "v5": ROOT / "src/ossp_router/resources/aggressive-router.v5.json",
     "v6": None,
     "v7": None,
+    "v9": None,
 }
 
 
@@ -75,6 +76,10 @@ def _worker(args: argparse.Namespace) -> int:
         artifact = load_artifact()
     elif args.worker_router == "v7":
         from ossp_router.aggressive_v7 import load_artifact
+
+        artifact = load_artifact()
+    elif args.worker_router == "v9":
+        from ossp_router.aggressive_v9 import load_artifact
 
         artifact = load_artifact()
     else:
@@ -305,7 +310,7 @@ def _markdown(report: Mapping[str, Any]) -> str:
         "- 범위: 별도 Python 프로세스 시작, 입력 파싱, 라우팅, JSON 쓰기 포함",
         "- 모델 수 표기: `Light/AX31/K1`",
         "- 시간은 로컬 참고값이며 공식 ARM64 컨테이너 측정값이 아님",
-        "- 경로 열은 manifest의 guard 분류이며 V7 guard fallback은 Always-Light",
+        f"- 경로 열은 manifest의 guard 분류이며 {candidate} guard fallback은 Always-Light",
         "",
         "## 요약",
         "",

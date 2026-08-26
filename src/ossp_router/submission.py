@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 from typing import Optional, Sequence, Tuple, Union
 
-from . import aggressive_v5, aggressive_v6, aggressive_v7, competition
+from . import aggressive_v5, aggressive_v6, aggressive_v7, aggressive_v9, competition
 from .heuristic import episode_text, make_submission as make_heuristic_submission
 from .heuristic import write_submission_atomic
 from .protocol import (
@@ -40,6 +40,7 @@ SubmissionArtifact = Union[
     aggressive_v5.AggressiveArtifact,
     aggressive_v6.V6Artifact,
     aggressive_v7.V7Artifact,
+    aggressive_v9.V9Artifact,
 ]
 
 
@@ -67,6 +68,8 @@ def _canonical_batch(inputs: InputBatch) -> InputBatch:
 def _learned_path_allowed(
     inputs: InputBatch, artifact: Optional[SubmissionArtifact] = None
 ) -> bool:
+    if isinstance(artifact, aggressive_v9.V9Artifact):
+        return aggressive_v9.learned_path_allowed(inputs)
     if isinstance(artifact, aggressive_v7.V7Artifact):
         return aggressive_v7.learned_path_allowed(inputs)
     if isinstance(artifact, aggressive_v6.V6Artifact):
@@ -113,12 +116,16 @@ def make_submission(
             tier,
             strategy=(
                 "always-light"
-                if isinstance(artifact, aggressive_v7.V7Artifact)
+                if isinstance(
+                    artifact, (aggressive_v7.V7Artifact, aggressive_v9.V9Artifact)
+                )
                 else "prompt-heuristic"
             ),
         )
     canonical = _canonical_batch(inputs)
-    if isinstance(artifact, aggressive_v7.V7Artifact):
+    if isinstance(artifact, aggressive_v9.V9Artifact):
+        routed = aggressive_v9.make_submission(canonical, policy, artifact, tier)
+    elif isinstance(artifact, aggressive_v7.V7Artifact):
         routed = aggressive_v7.make_submission(canonical, policy, artifact, tier)
     elif isinstance(artifact, aggressive_v6.V6Artifact):
         routed = aggressive_v6.make_submission(canonical, policy, artifact, tier)
@@ -131,13 +138,26 @@ def make_submission(
 
 def load_submission_artifact(path: Optional[Path] = None) -> SubmissionArtifact:
     if path is None:
-        return aggressive_v7.load_artifact()
+        return aggressive_v9.load_artifact()
     value = load_json(path)
-    if isinstance(value, dict) and value.get("artifact_type") == aggressive_v7.ARTIFACT_TYPE:
+    if (
+        isinstance(value, dict)
+        and value.get("artifact_type") == aggressive_v9.ARTIFACT_TYPE
+    ):
+        return aggressive_v9.V9Artifact(
+            aggressive_v7.load_artifact(), aggressive_v9.parse_profile(value)
+        )
+    if (
+        isinstance(value, dict)
+        and value.get("artifact_type") == aggressive_v7.ARTIFACT_TYPE
+    ):
         return aggressive_v7.V7Artifact(
             aggressive_v6.load_artifact(), aggressive_v7.parse_profile(value)
         )
-    if isinstance(value, dict) and value.get("artifact_type") == aggressive_v5.ARTIFACT_TYPE:
+    if (
+        isinstance(value, dict)
+        and value.get("artifact_type") == aggressive_v5.ARTIFACT_TYPE
+    ):
         return aggressive_v5.parse_artifact(value)
     return competition.parse_artifact(value)
 

@@ -11,7 +11,8 @@ SPDX-License-Identifier: Apache-2.0
 [`submission.py`](../src/ossp_router/submission.py)이고, 고정된
 [`aggressive-router.v5.json`](../src/ossp_router/resources/aggressive-router.v5.json)
 계수를 V6 런타임에서 동등한 단일 선형 head로 컴파일하고 V7의 Train-calibrated
-adaptive budget reserve를 적용해 tier별 점수·비용을 예측합니다.
+adaptive budget reserve를 적용한다. V9는 direct-uplift head가 고신뢰로 판단한
+문항만 두 번째 단계에서 승격합니다.
 
 ```text
 container/entrypoint.py
@@ -21,10 +22,11 @@ container/entrypoint.py
         → compiled tier-specific Ridge head
           → content-shift·small-batch reserve
             → 고정 48회 전역 비용 벌점 탐색
+              → 고신뢰 selective upgrade
             → 원래 입력 순서로 결과 복원
 ```
 
-V7 Adaptive는 V5의 계수와 tier별 승격 순위를 재학습·재조정하지 않고
+V9는 V7의 첫 배정과 adaptive 패널티를 유지하고
 compact 출력, streaming n-gram, 중복 내용 cache, ensemble head 컴파일과
 token/message work guard를 적용합니다. 제출 wrapper는 canonical 정렬과 고정된 batch 최적화를 적용하여
 입력 순서와 ID가 선택에 영향을 주지 않게 합니다.
@@ -32,15 +34,15 @@ token/message work guard를 적용합니다. 제출 wrapper는 canonical 정렬�
 | 항목 | 활성 값 |
 | --- | --- |
 | 컨테이너 진입점 | `ossp_router.submission:main` |
-| 활성 predictor | Aggressive Router v7 Adaptive |
-| 공정 Train-only → Dev 점수 | `0.691477` |
-| 공정 Fast/Balanced/Premium 비용 | `1.145521 / 1.653162 / 3.006001` |
-| group/bootstrap/mixture stress 실패 | `0 / 0 / 0` (V6.1은 `1 / 13 / 110`) |
-| V6.1 점수 보험료 | `-0.003693` (약 0.53%) |
+| 활성 predictor | Aggressive Router v9 Selective Budget |
+| 공정 Train-only → Dev 점수 | `0.695114` |
+| 공정 Fast/Balanced/Premium 비용 | `1.161024 / 1.664234 / 3.071147` |
+| content/source/bootstrap/mixture stress 실패 | Train `0`, Dev `0` |
+| V7 대비 점수 | `+0.003636` |
 | 입력 순서·ID 변경 감사 | 세 tier 내용별 불일치 `0` |
-| 공개 2,640문항 replay 점수 | `0.703277` (V6.1과 동일, 일반화 비교 아님) |
-| 공개 2,640문항 ARM64 컨테이너 | `13.081 / 12.922 / 13.213초`, 모두 통과 |
-| V7 엣지케이스 | `42/42`, timeout·형식·출력 한도 실패 0 |
+| 공개 2,640문항 replay 점수 | `0.705777` (일반화 비교 아님) |
+| 공개 2,640문항 ARM64 컨테이너 | `13.045 / 12.721 / 12.754초`, 2회 모두 통과 |
+| V9 엣지케이스 | `42/42`, timeout·형식·출력 한도 실패 0 |
 | 공식 제한 | 등급별 `90초`, `2 GiB`, CPU 2개 |
 
 비용 한도에 대해서는 중요한 경계가 있습니다. 라우팅 시점에는 숨은 평가의
@@ -103,10 +105,11 @@ artifact나 이미지 다이제스트를 만들 때 영향을 줄 수 있습니�
 또는 문자 수 + 3 × 추정 token 수 > 40,000,000
 ```
 
-하나라도 참이면 V7은 전체 배치를 고정 Always-Light로 처리합니다. 이 경로는
+하나라도 참이면 V9는 전체 배치를 고정 Always-Light로 처리합니다. 이 경로는
 시간에 따라 발동하지 않으므로 같은 배치의 반복·순서 변경 결과가 같습니다.
 공개 2,640문항, 약 11.8 MiB는 항상 학습형 Ridge 경로를 사용합니다. 자세한
-구현·비교·잔여 위험은 [`ROUTER_V7_ADAPTIVE.md`](ROUTER_V7_ADAPTIVE.md)에
+V9 결과와 잔여 위험은
+[`ROUTER_V9_SELECTIVE_BUDGET.md`](ROUTER_V9_SELECTIVE_BUDGET.md)에
 있습니다.
 
 ## Robust v2 실험 후보
@@ -134,12 +137,12 @@ Train-only 구성의 Dev 결과는 `0.687983`, 비용은
 ```console
 PYTHONPATH=src .venv/bin/python -m unittest \
   tests.test_submission_router tests.test_aggressive_v6_router \
-  tests.test_aggressive_v7_router
+  tests.test_aggressive_v7_router tests.test_aggressive_v9_router
 
 docker build --platform linux/arm64 \
-  --file container/Dockerfile --tag ossp-router:aggressive-v6 .
+  --file container/Dockerfile --tag ossp-router:aggressive-v9 .
 
 PYTHONPATH=src .venv/bin/python tools/check_runtime.py \
-  --image ossp-router:aggressive-v6 \
-  --report experiments/results/aggressive-v6-runtime.json
+  --image ossp-router:aggressive-v9 \
+  --report experiments/results/aggressive-v9-runtime-local.json
 ```

@@ -22,8 +22,8 @@ SPEC.loader.exec_module(benchmark)
 
 
 class BenchmarkEdgeCasesTest(unittest.TestCase):
-    def test_v6_and_v7_workers_write_valid_submissions(self) -> None:
-        for router in ("v6", "v7"):
+    def test_guarded_workers_write_valid_submissions(self) -> None:
+        for router in ("v6", "v7", "v9"):
             with self.subTest(router=router), tempfile.TemporaryDirectory() as directory:
                 output = pathlib.Path(directory) / "submission.json"
                 metrics = pathlib.Path(directory) / "metrics.json"
